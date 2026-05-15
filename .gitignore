@@ -37,3 +37,7 @@ build/
 .omc/
 .claude/
 CLAUDE.md
+
+# Personal ideas / notes (not for public)
+ideas-*.md
+notes-*.md
