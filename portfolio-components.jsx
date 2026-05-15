@@ -196,7 +196,6 @@ const DATA = {
     '制作・演出': ['番組制作', 'ライブ配信演出', '台本制作', 'ディレクション', '撮影・編集', 'キャスティング'],
     'プロデュース': ['企画立案', 'プロデュース', 'チームマネジメント', 'クライアントワーク', '予算管理', '予実管理', '事業計画策定'],
     'ツール・技術': ['Premiere Pro', 'Photoshop', 'After Effects', 'OBS Studio', 'Word / Excel / PowerPoint'],
-    'プラットフォーム': ['LINE LIVE', 'YouTube', 'Facebook Live', 'Firework', '17Live'],
     '資格・その他': ['普通自動車免許', '英語 B1〜B2（CEFR）', 'DMM生成AI CAMP スキル習得認定（2026.1）']
   }
 };
