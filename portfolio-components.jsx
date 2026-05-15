@@ -516,6 +516,20 @@ function Career() {
   const [ref, inView] = useInView(0.05);
   const [active, setActive] = React.useState('works');
   const activeItem = DATA.career.find((c) => c.id === active);
+  const detailRef = React.useRef(null);
+  const isFirstRender = React.useRef(true);
+
+  // active変更時、CareerDetail のヘッダー位置までスクロール（初回マウントは除外）
+  React.useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (!detailRef.current) return;
+    const navHeight = 56;
+    const top = detailRef.current.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+    window.scrollTo({ top, behavior: 'smooth' });
+  }, [active]);
 
   return (
     <section id="career" ref={ref} style={{ padding: 'var(--section-gap) clamp(20px, 5vw, 60px)', background: 'var(--bg-base)' }}>
@@ -547,7 +561,7 @@ function Career() {
             </div>
           </div>
 
-          {activeItem && <CareerDetail item={activeItem} />}
+          {activeItem && <div ref={detailRef}><CareerDetail item={activeItem} /></div>}
         </div>
       </div>
     </section>);
