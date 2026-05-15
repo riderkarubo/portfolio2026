@@ -244,7 +244,7 @@ function Nav() {
   }, []);
 
   const links = [
-  { label: 'About', href: '#about' },
+  { label: 'Profile', href: '#about' },
   { label: 'Career', href: '#career' },
   { label: 'Skills', href: '#skills' }];
 
@@ -286,23 +286,14 @@ function NavLink({ href, children }) {
 function SideNav() {
   const sections = React.useMemo(() => [
     { id: 'hero',   label: 'Top' },
-    { id: 'about',  label: 'About' },
+    { id: 'about',  label: 'Profile' },
     { id: 'career', label: 'Career' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'thanks', label: 'Thanks' }
+    { id: 'skills', label: 'Skills' }
   ], []);
 
   const [activeId, setActiveId] = React.useState('hero');
   const [visible, setVisible]   = React.useState(false);
   const [isWide, setIsWide]     = React.useState(true);
-
-  // ヒーロー直下を抜けたら表示
-  React.useEffect(() => {
-    const fn = () => setVisible(window.scrollY > window.innerHeight * 0.4);
-    fn();
-    window.addEventListener('scroll', fn, { passive: true });
-    return () => window.removeEventListener('scroll', fn);
-  }, []);
 
   // モバイル(<768px)では非表示
   React.useEffect(() => {
@@ -313,22 +304,59 @@ function SideNav() {
     return () => mq.removeEventListener('change', onChange);
   }, []);
 
-  // どのセクションを見ているかを判定
+  // スクロール位置から「いま見ているセクション」を判定
+  // - スクロール位置 + Nav高さ + マージン より上にある最も下のセクションをアクティブにする
+  // - ページ末尾に到達したら最後のセクションを強制的にアクティブに（短いフッター対策）
   React.useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visibleEntries[0]) setActiveId(visibleEntries[0].target.id);
-      },
-      { rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
-    );
-    sections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) obs.observe(el);
-    });
-    return () => obs.disconnect();
+    const NAV_OFFSET = 56 + 24; // Nav高さ + 余白
+    let raf = 0;
+
+    const compute = () => {
+      raf = 0;
+      const scrollY = window.scrollY;
+
+      // 表示制御（ヒーロー直下を抜けたら出す）
+      setVisible(scrollY > window.innerHeight * 0.4);
+
+      // ページ最下部判定（下端まで来たら最後のセクションを優先）
+      const nearBottom = scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
+      if (nearBottom) {
+        setActiveId(sections[sections.length - 1].id);
+        return;
+      }
+
+      // 各セクションの上端 absolute 位置を取得
+      const offsets = sections
+        .map((s) => {
+          const el = document.getElementById(s.id);
+          if (!el) return null;
+          return { id: s.id, top: el.getBoundingClientRect().top + scrollY };
+        })
+        .filter(Boolean);
+
+      const cursor = scrollY + NAV_OFFSET;
+      // 「cursor <= 各セクション上端」を満たす最初のものの直前がアクティブ
+      let current = offsets[0]?.id ?? 'hero';
+      for (const o of offsets) {
+        if (o.top <= cursor) current = o.id;
+        else break;
+      }
+      setActiveId(current);
+    };
+
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(compute);
+    };
+
+    compute();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [sections]);
 
   const handleClick = (e, id) => {
