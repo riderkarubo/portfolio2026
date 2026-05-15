@@ -315,8 +315,8 @@ function SideNav() {
       raf = 0;
       const scrollY = window.scrollY;
 
-      // 表示制御（ヒーロー直下を抜けたら出す）
-      setVisible(scrollY > window.innerHeight * 0.4);
+      // 左ナビは最初から常時表示
+      setVisible(true);
 
       // ページ最下部判定（下端まで来たら最後のセクションを優先）
       const nearBottom = scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
@@ -522,11 +522,6 @@ function Hero() {
           はじめまして、<br /><span style={{ color: 'var(--accent)' }}>石島 慎也</span>と申します。
         </h1>
 
-        {/* CTA */}
-        <div style={{ ...anim(0.4), display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          <BtnPrimary href="#about">プロフィール</BtnPrimary>
-          <BtnOutline href="#career">キャリアを見る</BtnOutline>
-        </div>
       </div>
 
       {/* Scroll hint */}
