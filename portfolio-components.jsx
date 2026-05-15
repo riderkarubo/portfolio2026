@@ -397,7 +397,7 @@ function SideNavItem({ section, active, onClick }) {
       <span style={{
         fontFamily: 'var(--font-number)', fontSize: '12px',
         fontWeight: active ? 700 : 500, letterSpacing: '0.06em',
-        color: active ? 'var(--fg-primary)' : hov ? 'var(--fg-primary)' : 'var(--fg-secondary)',
+        color: active ? 'var(--fg-primary)' : hov ? 'var(--fg-primary)' : 'var(--fg-muted)',
         whiteSpace: 'nowrap',
         transition: 'color 0.18s var(--ease-out)'
       }}>{section.label}</span>
