@@ -36,3 +36,4 @@ build/
 # OMC / Claude Code work state
 .omc/
 .claude/
+CLAUDE.md
