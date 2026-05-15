@@ -281,6 +281,120 @@ function NavLink({ href, children }) {
 
 }
 
+// ── SIDE NAV (vertical dots) ────────────────────────────────
+
+function SideNav() {
+  const sections = React.useMemo(() => [
+    { id: 'hero',   label: 'Top' },
+    { id: 'about',  label: 'About' },
+    { id: 'career', label: 'Career' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'thanks', label: 'Thanks' }
+  ], []);
+
+  const [activeId, setActiveId] = React.useState('hero');
+  const [visible, setVisible]   = React.useState(false);
+  const [isWide, setIsWide]     = React.useState(true);
+
+  // ヒーロー直下を抜けたら表示
+  React.useEffect(() => {
+    const fn = () => setVisible(window.scrollY > window.innerHeight * 0.4);
+    fn();
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
+  // モバイル(<768px)では非表示
+  React.useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const onChange = () => setIsWide(mq.matches);
+    onChange();
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  // どのセクションを見ているかを判定
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visibleEntries[0]) setActiveId(visibleEntries[0].target.id);
+      },
+      { rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, [sections]);
+
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = el.getBoundingClientRect().top + window.scrollY - 56 - 16;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  };
+
+  return (
+    <aside
+      aria-label="セクションナビゲーション"
+      style={{
+        position: 'fixed', left: '20px', top: '50%', transform: 'translateY(-50%)',
+        zIndex: 250,
+        display: isWide ? 'flex' : 'none',
+        flexDirection: 'column', gap: '14px',
+        padding: '14px 10px',
+        background: 'rgba(8,15,26,0.55)',
+        backdropFilter: 'blur(10px)',
+        border: '1px solid rgba(78,168,222,0.12)',
+        borderRadius: 'var(--radius-full)',
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none',
+        transition: 'opacity 0.4s var(--ease-out)'
+      }}>
+      {sections.map((s) =>
+        <SideNavDot key={s.id} section={s} active={activeId === s.id} onClick={handleClick} />
+      )}
+    </aside>);
+}
+
+function SideNavDot({ section, active, onClick }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <a
+      href={`#${section.id}`}
+      onClick={(e) => onClick(e, section.id)}
+      onMouseEnter={() => setHov(true)}
+      onMouseLeave={() => setHov(false)}
+      aria-label={section.label}
+      style={{
+        position: 'relative',
+        width: '12px', height: '12px', borderRadius: '50%',
+        background: active ? 'var(--accent)' : 'transparent',
+        border: `2px solid ${active ? 'var(--accent)' : 'var(--fg-muted)'}`,
+        boxShadow: active ? '0 0 12px var(--accent-glow)' : 'none',
+        cursor: 'pointer',
+        transition: 'all 0.2s var(--ease-out)',
+        display: 'block'
+      }}>
+      <span style={{
+        position: 'absolute', left: '24px', top: '50%', transform: 'translateY(-50%)',
+        fontFamily: 'var(--font-number)', fontSize: '12px', fontWeight: 600, letterSpacing: '0.07em',
+        color: 'var(--fg-primary)', whiteSpace: 'nowrap',
+        background: 'rgba(8,15,26,0.92)',
+        padding: '6px 10px', borderRadius: 'var(--radius-sm)',
+        border: '1px solid rgba(78,168,222,0.18)',
+        opacity: hov ? 1 : 0,
+        pointerEvents: 'none',
+        transition: 'opacity 0.18s var(--ease-out)'
+      }}>{section.label}</span>
+    </a>);
+}
+
 // ── HERO ─────────────────────────────────────────────────────
 
 function Hero() {
@@ -1030,6 +1144,7 @@ function App() {
   return (
     <div style={{ background: 'var(--bg-base)', minHeight: '100vh' }}>
       <Nav />
+      <SideNav />
       <Hero />
       <About />
       <Career />
