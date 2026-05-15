@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Source / working files (not for production)
+source/
+uploads/
+screenshots/
+
+# Old/legacy
+portfolio-components.old.jsx
+extract.html
+extract-img.html
+image-view.html
+img-test.html
+parse-test.html
+
+# Build artifacts / temp
+node_modules/
+dist/
+build/
+*.log
+*.tmp
+
+# Local-only
+.env
+.env.local
+
+# OMC / Claude Code work state
+.omc/
+.claude/

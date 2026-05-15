@@ -1,0 +1,1047 @@
+
+// ============================================================
+// 石島慎也 Portfolio — Components  (v2 — 職務経歴書準拠)
+// ============================================================
+
+const DATA = {
+  name: '石島 慎也',
+  nameEn: 'Shinya Ishijima',
+  title: 'Director of Creative Strategy / 事業責任者',
+  tagline: '映像で、人を動かす。',
+  taglineSub: 'テレビ制作から始まり、ライブ配信・ライブコマースまで。\n15年間、コンテンツの最前線にいる映像プロデューサー。',
+
+  profile: {
+    target: 'プロデューサー職（映像・ライブ配信）',
+    bio: '日本大学芸術学部卒業後、テレビ番組制作会社に入社。主にバラエティ番組のAD、ディレクターとして従事。\n2015年より動画系ベンチャーの株式会社Candeeに入社。ライブ配信の番組制作プロデューサーとして、自社コンテンツや広告案件、自社アプリのライブコマース事業を担当。\nその後、ワーナーミュージック・ジャパンでアーティストのYouTube番組制作や、BitStarにて大手企業のYouTube\u30c1\u30e3\u30f3\u30cd\u30eb\u306e運用・コンサルティングを担当。\n2021年よりFirework Japanに入社し、動画を活用したマーケティング（ショート動画やライブ配信）の戦略設計・コンテンツ制作・コンサルティング業務に従事。\n2024年にCreative Team事業責任者に就任。',
+    hobbies: [
+    { emoji: '♨️', label: 'サウナ' },
+    { emoji: '🎤', label: 'カラオケ' },
+    { emoji: '🎹', label: 'DTM' },
+    { emoji: '⚽', label: 'サッカー観戦' },
+    { emoji: '🎸', label: '音楽ライブ鑑賞' }],
+
+    skills_personal: [
+    { emoji: '🎤', label: 'カラオケ' },
+    { emoji: '🎾', label: 'テニス' },
+    { emoji: '📹', label: '動画編集' }]
+
+  },
+
+  career: [
+  {
+    id: 'works',
+    period: '2011.4 — 2015.8',
+    company: '株式会社 ザ・ワークス',
+    role: 'AD / ディレクター',
+    category: 'テレビ制作',
+    color: '#4ea8de',
+    team: '正社員',
+    logo: 'assets/logos/the-works.webp',
+    logoFit: 'contain',
+    logoBg: '#ffffff',
+    highlights: [
+    '日テレ系・TBS系・テレビ東京・TOKYO MX など複数局を担当',
+    '深夜バラエティ番組でディレクターデビュー',
+    '社内MVP「ザ・ワークス賞」受賞'],
+
+    desc: 'テレビ番組制作会社にてAD・ディレクターとして従事。民放各局のバラエティ番組を担当。AD3年目で深夜番組においてディレクターデビューを果たし、社内MVP「ザ・ワークス賞」を受賞。',
+    works: [
+    { title: '謎解きバトル TORE!', platform: '日テレ系', role: 'アシスタント・ディレクター', thumb: 'assets/works/tore.png' },
+    { title: 'ショーバト！', platform: '日テレ系', role: 'アシスタント・ディレクター', thumb: 'assets/works/sho-bato.jpeg' },
+    { title: 'リアルロボットバトル日本一決定戦', platform: '日テレ系', role: 'ディレクター', thumb: 'assets/works/robot-battle.png' },
+    { title: 'それゆけ！ゲームパンサー！', platform: '日テレ系', role: 'AD/ディレクター', thumb: 'assets/works/game-panser.webp' },
+    { title: 'スッキリ', platform: '日テレ系', role: 'AD', thumb: 'assets/works/sukkiri.jpeg' },
+    { title: '池上彰の地震特番', platform: 'TBS系', role: 'AD', thumb: 'assets/works/ikegami.webp' },
+    { title: 'おしかけスピリチュアル', platform: 'テレビ東京', role: 'AD / ディレクター', thumb: 'assets/works/oshikake.webp' },
+    { title: 'バナナ炎', platform: 'TOKYO MX', role: 'ディレクター', thumb: 'assets/works/banana-fire.jpeg' }]
+
+  },
+  {
+    id: 'candee',
+    period: '2015.9 — 2018.7',
+    company: '株式会社 Candee',
+    role: 'プロデューサー / 制作統括',
+    category: 'ライブ配信・動画',
+    color: '#38bdf8',
+    team: '正社員',
+    logo: 'assets/logos/candee.webp',
+    logoFit: 'contain',
+    logoBg: '#ffffff',
+    highlights: [
+    'LINE LIVE 公式・自社チャンネルの番組を企画〜制作まで統括',
+    'JリーグルヴァンカップFacebook Live — 3社協業PJ',
+    'ライブコマースアプリ「LiveShop!」をゼロから立ち上げ（月間30〜60本）',
+    '最大14名のチームをマネジメント'],
+
+    desc: 'スマホ特化の動画・ライブ配信ベンチャーにてプロデューサーとして参画。LINE LIVEやFacebook Liveなどで各公式・自社チャンネル番組、広告案件、ライブコマースアプリ「LiveShop!」の立ち上げまで幅広く担当。',
+    works: [
+    { title: 'らいぶおやすみ！添い寝観察天気予報', platform: 'LINE LIVE', role: 'プロデューサー', thumb: 'assets/works/konno.webp' },
+    { title: '今野杏南と１万人の彼氏', platform: 'LINE LIVE', role: 'プロデューサー', thumb: 'assets/works/okubo.webp' },
+    { title: '大久保佳代子のお悩み相談', platform: 'LINE LIVE', role: 'プロデューサー' },
+    { title: 'おじさんモンスターバトル「おじモン」', platform: 'LINE LIVE', role: 'プロデューサー/ 総合演出', thumb: 'assets/works/line-live-studio.webp' },
+    { title: 'スター・ウォーズ イベント特番', platform: 'LINE LIVE（広告）', role: 'プロデューサー', thumb: 'assets/works/starwars.png' },
+    { title: '映画「バイオハザードファイナル」配信特番', platform: 'LINE LIVE（広告）', role: 'プロデューサー', thumb: 'assets/works/biohazard.webp' },
+    { title: 'JリーグルヴァンカップチャンピオンシップLive', platform: 'Facebook Live', role: 'プロデューサー', thumb: 'assets/works/jleague.webp' },
+    { title: 'Sportsnavi「スポレー」', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/spore.webp' },
+    { title: 'サンリオ「シンカイゾク」PR動画', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/sanrio.webp' },
+    { title: 'ザッパラス占い動画', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/zappallas.webp' },
+    { title: '＆GIRLS（ASOBISYSTEMと協業）', platform: 'LiveShop!', role: 'プロデューサー', thumb: 'assets/works/and-girls.webp' },
+    { title: '監禁男子〜24時間監禁Live〜', platform: 'LiveShop!', role: 'プロデューサー / 総合演出', thumb: 'assets/works/kankin-danshi.webp' }]
+
+  },
+  {
+    id: 'warner',
+    period: '2018.8 — 2019.1',
+    company: '株式会社ワーナーミュージック・ジャパン',
+    role: 'プロデューサー / ディレクター',
+    category: '音楽 × YouTube',
+    color: '#a78bfa',
+    team: '正社員',
+    logo: 'assets/logos/warner.webp',
+    logoFit: 'contain',
+    logoBg: '#ffffff',
+    highlights: [
+    '「ちゃんみな」YouTubeシリーズ「PRINCESS PROJECT」を担当',
+    '企画・プロデュース・撮影・編集をワンオペで完結'],
+
+    desc: 'HANAのプロデューサーでもある「ちゃんみな」のオリジナルYouTube番組シリーズ「PRINCESS PROJECT」を一人で企画・制作。プロデュースから撮影・編集まで全工程を担当。',
+    works: [
+    { title: 'ちゃんみな「PRINCESS PROJECT」', platform: 'YouTube', role: '企画・撮影・編集（1名）', thumb: 'assets/works/chanmina.webp' }]
+
+  },
+  {
+    id: 'freelance',
+    period: '2019.2 — 2019.11',
+    company: 'フリーランス 動画クリエイター',
+    role: 'プロデューサー / ディレクター',
+    category: '動画制作・コンサル',
+    color: '#fb923c',
+    team: 'フリーランス',
+    logo: 'assets/logos/freelance.webp',
+    logoFit: 'cover',
+    highlights: [
+    '株式会社東北新社、ギークピクチュアズ、シロップ、Gunosy などと取引',
+    '企業・メディア向け動画制作',
+    'YouTubeチャンネルの企画提案・コンサルティング'],
+
+    desc: '企業やメディアでの動画制作、YouTubeの企画提案・コンサルティングを担当。東北新社、ギークピクチュアズ、シロップ、Gunosyなど複数社と取引。',
+    works: [
+    { title: '企業・メディア向け動画制作', platform: '各種', role: 'ディレクター', thumb: 'assets/works/freelance-video.webp' },
+    { title: 'YouTubeチャンネル企画提案・コンサル', platform: 'YouTube', role: 'コンサルタント' }]
+
+  },
+  {
+    id: 'bitstar',
+    period: '2019.12 — 2021.10',
+    company: '株式会社 BitStar',
+    role: 'プロデューサー / ディレクター',
+    category: 'YouTube / 生配信',
+    color: '#facc15',
+    team: '正社員',
+    logo: 'assets/logos/bitstar.webp',
+    logoFit: 'cover',
+    highlights: [
+    '17Live・バンダイナムコ・タカラトミーなど大手企業の番組・YouTubeChを担当',
+    'ゲームアプリ公式生配信の企画〜制作〜運用・分析まで一貫担当',
+    'クリエイタープロダクション・インフルエンサーマーケティング事業に従事'],
+
+    desc: 'クリエイタープロダクション兼インフルエンサーマーケティング会社にてプロデューサーとして従事。大手企業のYouTubeチャンネル運用・オリジナル番組制作を担当。',
+    works: [
+    { title: '17Live 公式番組（バラエティ中心）', platform: '17Live', role: 'プロデューサー', thumb: 'assets/works/17live.png' },
+    { title: 'バンダイナムコ「アイドルマスターch」オリジナル番組', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/idolmaster.webp' },
+    { title: 'Rise of Kingdoms 公式生配信', platform: 'YouTube/生配信', role: 'プロデューサー', thumb: 'assets/works/rise-of-kingdoms.webp' },
+    { title: 'タカラトミー リカちゃん公式CH', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
+    { title: 'ニューギン公式チャンネル', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/newgin.webp' },
+    { title: '映画「賭ケグルイ」番宣動画', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/kakegurui.webp' }]
+
+  },
+  {
+    id: 'firework',
+    period: '2021.11 — 現在',
+    company: 'Firework Japan 株式会社',
+    role: 'Director of Creative Strategy / 事業責任者',
+    category: 'ライブコマース・動画コマース',
+    color: '#4ade80',
+    team: '正社員（資本金390億・従業員25名）',
+    logo: 'assets/logos/firework.webp',
+    logoFit: 'contain',
+    logoBg: '#000000',
+    logoPadding: '0px',
+    highlights: [
+    'ヤマダデンキ・マツキヨココカラ・Starbucks Japan・Samsung Japanなどを担当',
+    'ライブ配信・ショート動画によるコンサルティング・制作・内製化支援',
+    '2024年〜事業責任者としてクリエイティブディレクション以外に事業計画策定・Sales活動・売上責任を担う'],
+
+    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Team事業責任者に就任し、事業計画・Sales・クリエイティブ全体を統括。',
+    clients: [
+    { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png' },
+    { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp' },
+    { name: 'マツキヨココカラ & カンパニー', logo: 'assets/clients/matsukiyo.webp' },
+    { name: 'ヤマダデンキ', logo: 'assets/clients/yamada.webp' },
+    { name: 'イオンリテール', logo: 'assets/clients/aeon.png' },
+    { name: '無印良品', logo: 'assets/clients/muji.png' }],
+
+    works: []
+  }],
+
+
+  stats: [
+  { num: 16, suffix: '年目', label: '映像制作キャリア' },
+  { num: 6, suffix: '社', label: 'TV→Web→Music\n→LiveCommerce' },
+  { num: 30, suffix: '本/月', label: 'LiveShop!\n最大月間制作本数' },
+  { num: 5, suffix: '社+', label: 'Firework\n大手クライアント数' }],
+
+
+  skills: {
+    '制作・演出': ['番組制作', 'ライブ配信演出', '台本制作', 'ディレクション', '撮影・編集', 'キャスティング'],
+    'プロデュース': ['企画立案', 'プロデュース', 'チームマネジメント', 'クライアントワーク', '予算管理', '予実管理', '事業計画策定'],
+    'ツール・技術': ['Premiere Pro', 'Photoshop', 'After Effects', 'OBS Studio', 'Word / Excel / PowerPoint'],
+    'プラットフォーム': ['LINE LIVE', 'YouTube', 'Facebook Live', 'Firework', '17Live'],
+    '資格・その他': ['普通自動車免許', '英語 B1〜B2（CEFR）', 'DMM生成AI CAMP スキル習得認定（2026.1）']
+  }
+};
+
+// ── HOOKS ────────────────────────────────────────────────────
+
+function useInView(threshold = 0.12) {
+  const [inView, setInView] = React.useState(false);
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([entry]) => {if (entry.isIntersecting) {setInView(true);obs.disconnect();}},
+      { threshold }
+    );
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, [threshold]);
+  return [ref, inView];
+}
+
+function useCountUp(target, inView, duration = 1400) {
+  const [value, setValue] = React.useState(0);
+  React.useEffect(() => {
+    if (!inView) return;
+    let start = null;
+    const step = (ts) => {
+      if (!start) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [inView, target, duration]);
+  return value;
+}
+
+// ── NAV ─────────────────────────────────────────────────────
+
+function Nav() {
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
+  const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Career', href: '#career' },
+  { label: 'Skills', href: '#skills' }];
+
+
+  return (
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 300,
+      height: '56px', padding: '0 clamp(20px, 5vw, 60px)',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      background: scrolled ? 'rgba(8,15,26,0.92)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(16px)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(78,168,222,0.1)' : 'none',
+      transition: 'all 0.4s var(--ease-out)'
+    }}>
+      <div></div>
+      <div style={{ display: 'flex', gap: '28px', alignItems: 'center', padding: scrolled ? '0' : '6px 16px', borderRadius: scrolled ? '0' : 'var(--radius-full)', background: scrolled ? 'transparent' : 'rgba(8,15,26,0.55)', backdropFilter: scrolled ? 'none' : 'blur(10px)', border: scrolled ? 'none' : '1px solid rgba(78,168,222,0.12)', transition: 'all 0.4s var(--ease-out)' }}>
+        {links.map((l) => <NavLink key={l.label} href={l.href}>{l.label}</NavLink>)}
+      </div>
+    </nav>);
+
+}
+
+function NavLink({ href, children }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <a href={href}
+    onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    style={{
+      fontFamily: 'var(--font-number)', fontSize: '13px', fontWeight: 600,
+      letterSpacing: '0.07em', textDecoration: 'none',
+      color: hov ? 'var(--accent)' : 'var(--fg-secondary)',
+      transition: 'color 0.2s'
+    }}>{children}</a>);
+
+}
+
+// ── HERO ─────────────────────────────────────────────────────
+
+function Hero() {
+  const [vis, setVis] = React.useState(false);
+  React.useEffect(() => {const t = setTimeout(() => setVis(true), 80);return () => clearTimeout(t);}, []);
+
+  const anim = (delay) => ({
+    opacity: vis ? 1 : 0,
+    transform: vis ? 'none' : 'translateY(22px)',
+    transition: `opacity 0.75s var(--ease-out) ${delay}s, transform 0.75s var(--ease-out) ${delay}s`
+  });
+
+  return (
+    <section id="hero" style={{
+      minHeight: '100vh', display: 'flex', alignItems: 'center',
+      position: 'relative', overflow: 'hidden',
+      background: 'var(--bg-base)',
+      padding: '80px clamp(20px, 5vw, 60px) 60px'
+    }}>
+      {/* Hero photo - right half of screen */}
+      <div style={{
+        position: 'absolute', top: '8%', right: '4%', bottom: '8%',
+        width: '42%', overflow: 'hidden', pointerEvents: 'none',
+        borderRadius: 'var(--radius-xl)'
+      }}>
+        <img src="assets/hero.webp" alt="" style={{
+          position: 'absolute', top: 0, left: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover', objectPosition: '20% 30%',
+          filter: 'brightness(0.78) contrast(1.12) saturate(1.15)'
+        }}
+        onError={(e) => {e.target.style.display = 'none';}} />
+        {/* Left edge fade so photo blends with dark side */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, bottom: 0, width: '35%',
+          background: 'linear-gradient(90deg, var(--bg-base) 0%, rgba(13,27,42,0.7) 40%, rgba(13,27,42,0.15) 75%, transparent 100%)'
+        }} />
+        {/* Bottom subtle fade */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(180deg, rgba(8,15,26,0.25) 0%, transparent 25%, transparent 70%, rgba(8,15,26,0.55) 100%)'
+        }} />
+      </div>
+      {/* Grid texture */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.6,
+        backgroundImage: 'linear-gradient(rgba(78,168,222,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(78,168,222,0.035) 1px, transparent 1px)',
+        backgroundSize: '64px 64px'
+      }} />
+      {/* Glow accent */}
+      <div style={{
+        position: 'absolute', top: '-10%', right: '20%',
+        width: '500px', height: '500px', pointerEvents: 'none',
+        background: 'radial-gradient(circle, rgba(78,168,222,0.08) 0%, transparent 65%)'
+      }} />
+      {/* Grid texture */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.6,
+        backgroundImage: 'linear-gradient(rgba(78,168,222,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(78,168,222,0.035) 1px, transparent 1px)',
+        backgroundSize: '64px 64px'
+      }} />
+      {/* Glow accent */}
+      <div style={{
+        position: 'absolute', top: '-10%', right: '-5%',
+        width: '600px', height: '600px', pointerEvents: 'none',
+        background: 'radial-gradient(circle, rgba(78,168,222,0.08) 0%, transparent 65%)'
+      }} />
+
+      <div style={{ position: 'relative', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
+        {/* Small intro label */}
+        <div style={{ ...anim(0.1), display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '32px' }}>
+          <div style={{ width: '32px', height: '1px', background: 'var(--accent)' }} />
+          <span style={{
+            fontFamily: 'var(--font-number)', fontSize: '12px', fontWeight: 700,
+            letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--accent)'
+          }}>PORTFOLIO 2026</span>
+        </div>
+
+        {/* Welcome message */}
+        <h1 style={{
+          ...anim(0.22),
+          fontFamily: 'var(--font-display)', fontWeight: 900,
+          fontSize: 'clamp(36px, 6.5vw, 76px)',
+          lineHeight: 1.15, letterSpacing: '-0.025em',
+          color: 'var(--fg-primary)', marginBottom: '56px',
+          maxWidth: '900px'
+        }}>
+          はじめまして、<br /><span style={{ color: 'var(--accent)' }}>石島 慎也</span>と申します。
+        </h1>
+
+        {/* CTA */}
+        <div style={{ ...anim(0.4), display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          <BtnPrimary href="#about">プロフィール</BtnPrimary>
+          <BtnOutline href="#career">キャリアを見る</BtnOutline>
+        </div>
+      </div>
+
+      {/* Scroll hint */}
+      <div style={{
+        position: 'absolute', bottom: '32px', left: '50%', transform: 'translateX(-50%)',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
+        opacity: vis ? 0.6 : 0, transition: 'opacity 1s 1s'
+      }}>
+        <span style={{ fontFamily: 'var(--font-number)', fontSize: '11px', letterSpacing: '0.22em', color: 'var(--fg-muted)', textTransform: 'uppercase' }}>Scroll</span>
+        <div style={{
+          width: '1px', height: '44px',
+          background: 'linear-gradient(var(--fg-muted), transparent)',
+          animation: 'scrollPulse 2s ease-in-out infinite'
+        }} />
+      </div>
+    </section>);
+
+}
+
+// ── ABOUT ────────────────────────────────────────────────────
+
+function About() {
+  const [ref, inView] = useInView();
+  const fade = (d = 0) => ({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'none' : 'translateY(18px)',
+    transition: `opacity 0.7s var(--ease-out) ${d}s, transform 0.7s var(--ease-out) ${d}s`
+  });
+
+  return (
+    <section id="about" ref={ref} style={{ padding: 'var(--section-gap) clamp(20px, 5vw, 60px)', background: 'var(--bg-deep)' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '280px 1fr', gap: '64px', alignItems: 'start' }}>
+        {/* Photo */}
+        <div style={fade(0)}>
+          <div style={{
+            aspectRatio: '1/1', borderRadius: 'var(--radius-xl)',
+            background: 'var(--bg-surface)',
+            border: '1px solid var(--border)', position: 'relative', overflow: 'hidden',
+            boxShadow: 'var(--shadow-lg)'
+          }}>
+            <img src="assets/profile.webp" alt="石島慎也" style={{
+              width: '100%', height: '100%', objectFit: 'cover'
+            }}
+            onError={(e) => {e.target.src = 'assets/profile.webp';}} />
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0, height: '3px',
+              background: 'linear-gradient(90deg, var(--accent), var(--accent-glow))'
+            }} />
+          </div>
+
+          {/* Name card */}
+          <div style={{
+            marginTop: '16px', padding: '16px 20px', borderRadius: 'var(--radius-lg)',
+            background: 'var(--bg-surface)', border: '1px solid var(--border)'
+          }}>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 700, color: 'var(--fg-primary)', marginBottom: '2px' }}>石島 慎也</div>
+            <div style={{ fontFamily: 'var(--font-number)', fontSize: '13px', color: 'var(--fg-muted)', letterSpacing: '0.05em' }}>Shinya Ishijima</div>
+          </div>
+
+          {/* Hobbies card */}
+          <div style={{
+            marginTop: '12px', padding: '16px 20px', borderRadius: 'var(--radius-lg)',
+            background: 'var(--bg-surface)', border: '1px solid var(--border)'
+          }}>
+            <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '10px' }}>趣味</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {DATA.profile.hobbies.map((h) =>
+              <span key={h.label} style={{
+                padding: '4px 10px', borderRadius: 'var(--radius-full)',
+                background: 'rgba(78,168,222,0.08)', border: '1px solid rgba(78,168,222,0.18)',
+                fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--fg-primary)',
+                display: 'inline-flex', alignItems: 'center', gap: '5px', whiteSpace: 'nowrap'
+              }}>
+                  <span style={{ fontSize: '15px' }}>{h.emoji}</span>{h.label}
+                </span>
+              )}
+            </div>
+            <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginTop: '16px', marginBottom: '10px' }}>特技</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+              {DATA.profile.skills_personal.map((s) =>
+              <span key={s.label} style={{
+                padding: '4px 10px', borderRadius: 'var(--radius-full)',
+                background: 'rgba(78,168,222,0.08)', border: '1px solid rgba(78,168,222,0.18)',
+                fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--fg-primary)',
+                display: 'inline-flex', alignItems: 'center', gap: '5px', whiteSpace: 'nowrap'
+              }}>
+                  <span style={{ fontSize: '15px' }}>{s.emoji}</span>{s.label}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div>
+          <SectionLabel inView={inView}>ABOUT</SectionLabel>
+          <p style={{ ...fade(0.25), fontFamily: 'var(--font-body)', fontSize: '17px', color: 'var(--fg-secondary)', lineHeight: 1.95, marginBottom: '32px', whiteSpace: 'pre-line' }}>
+            {DATA.profile.bio}
+          </p>
+
+          {/* Profile grid */}
+          <div style={{ ...fade(0.35), display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '28px' }}>
+            {[
+            { label: '現職', value: 'Firework Japan株式会社\nDirector of Creative Strategy / 事業責任者' },
+            { label: 'キャリア', value: '映像制作 16年目（2011年新卒）' }].
+            map((item) =>
+            <div key={item.label} style={{
+              padding: '14px 16px', borderRadius: 'var(--radius-md)',
+              background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)'
+            }}>
+                <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '4px' }}>{item.label}</div>
+                <div style={{ fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--fg-primary)', fontWeight: 500, whiteSpace: 'pre-line', lineHeight: 1.55 }}>{item.value}</div>
+              </div>
+            )}
+          </div>
+
+          {/* Tags */}
+          <div style={{ ...fade(0.45), display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+            {['#事業責任者', '#クリエイティブディレクター', '#プロデューサー', '#ディレクター', '#番組制作', '#ライブ配信', '#ショート動画', '#動画コマース', '#ライブコマース', '#動画編集', '#生成AI活用', '#ビジネス英語（初級）'].map((t) =>
+            <span key={t} style={{
+              padding: '5px 14px', borderRadius: 'var(--radius-full)',
+              background: 'rgba(78,168,222,0.08)', border: '1px solid rgba(78,168,222,0.2)',
+              fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--accent)',
+              whiteSpace: 'nowrap'
+            }}>{t}</span>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ── CAREER ───────────────────────────────────────────────────
+
+function Career() {
+  const [ref, inView] = useInView(0.05);
+  const [active, setActive] = React.useState('works');
+  const activeItem = DATA.career.find((c) => c.id === active);
+
+  return (
+    <section id="career" ref={ref} style={{ padding: 'var(--section-gap) clamp(20px, 5vw, 60px)', background: 'var(--bg-base)' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <SectionLabel inView={inView}>CAREER</SectionLabel>
+        <h2 style={{
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 900,
+          color: 'var(--fg-primary)', marginBottom: '48px', letterSpacing: '-0.02em',
+          opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
+          transition: 'all 0.7s var(--ease-out) 0.15s'
+        }}>キャリア</h2>
+
+        <div style={{
+          display: 'grid', gridTemplateColumns: '240px 1fr', gap: '28px',
+          opacity: inView ? 1 : 0, transition: 'opacity 0.7s var(--ease-out) 0.3s'
+        }}>
+          {/* Timeline */}
+          <div style={{ position: 'sticky', top: '80px', alignSelf: 'start', maxHeight: 'calc(100vh - 100px)', overflowY: 'auto' }}>
+            <div style={{ position: 'relative' }}>
+            <div style={{
+                position: 'absolute', left: '15px', top: '20px', bottom: '20px',
+                width: '1px', background: 'var(--border)'
+              }} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              {DATA.career.map((item) =>
+                <CareerTab key={item.id} item={item} active={active === item.id} onClick={() => setActive(item.id)} />
+                )}
+            </div>
+            </div>
+          </div>
+
+          {activeItem && <CareerDetail item={activeItem} />}
+        </div>
+      </div>
+    </section>);
+
+}
+
+function CareerTab({ item, active, onClick }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <button onClick={onClick}
+    onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    style={{
+      position: 'relative', padding: '12px 14px 12px 40px',
+      borderRadius: 'var(--radius-md)', textAlign: 'left', cursor: 'pointer',
+      background: active ? 'rgba(78,168,222,0.07)' : hov ? 'rgba(255,255,255,0.02)' : 'transparent',
+      border: active ? `1px solid ${item.color}40` : '1px solid transparent',
+      transition: 'all 0.22s var(--ease-out)'
+    }}>
+      <div style={{
+        position: 'absolute', left: '10px', top: '16px',
+        width: '11px', height: '11px', borderRadius: '50%',
+        border: `2px solid ${item.color}`,
+        background: active ? item.color : 'var(--bg-base)',
+        boxShadow: active ? `0 0 10px ${item.color}80` : 'none',
+        transition: 'all 0.22s'
+      }} />
+      <div style={{ fontFamily: 'var(--font-number)', fontSize: '12px', color: item.color, fontWeight: 600, marginBottom: '2px' }}>{item.period}</div>
+      <div style={{ fontFamily: 'var(--font-display)', fontSize: '14px', fontWeight: 700, color: active ? 'var(--fg-primary)' : 'var(--fg-secondary)', marginBottom: '1px', transition: 'color 0.2s' }}>{item.company}</div>
+      <div style={{ fontFamily: 'var(--font-body)', fontSize: '13px', color: 'var(--fg-muted)' }}>{item.role}</div>
+    </button>);
+
+}
+
+function CareerDetail({ item }) {
+  const companyShort = item.company.replace(/株式会社 ?/g, '').replace(/ ?株式会社/g, '').trim();
+
+  return (
+    <div style={{
+      background: 'var(--bg-surface)', border: '1px solid var(--border)',
+      borderRadius: 'var(--radius-xl)', overflow: 'hidden',
+      boxShadow: 'var(--shadow-md)',
+      animation: 'fadeSlideIn 0.3s var(--ease-out)'
+    }}>
+      {/* HERO LOGO BAND - full bleed */}
+      <div style={{
+        position: 'relative', height: '240px', overflow: 'hidden',
+        background: item.logoBg || `linear-gradient(135deg, ${item.color}22 0%, ${item.color}0a 60%, var(--bg-elevated) 100%)`,
+        borderBottom: `1px solid ${item.color}40`
+      }}>
+        {/* Decorative grid (only when no logoBg fill) */}
+        {!item.logoBg &&
+        <div style={{
+          position: 'absolute', inset: 0, opacity: 0.4,
+          backgroundImage: `linear-gradient(${item.color}12 1px, transparent 1px), linear-gradient(90deg, ${item.color}12 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }} />
+        }
+
+        {/* The logo / image */}
+        {item.logo ?
+        <img src={item.logo} alt={item.company} style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: item.logoFit || 'contain',
+          padding: item.logoFit === 'cover' ? 0 : item.logoPadding || '20px 40px'
+        }} /> :
+
+        <div style={{
+          position: 'absolute', inset: 0, display: 'flex',
+          alignItems: 'center', justifyContent: 'center', padding: '20px 40px',
+          fontFamily: 'var(--font-display)', fontWeight: 900,
+          fontSize: 'clamp(38px, 6vw, 64px)',
+          color: item.color, letterSpacing: '-0.02em', lineHeight: 1,
+          textShadow: `0 0 30px ${item.color}55`,
+          textAlign: 'center'
+        }}>{companyShort}</div>
+        }
+
+        {/* Period (top-right) with strong contrast */}
+        <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+          <div style={{
+            padding: '6px 14px', borderRadius: 'var(--radius-full)',
+            background: 'rgba(8,15,26,0.78)', backdropFilter: 'blur(10px)',
+            border: `1px solid ${item.color}66`,
+            fontFamily: 'var(--font-number)', fontSize: '13px', color: item.color, fontWeight: 700,
+            whiteSpace: 'nowrap',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+          }}>{item.period}</div>
+        </div>
+      </div>
+
+      {/* HEADER INFO ROW (below hero) */}
+      <div style={{
+        padding: '20px 32px 8px',
+        borderBottom: '1px solid var(--border-subtle)'
+      }}>
+        <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', flexWrap: 'wrap' }}>
+          <span style={{
+            padding: '4px 12px', borderRadius: 'var(--radius-full)',
+            background: `${item.color}18`, border: `1px solid ${item.color}45`,
+            fontFamily: 'var(--font-number)', fontSize: '12px', fontWeight: 700,
+            letterSpacing: '0.1em', color: item.color, whiteSpace: 'nowrap'
+          }}>{item.category}</span>
+          <span style={{
+            padding: '4px 12px', borderRadius: 'var(--radius-full)',
+            background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-subtle)',
+            fontFamily: 'var(--font-number)', fontSize: '12px', color: 'var(--fg-muted)', whiteSpace: 'nowrap'
+          }}>{item.team}</span>
+        </div>
+        <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 700, color: 'var(--fg-primary)', marginBottom: '4px' }}>{item.company}</h3>
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: item.color, fontWeight: 500, marginBottom: '16px' }}>{item.role}</div>
+      </div>
+
+      {/* BODY */}
+      <div style={{ padding: '24px 32px 32px' }}>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--fg-secondary)', lineHeight: 1.9, marginBottom: '24px' }}>{item.desc}</p>
+
+        {/* Highlights */}
+        <div style={{ marginBottom: '28px' }}>
+          <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '10px' }}>HIGHLIGHTS</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            {item.highlights.map((h, i) =>
+            <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: item.color, marginTop: '7px', flexShrink: 0 }} />
+                <span style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--fg-primary)', lineHeight: 1.6 }}>{h}</span>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Works — Image-first card grid OR Clients logo grid */}
+        {item.clients ?
+        <div>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)' }}>SUPPORTING CLIENTS（一部）</div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', alignItems: 'center', justifyItems: 'center' }}>
+              {item.clients.map((c, i) =>
+            <ClientLogo key={i} client={c} color={item.color} />
+            )}
+            </div>
+          </div> :
+
+        <div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)' }}>WORKS</div>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '12px', color: 'var(--fg-muted)' }}>{item.works.length} 件</div>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px' }}>
+              {item.works.map((w, i) => <WorkCard key={i} work={w} color={item.color} />)}
+            </div>
+          </div>
+        }
+      </div>
+    </div>);
+
+}
+
+function ClientLogo({ client, color }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+      style={{
+        position: 'relative', height: '90px', width: '100%',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        padding: '8px 12px',
+        transition: 'all 0.3s var(--ease-out)',
+        cursor: 'default'
+      }}>
+      <img src={client.logo} alt={client.name} title={client.name} style={{
+        maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
+        opacity: hov ? 1 : 0.78,
+        transform: hov ? 'scale(1.06)' : 'none',
+        transition: 'all 0.3s var(--ease-out)'
+      }} />
+      <div style={{
+        position: 'absolute', bottom: '-18px', left: 0, right: 0,
+        fontFamily: 'var(--font-number)', fontSize: '10px',
+        color: color, letterSpacing: '0.04em',
+        opacity: hov ? 1 : 0,
+        transform: hov ? 'translateY(0)' : 'translateY(4px)',
+        transition: 'all 0.3s var(--ease-out)',
+        textAlign: 'center', fontWeight: 700
+      }}>{client.name}</div>
+    </div>);
+
+}
+
+function WorkCard({ work, color }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+      style={{
+        background: 'var(--bg-elevated)',
+        border: `1px solid ${hov ? color + '55' : 'var(--border-subtle)'}`,
+        borderRadius: 'var(--radius-lg)', overflow: 'hidden',
+        transform: hov ? 'translateY(-3px)' : 'none',
+        boxShadow: hov ? `0 12px 28px rgba(0,0,0,0.45), 0 0 0 1px ${color}30` : 'var(--shadow-sm)',
+        transition: 'all 0.25s var(--ease-out)', cursor: 'default'
+      }}>
+      <div style={{
+        position: 'relative', aspectRatio: '16/10', overflow: 'hidden',
+        background: work.thumbBg || (work.thumb ? '#fff' : `${color}10`)
+      }}>
+        {work.thumb ?
+        <img src={work.thumb} alt={work.title} style={{
+          width: '100%', height: '100%', objectFit: work.thumbFit || 'cover',
+          transform: hov ? 'scale(1.05)' : 'none',
+          transition: 'transform 0.4s var(--ease-out)'
+        }} /> :
+
+        <div style={{
+          position: 'absolute', inset: 0, display: 'flex',
+          alignItems: 'center', justifyContent: 'center',
+          background: `linear-gradient(135deg, ${color}14, ${color}06)`
+        }}>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.2" opacity="0.55">
+              <polygon points="23 7 16 12 23 17 23 7" />
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+            </svg>
+          </div>
+        }
+        <span style={{
+          position: 'absolute', top: '10px', right: '10px',
+          padding: '3px 10px', borderRadius: 'var(--radius-full)',
+          background: 'rgba(8,15,26,0.85)', backdropFilter: 'blur(6px)',
+          border: `1px solid ${color}55`,
+          fontFamily: 'var(--font-number)', fontSize: '12px', color: color, fontWeight: 700,
+          whiteSpace: 'nowrap'
+        }}>{work.platform}</span>
+      </div>
+      <div style={{ padding: '12px 14px 14px' }}>
+        <div style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--fg-primary)', fontWeight: 600, lineHeight: 1.45, marginBottom: '4px' }}>{work.title}</div>
+        <div style={{ fontFamily: 'var(--font-number)', fontSize: '12px', color: 'var(--fg-muted)', letterSpacing: '0.02em' }}>{work.role}</div>
+      </div>
+    </div>);
+
+}
+
+// ── STATS ────────────────────────────────────────────────────
+
+function Stats() {
+  const [ref, inView] = useInView(0.2);
+
+  return (
+    <section ref={ref} style={{ padding: '80px clamp(20px, 5vw, 60px)', background: 'var(--bg-deep)' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px',
+          opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)',
+          transition: 'all 0.7s var(--ease-out) 0.1s'
+        }}>
+          {DATA.stats.map((s, i) => <StatCard key={i} stat={s} inView={inView} delay={i * 80} />)}
+        </div>
+      </div>
+    </section>);
+
+}
+
+function StatCard({ stat, inView, delay }) {
+  const count = useCountUp(stat.num, inView, 1200 + delay);
+  return (
+    <div style={{
+      background: 'var(--bg-surface)', border: '1px solid var(--border)',
+      borderRadius: 'var(--radius-xl)', padding: '28px 16px', textAlign: 'center',
+      boxShadow: 'var(--shadow-md)',
+      opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
+      transition: `opacity 0.6s var(--ease-out) ${delay}ms, transform 0.6s var(--ease-out) ${delay}ms`
+    }}>
+      <div style={{ fontFamily: 'var(--font-number)', fontSize: '40px', fontWeight: 700, color: 'var(--fg-primary)', lineHeight: 1, marginBottom: '4px' }}>
+        {count}<span style={{ fontSize: '18px', color: 'var(--accent)', marginLeft: '2px' }}>{stat.suffix}</span>
+      </div>
+      <div style={{ fontFamily: 'var(--font-body)', fontSize: '13px', color: 'var(--fg-secondary)', lineHeight: 1.65, whiteSpace: 'pre-line', marginTop: '8px' }}>{stat.label}</div>
+    </div>);
+
+}
+
+// ── SKILLS ───────────────────────────────────────────────────
+
+function Skills() {
+  const [ref, inView] = useInView(0.1);
+
+  return (
+    <section id="skills" ref={ref} style={{ padding: 'var(--section-gap) clamp(20px, 5vw, 60px)', background: 'var(--bg-base)' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <SectionLabel inView={inView}>SKILLS</SectionLabel>
+        <h2 style={{
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 900,
+          color: 'var(--fg-primary)', marginBottom: '48px', letterSpacing: '-0.02em',
+          opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
+          transition: 'all 0.7s var(--ease-out) 0.15s'
+        }}>スキル・経験</h2>
+
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px',
+          opacity: inView ? 1 : 0, transition: 'opacity 0.7s var(--ease-out) 0.3s'
+        }}>
+          {Object.entries(DATA.skills).map(([cat, tags]) =>
+          <div key={cat} style={{
+            background: 'var(--bg-surface)', border: '1px solid var(--border)',
+            borderRadius: 'var(--radius-lg)', padding: '22px'
+          }}>
+              <div style={{
+              fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+              letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '12px'
+            }}>{cat}</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
+                {tags.map((t) =>
+              <span key={t} style={{
+                padding: '5px 12px', borderRadius: 'var(--radius-full)',
+                background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-subtle)',
+                fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--fg-secondary)',
+                whiteSpace: 'nowrap'
+              }}>{t}</span>
+              )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ── CONTACT ──────────────────────────────────────────────────
+
+function ThankYou() {
+  const [ref, inView] = useInView(0.2);
+  const fade = (d = 0) => ({
+    opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(14px)',
+    transition: `all 0.9s var(--ease-out) ${d}s`
+  });
+
+  return (
+    <section id="thanks" ref={ref} style={{
+      padding: 'calc(var(--section-gap) + 40px) clamp(20px, 5vw, 60px)',
+      background: 'var(--bg-deep)', textAlign: 'center', position: 'relative', overflow: 'hidden'
+    }}>
+      {/* Decorative glow */}
+      <div style={{
+        position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+        width: '900px', height: '900px', pointerEvents: 'none',
+        background: 'radial-gradient(circle, rgba(78,168,222,0.09) 0%, transparent 60%)'
+      }} />
+      {/* Decorative grid */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.4,
+        backgroundImage: 'linear-gradient(rgba(78,168,222,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(78,168,222,0.04) 1px, transparent 1px)',
+        backgroundSize: '80px 80px'
+      }} />
+
+      <div style={{ position: 'relative', maxWidth: '720px', margin: '0 auto' }}>
+        <div style={{
+          ...fade(0.1),
+          display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '32px'
+        }}>
+          <div style={{ width: '36px', height: '1px', background: 'var(--accent)' }} />
+          <span style={{ fontFamily: 'var(--font-number)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--accent)' }}>FIN</span>
+          <div style={{ width: '36px', height: '1px', background: 'var(--accent)' }} />
+        </div>
+        <h2 style={{
+          ...fade(0.22),
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(56px, 10vw, 120px)',
+          fontWeight: 900, color: 'var(--fg-primary)', lineHeight: 1.05,
+          letterSpacing: '-0.03em', marginBottom: '28px'
+        }}>
+          Thank<span style={{ color: 'var(--accent)' }}>&nbsp;you!</span>
+        </h2>
+        <p style={{
+          ...fade(0.4),
+          fontFamily: 'var(--font-body)', fontSize: '17px',
+          color: 'var(--fg-secondary)', lineHeight: 1.9,
+          maxWidth: '460px', margin: '0 auto'
+        }}>
+          最後までご覧いただきありがとうございました。
+        </p>
+      </div>
+    </section>);
+
+}
+
+// ── FOOTER ───────────────────────────────────────────────────
+
+function Footer() {
+  return (
+    <footer style={{
+      padding: '28px clamp(20px, 5vw, 60px)',
+      background: 'var(--bg-deep)', borderTop: '1px solid var(--border-subtle)',
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px'
+    }}>
+      <span style={{ fontFamily: 'var(--font-number)', fontSize: '14px', color: 'var(--fg-muted)' }}>
+        © 2026 石島慎也 Shinya Ishijima
+      </span>
+      <div style={{ display: 'flex', gap: '20px' }}>
+        {['About', 'Career', 'Skills'].map((l) =>
+        <a key={l} href={`#${l.toLowerCase()}`} style={{
+          fontFamily: 'var(--font-number)', fontSize: '13px', color: 'var(--fg-muted)',
+          textDecoration: 'none', letterSpacing: '0.05em'
+        }}>{l}</a>
+        )}
+      </div>
+    </footer>);
+
+}
+
+// ── SHARED ───────────────────────────────────────────────────
+
+function SectionLabel({ children, inView }) {
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px',
+      opacity: inView ? 1 : 0, transition: 'opacity 0.6s var(--ease-out) 0.05s'
+    }}>
+      <div style={{ width: '24px', height: '1px', background: 'var(--accent)' }} />
+      <span style={{ fontFamily: 'var(--font-number)', fontSize: '12px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: 'var(--accent)' }}>{children}</span>
+    </div>);
+
+}
+
+function BtnPrimary({ href, children }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <a href={href}
+    onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    style={{
+      display: 'inline-flex', alignItems: 'center', gap: '6px',
+      padding: '12px 28px', borderRadius: 'var(--radius-md)',
+      background: hov ? 'var(--accent-glow)' : 'var(--accent)',
+      color: 'var(--bg-deep)', fontFamily: 'var(--font-number)', fontSize: '15px', fontWeight: 700,
+      textDecoration: 'none', letterSpacing: '0.04em',
+      transform: hov ? 'scale(1.02)' : 'none',
+      boxShadow: hov ? 'var(--shadow-glow)' : 'none',
+      transition: 'all 0.2s var(--ease-out)'
+    }}>{children}</a>);
+
+}
+
+function BtnOutline({ href, children }) {
+  const [hov, setHov] = React.useState(false);
+  return (
+    <a href={href}
+    onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+    style={{
+      display: 'inline-flex', alignItems: 'center', gap: '6px',
+      padding: '12px 28px', borderRadius: 'var(--radius-md)',
+      background: hov ? 'rgba(78,168,222,0.09)' : 'transparent',
+      border: `1px solid ${hov ? 'var(--accent)' : 'var(--border-hover)'}`,
+      color: 'var(--accent)', fontFamily: 'var(--font-number)', fontSize: '15px', fontWeight: 700,
+      textDecoration: 'none', letterSpacing: '0.04em',
+      transition: 'all 0.2s var(--ease-out)'
+    }}>{children}</a>);
+
+}
+
+// ── APP ──────────────────────────────────────────────────────
+
+function App() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(() => {
+    document.documentElement.style.setProperty('--accent', t.accentColor);
+    document.documentElement.style.setProperty('--accent-glow', t.accentColor);
+  }, [t.accentColor]);
+
+  return (
+    <div style={{ background: 'var(--bg-base)', minHeight: '100vh' }}>
+      <Nav />
+      <Hero />
+      <About />
+      <Career />
+      <Skills />
+      <ThankYou />
+      <Footer />
+
+      <TweaksPanel>
+        <TweakSection label="アクセントカラー" />
+        <TweakColor
+          label="カラー"
+          value={t.accentColor}
+          options={['#4ea8de', '#38bdf8', '#a78bfa', '#f472b6', '#4ade80']}
+          onChange={(v) => setTweak('accentColor', v)} />
+        
+        <TweakSection label="レイアウト" />
+        <TweakRadio
+          label="密度"
+          value={t.density}
+          options={['compact', 'normal']}
+          onChange={(v) => setTweak('density', v)} />
+        
+      </TweaksPanel>
+    </div>);
+
+}
+
+Object.assign(window, { App });
