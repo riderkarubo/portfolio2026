@@ -354,10 +354,11 @@ function NavLink({ href, children }) {
 
 function SideNav() {
   const sections = React.useMemo(() => [
-    { id: 'hero',   label: 'Top' },
-    { id: 'about',  label: 'Profile' },
-    { id: 'career', label: 'Career' },
-    { id: 'skills', label: 'Skills' }
+    { id: 'hero',    label: 'Top' },
+    { id: 'about',   label: 'Profile' },
+    { id: 'career',  label: 'Career' },
+    { id: 'skills',  label: 'Skills' },
+    { id: 'private', label: 'Private' }
   ], []);
 
   const [activeId, setActiveId] = React.useState('hero');
@@ -1383,8 +1384,9 @@ function Skills() {
 
         {/* PRIVATE WORKS — 業務外の個人活動・受賞歴 */}
         {DATA.privateWorks &&
-        <div style={{
+        <div id="private" style={{
           padding: '24px 26px',
+          scrollMarginTop: '80px',
           background: 'linear-gradient(135deg, rgba(244,114,182,0.08) 0%, rgba(244,114,182,0.03) 100%)',
           border: '1px solid rgba(244,114,182,0.28)',
           borderRadius: 'var(--radius-xl)',
