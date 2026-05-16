@@ -208,7 +208,17 @@ const DATA = {
     'プロデュース': ['企画立案', 'プロデュース', 'チームマネジメント', 'クライアントワーク', '予算管理', '予実管理', '事業計画策定'],
     'ツール・技術': ['Premiere Pro', 'Photoshop', 'OBS Studio', 'Word / Excel / PowerPoint'],
     '生成AIツール': ['Claude Code (Cowork)', 'Gemini', 'NotebookLM', 'AI Studio'],
-    '資格・その他': ['普通自動車免許', '英語 B1〜B2（CEFR）', 'DMM生成AI CAMP スキル習得認定（2026.1）']
+    '資格・その他': ['普通自動車免許', '英語 B1〜B2（CEFR）', 'DMM生成AI CAMP スキル習得認定(2026.1)']
+  },
+
+  aiImpact: {
+    caption: 'AIを「使う」だけでなく、ワークフローに統合し、クライアントへも展開する',
+    items: [
+    { value: '-75%', label: '業務時間削減', sub: '提案資料・分析・スライド生成・見積もり自動化を中心に。年換算で約600時間削減' },
+    { value: '100+', label: 'デジタル成果物', sub: '提案資料・社内ツール・HTML・自動化スクリプトをAI並走で量産' },
+    { value: '3社+', label: 'クライアントへの内製化支援', sub: '「AI活用に強いチーム」としてコンサル・内製化メニューを提案・提供' }],
+
+    footer: 'DMM生成AI CAMPスキル習得認定（2026.1）／FY25 Annual Feedback では「AI学習による業務効率化」を評価'
   }
 };
 
@@ -1058,10 +1068,67 @@ function Skills() {
         <SectionLabel inView={inView}>SKILLS</SectionLabel>
         <h2 style={{
           fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 900,
-          color: 'var(--fg-primary)', marginBottom: '48px', letterSpacing: '-0.02em',
+          color: 'var(--fg-primary)', marginBottom: '32px', letterSpacing: '-0.02em',
           opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
           transition: 'all 0.7s var(--ease-out) 0.15s'
         }}>スキル・経験</h2>
+
+        {/* AI × WORK Impact Block */}
+        {DATA.aiImpact &&
+        <div style={{
+          marginBottom: '32px',
+          padding: '24px 26px',
+          background: 'linear-gradient(135deg, rgba(74,222,128,0.10) 0%, rgba(74,222,128,0.04) 100%)',
+          border: '1px solid rgba(74,222,128,0.28)',
+          borderRadius: 'var(--radius-xl)',
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'none' : 'translateY(12px)',
+          transition: 'all 0.7s var(--ease-out) 0.2s'
+        }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#4ade80' }}>AI × WORK</div>
+              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--fg-muted)' }} />
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--fg-secondary)' }}>{DATA.aiImpact.caption}</div>
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${DATA.aiImpact.items.length}, 1fr)`,
+              gap: '14px'
+            }}>
+              {DATA.aiImpact.items.map((m, i) =>
+            <div key={i} style={{
+              padding: '14px 10px',
+              borderLeft: i === 0 ? 'none' : '1px solid var(--border-subtle)',
+              textAlign: 'center'
+            }}>
+                  <div style={{
+                fontFamily: 'var(--font-number)', fontSize: 'clamp(26px, 3.4vw, 34px)',
+                fontWeight: 800, color: '#4ade80', letterSpacing: '-0.02em',
+                lineHeight: 1.1, marginBottom: '8px'
+              }}>{m.value}</div>
+                  <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 600,
+                color: 'var(--fg-primary)', marginBottom: '4px'
+              }}>{m.label}</div>
+                  {m.sub &&
+              <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '11px',
+                color: 'var(--fg-muted)', lineHeight: 1.5
+              }}>{m.sub}</div>
+              }
+                </div>
+            )}
+            </div>
+            {DATA.aiImpact.footer &&
+          <div style={{
+            marginTop: '16px', paddingTop: '14px',
+            borderTop: '1px solid rgba(74,222,128,0.15)',
+            fontFamily: 'var(--font-body)', fontSize: '11px',
+            color: 'var(--fg-muted)', textAlign: 'center', lineHeight: 1.55
+          }}>{DATA.aiImpact.footer}</div>
+          }
+          </div>
+        }
 
         <div style={{
           display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px',
