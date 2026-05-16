@@ -212,13 +212,20 @@ const DATA = {
   },
 
   aiImpact: {
-    caption: 'AIを「使う」だけでなく、ワークフローに統合し、クライアントへも展開する',
+    caption: '大手企業・大型提案を主戦場に、AIをワークフロー統合し業務再設計まで踏み込む',
     items: [
-    { value: '-75%', label: '業務時間削減', sub: '提案資料・分析・スライド生成・見積もり自動化を中心に。年換算で約600時間削減' },
-    { value: '100+', label: 'デジタル成果物', sub: '提案資料・社内ツール・HTML・自動化スクリプトをAI並走で量産' },
-    { value: '3社+', label: 'クライアントへの内製化支援', sub: '「AI活用に強いチーム」としてコンサル・内製化メニューを提案・提供' }],
+    { value: '15h → 2h', label: '配信分析の効率化', sub: '大手リテール月次配信レポート。delivery-analysisスキル化で再利用' },
+    { value: '30h → 8h', label: '大型提案資料の生成', sub: '大手企業向け提案・年次報告レベル。リサーチ→構成→HTML/スライドまでAI並走' },
+    { value: 'DMM認定', label: '生成AI CAMP スキル習得認定', sub: '2026.1取得 / 認定証あり', certificate: { pdf: 'assets/certificates/dmm-generative-ai-camp-certificate.pdf', image: 'assets/certificates/dmm-generative-ai-camp-certificate.png' } }],
 
-    footer: 'DMM生成AI CAMPスキル習得認定（2026.1）／FY25 Annual Feedback では「AI学習による業務効率化」を評価'
+    tags: [
+    '#提案資料をAIで即時生成', '#見積もりシート自動化(GAS+Claude)',
+    '#配信分析-87%効率化', '#KPI分析をスキル化',
+    '#コード書ける事業責任者', '#AIエージェント並列運用',
+    '#Chrome拡張で業務ハック', '#業務再設計まで踏み込む',
+    '#9業界同時並行のAI活用', '#自作AI資産15+',
+    '#生成AI CAMP認定(DMM)', '#AI×映像プロデュース']
+
   }
 };
 
@@ -1093,39 +1100,73 @@ function Skills() {
             <div style={{
               display: 'grid',
               gridTemplateColumns: `repeat(${DATA.aiImpact.items.length}, 1fr)`,
-              gap: '14px'
+              gap: '14px',
+              alignItems: 'stretch'
             }}>
               {DATA.aiImpact.items.map((m, i) =>
             <div key={i} style={{
               padding: '14px 10px',
               borderLeft: i === 0 ? 'none' : '1px solid var(--border-subtle)',
-              textAlign: 'center'
+              textAlign: 'center',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start'
             }}>
                   <div style={{
-                fontFamily: 'var(--font-number)', fontSize: 'clamp(26px, 3.4vw, 34px)',
+                fontFamily: 'var(--font-number)',
+                fontSize: m.certificate ? 'clamp(18px, 2.4vw, 24px)' : 'clamp(22px, 2.8vw, 30px)',
                 fontWeight: 800, color: '#4ade80', letterSpacing: '-0.02em',
-                lineHeight: 1.1, marginBottom: '8px'
+                lineHeight: 1.1, marginBottom: '8px', whiteSpace: 'nowrap'
               }}>{m.value}</div>
                   <div style={{
                 fontFamily: 'var(--font-body)', fontSize: '13px', fontWeight: 600,
-                color: 'var(--fg-primary)', marginBottom: '4px'
+                color: 'var(--fg-primary)', marginBottom: '4px', lineHeight: 1.4
               }}>{m.label}</div>
                   {m.sub &&
               <div style={{
                 fontFamily: 'var(--font-body)', fontSize: '11px',
-                color: 'var(--fg-muted)', lineHeight: 1.5
+                color: 'var(--fg-muted)', lineHeight: 1.5, marginBottom: m.certificate ? '10px' : '0'
               }}>{m.sub}</div>
+              }
+                  {m.certificate &&
+              <a href={m.certificate.pdf} target="_blank" rel="noopener noreferrer"
+              style={{
+                marginTop: '6px', display: 'inline-block',
+                borderRadius: 'var(--radius-md)', overflow: 'hidden',
+                border: '1px solid rgba(74,222,128,0.35)',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
+                transition: 'transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out)',
+                cursor: 'pointer', textDecoration: 'none', maxWidth: '200px'
+              }}
+              onMouseEnter={(e) => {e.currentTarget.style.transform = 'translateY(-2px)';e.currentTarget.style.boxShadow = '0 8px 20px rgba(74,222,128,0.25)';}}
+              onMouseLeave={(e) => {e.currentTarget.style.transform = 'none';e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';}}>
+
+                      <img src={m.certificate.image} alt="DMM 生成AI CAMP 認定証"
+                style={{ display: 'block', width: '100%', height: 'auto' }} />
+                      <div style={{
+                  padding: '6px 8px', fontSize: '10px',
+                  fontFamily: 'var(--font-number)', letterSpacing: '0.08em',
+                  color: '#4ade80', textAlign: 'center',
+                  background: 'rgba(0,0,0,0.4)'
+                }}>VIEW PDF ↗</div>
+                    </a>
               }
                 </div>
             )}
             </div>
-            {DATA.aiImpact.footer &&
+            {DATA.aiImpact.tags &&
           <div style={{
-            marginTop: '16px', paddingTop: '14px',
-            borderTop: '1px solid rgba(74,222,128,0.15)',
-            fontFamily: 'var(--font-body)', fontSize: '11px',
-            color: 'var(--fg-muted)', textAlign: 'center', lineHeight: 1.55
-          }}>{DATA.aiImpact.footer}</div>
+            marginTop: '20px', paddingTop: '18px',
+            borderTop: '1px solid rgba(74,222,128,0.18)',
+            display: 'flex', flexWrap: 'wrap', gap: '7px', justifyContent: 'center'
+          }}>
+              {DATA.aiImpact.tags.map((t) =>
+            <span key={t} style={{
+              padding: '4px 11px', borderRadius: 'var(--radius-full)',
+              background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.22)',
+              fontFamily: 'var(--font-body)', fontSize: '12px', color: '#4ade80',
+              whiteSpace: 'nowrap'
+            }}>{t}</span>
+            )}
+            </div>
           }
           </div>
         }
