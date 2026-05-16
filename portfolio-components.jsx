@@ -1096,6 +1096,33 @@ function Skills() {
           transition: 'all 0.7s var(--ease-out) 0.15s'
         }}>スキル・経験</h2>
 
+        <div style={{ marginBottom: '32px',
+          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px',
+          opacity: inView ? 1 : 0, transition: 'opacity 0.7s var(--ease-out) 0.3s'
+        }}>
+          {Object.entries(DATA.skills).map(([cat, tags]) =>
+          <div key={cat} style={{
+            background: 'var(--bg-surface)', border: '1px solid var(--border)',
+            borderRadius: 'var(--radius-lg)', padding: '22px'
+          }}>
+              <div style={{
+              fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+              letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '12px'
+            }}>{cat}</div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
+                {tags.map((t) =>
+              <span key={t} style={{
+                padding: '5px 12px', borderRadius: 'var(--radius-full)',
+                background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-subtle)',
+                fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--fg-secondary)',
+                whiteSpace: 'nowrap'
+              }}>{t}</span>
+              )}
+              </div>
+            </div>
+          )}
+        </div>
+
         {/* AI × WORK Impact Block */}
         {DATA.aiImpact &&
         <div style={{
@@ -1267,33 +1294,6 @@ function Skills() {
             }}>{DATA.selfCoaching.impact}</div>
           </div>
         }
-
-        <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px',
-          opacity: inView ? 1 : 0, transition: 'opacity 0.7s var(--ease-out) 0.3s'
-        }}>
-          {Object.entries(DATA.skills).map(([cat, tags]) =>
-          <div key={cat} style={{
-            background: 'var(--bg-surface)', border: '1px solid var(--border)',
-            borderRadius: 'var(--radius-lg)', padding: '22px'
-          }}>
-              <div style={{
-              fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
-              letterSpacing: '0.22em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '12px'
-            }}>{cat}</div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
-                {tags.map((t) =>
-              <span key={t} style={{
-                padding: '5px 12px', borderRadius: 'var(--radius-full)',
-                background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border-subtle)',
-                fontFamily: 'var(--font-body)', fontSize: '14px', color: 'var(--fg-secondary)',
-                whiteSpace: 'nowrap'
-              }}>{t}</span>
-              )}
-              </div>
-            </div>
-          )}
-        </div>
       </div>
     </section>);
 
