@@ -216,7 +216,12 @@ const DATA = {
     items: [
     { value: '15h → 2h', label: '配信分析の効率化', sub: '大手リテール月次配信レポート。delivery-analysisスキル化で再利用' },
     { value: '30h → 8h', label: '大型提案資料の生成', sub: '大手企業向け提案・年次報告レベル。リサーチ→構成→HTML/スライドまでAI並走' },
-    { value: 'DMM認定', label: '生成AI CAMP スキル習得認定', sub: '2026.1取得 / 認定証あり', certificate: { pdf: 'assets/certificates/dmm-generative-ai-camp-certificate.pdf', image: 'assets/certificates/dmm-generative-ai-camp-certificate.png' } }],
+    { value: 'DMM認定', label: '生成AI CAMP スキル習得認定', sub: '2026.1取得 / 修了証あり' }],
+
+    certificate: {
+      pdf: 'assets/certificates/dmm-generative-ai-camp-certificate.pdf',
+      image: 'assets/certificates/dmm-generative-ai-camp-certificate.png'
+    },
 
     tags: [
     '#提案資料をAIで即時生成', '#見積もりシート自動化(GAS+Claude)',
@@ -1123,7 +1128,7 @@ function Skills() {
             }}>
                   <div style={{
                 fontFamily: 'var(--font-number)',
-                fontSize: m.certificate ? 'clamp(18px, 2.4vw, 24px)' : 'clamp(22px, 2.8vw, 30px)',
+                fontSize: 'clamp(22px, 2.8vw, 30px)',
                 fontWeight: 800, color: '#4ade80', letterSpacing: '-0.02em',
                 lineHeight: 1.1, marginBottom: '8px', whiteSpace: 'nowrap'
               }}>{m.value}</div>
@@ -1134,31 +1139,8 @@ function Skills() {
                   {m.sub &&
               <div style={{
                 fontFamily: 'var(--font-body)', fontSize: '11px',
-                color: 'var(--fg-muted)', lineHeight: 1.5, marginBottom: m.certificate ? '10px' : '0'
+                color: 'var(--fg-muted)', lineHeight: 1.5
               }}>{m.sub}</div>
-              }
-                  {m.certificate &&
-              <a href={m.certificate.pdf} target="_blank" rel="noopener noreferrer"
-              style={{
-                marginTop: '6px', display: 'inline-block',
-                borderRadius: 'var(--radius-md)', overflow: 'hidden',
-                border: '1px solid rgba(74,222,128,0.35)',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.25)',
-                transition: 'transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out)',
-                cursor: 'pointer', textDecoration: 'none', maxWidth: '200px'
-              }}
-              onMouseEnter={(e) => {e.currentTarget.style.transform = 'translateY(-2px)';e.currentTarget.style.boxShadow = '0 8px 20px rgba(74,222,128,0.25)';}}
-              onMouseLeave={(e) => {e.currentTarget.style.transform = 'none';e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';}}>
-
-                      <img src={m.certificate.image} alt="DMM 生成AI CAMP 認定証"
-                style={{ display: 'block', width: '100%', height: 'auto' }} />
-                      <div style={{
-                  padding: '6px 8px', fontSize: '10px',
-                  fontFamily: 'var(--font-number)', letterSpacing: '0.08em',
-                  color: '#4ade80', textAlign: 'center',
-                  background: 'rgba(0,0,0,0.4)'
-                }}>VIEW PDF ↗</div>
-                    </a>
               }
                 </div>
             )}
@@ -1177,6 +1159,39 @@ function Skills() {
               whiteSpace: 'nowrap'
             }}>{t}</span>
             )}
+            </div>
+          }
+            {DATA.aiImpact.certificate &&
+          <div style={{
+            marginTop: '20px', paddingTop: '20px',
+            borderTop: '1px solid rgba(74,222,128,0.18)',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px'
+          }}>
+              <div style={{
+              fontFamily: 'var(--font-number)', fontSize: '10px', fontWeight: 700,
+              letterSpacing: '0.22em', color: '#4ade80'
+            }}>CERTIFICATE</div>
+              <a href={DATA.aiImpact.certificate.pdf} target="_blank" rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              borderRadius: 'var(--radius-md)', overflow: 'hidden',
+              border: '1px solid rgba(74,222,128,0.35)',
+              boxShadow: '0 6px 18px rgba(0,0,0,0.30)',
+              transition: 'transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out)',
+              cursor: 'pointer', textDecoration: 'none',
+              maxWidth: '420px', width: '100%'
+            }}
+            onMouseEnter={(e) => {e.currentTarget.style.transform = 'translateY(-3px)';e.currentTarget.style.boxShadow = '0 12px 28px rgba(74,222,128,0.28)';}}
+            onMouseLeave={(e) => {e.currentTarget.style.transform = 'none';e.currentTarget.style.boxShadow = '0 6px 18px rgba(0,0,0,0.30)';}}>
+                <img src={DATA.aiImpact.certificate.image} alt="DMM 生成AI CAMP 認定証"
+              style={{ display: 'block', width: '100%', height: 'auto' }} />
+                <div style={{
+                padding: '8px 12px', fontSize: '11px',
+                fontFamily: 'var(--font-number)', letterSpacing: '0.1em',
+                color: '#4ade80', textAlign: 'center',
+                background: 'rgba(0,0,0,0.5)'
+              }}>VIEW FULL PDF ↗</div>
+              </a>
             </div>
           }
           </div>
