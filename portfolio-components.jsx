@@ -226,6 +226,17 @@ const DATA = {
     '#9業界同時並行のAI活用', '#自作AI資産15+',
     '#生成AI CAMP認定(DMM)', '#AI×映像プロデュース']
 
+  },
+
+  selfCoaching: {
+    label: 'AI FOR SELF-COACHING',
+    caption: '自分専用の業務最適化エンジンを構築・運用中',
+    steps: [
+    { num: '01', title: 'プロジェクト稼働時間\nトラッキング', desc: 'プロジェクト単位で実稼働を記録' },
+    { num: '02', title: 'AIに学習させて\nパターン抽出', desc: '時間配分・密度・成果の関係を分析' },
+    { num: '03', title: '自分専用AIコーチが\n客観評価＋改善示唆', desc: '次週・次月の業務設計をアシスト' }],
+
+    impact: 'この仕組みが、現職での売上 ×3.6・粗利 +15% を支える裏付けエンジン。\nAIを「業務効率化ツール」だけでなく「経営者のように自分を経営するパーソナルコーチ」として実装している。'
   }
 };
 
@@ -1168,6 +1179,77 @@ function Skills() {
             )}
             </div>
           }
+          </div>
+        }
+
+        {/* AI FOR SELF-COACHING — 自分専用業務最適化エンジン */}
+        {DATA.selfCoaching &&
+        <div style={{
+          marginBottom: '32px',
+          padding: '24px 26px',
+          background: 'linear-gradient(135deg, rgba(167,139,250,0.10) 0%, rgba(56,189,248,0.06) 100%)',
+          border: '1px solid rgba(167,139,250,0.28)',
+          borderRadius: 'var(--radius-xl)',
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'none' : 'translateY(12px)',
+          transition: 'all 0.7s var(--ease-out) 0.25s'
+        }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#a78bfa' }}>{DATA.selfCoaching.label}</div>
+              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--fg-muted)' }} />
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--fg-secondary)' }}>{DATA.selfCoaching.caption}</div>
+            </div>
+
+            {/* 3ステップフロー */}
+            <div style={{
+              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px',
+              alignItems: 'stretch', marginBottom: '20px'
+            }}>
+              {DATA.selfCoaching.steps.map((s, i) =>
+            <div key={i} style={{
+              position: 'relative',
+              padding: '16px 14px',
+              background: 'rgba(8,15,26,0.45)',
+              border: '1px solid rgba(167,139,250,0.22)',
+              borderRadius: 'var(--radius-lg)',
+              display: 'flex', flexDirection: 'column'
+            }}>
+                  <div style={{
+                fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+                letterSpacing: '0.16em', color: '#a78bfa', marginBottom: '8px'
+              }}>STEP {s.num}</div>
+                  <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 700,
+                color: 'var(--fg-primary)', lineHeight: 1.45, marginBottom: '6px',
+                whiteSpace: 'pre-line'
+              }}>{s.title}</div>
+                  <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '11px',
+                color: 'var(--fg-muted)', lineHeight: 1.55
+              }}>{s.desc}</div>
+                  {i < DATA.selfCoaching.steps.length - 1 &&
+              <div style={{
+                position: 'absolute', right: '-9px', top: '50%',
+                transform: 'translateY(-50%)', zIndex: 1,
+                fontFamily: 'var(--font-number)', fontSize: '16px', fontWeight: 700,
+                color: '#a78bfa', background: 'var(--bg-base)',
+                width: '18px', height: '18px', borderRadius: '50%',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                border: '1px solid rgba(167,139,250,0.4)'
+              }}>→</div>
+              }
+                </div>
+            )}
+            </div>
+
+            {/* インパクト文 */}
+            <div style={{
+              padding: '14px 16px',
+              borderTop: '1px solid rgba(167,139,250,0.18)',
+              fontFamily: 'var(--font-body)', fontSize: '12.5px',
+              color: 'var(--fg-secondary)', lineHeight: 1.7,
+              whiteSpace: 'pre-line', textAlign: 'center'
+            }}>{DATA.selfCoaching.impact}</div>
           </div>
         }
 
