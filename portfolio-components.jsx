@@ -242,6 +242,21 @@ const DATA = {
     { num: '03', title: '自分専用AIコーチが\n客観評価＋改善示唆', desc: '次週・次月の業務設計をアシスト' }],
 
     impact: 'AIを「業務効率化ツール」だけでなく「経営者のように自分を経営するパーソナルコーチ」として実装している。'
+  },
+
+  privateWorks: {
+    label: 'PRIVATE WORKS',
+    caption: '業務外の個人活動・受賞歴',
+    items: [
+    {
+      title: '第一回 三池崇史監督主催「26秒のカーニバル」入賞',
+      year: '入賞',
+      desc: '映画監督 三池崇史氏が主催した「26秒」の超短編映像コンペで入賞。業務外の純粋な個人創作活動として制作。',
+      youtubeId: 'wrHmlWsqhoo',
+      officialUrl: 'https://www.miiketakashi.com/26/results01.html',
+      officialLabel: '公式リザルトを見る'
+    }]
+
   }
 };
 
@@ -1357,6 +1372,93 @@ function Skills() {
               color: 'var(--fg-secondary)', lineHeight: 1.7,
               whiteSpace: 'pre-line', textAlign: 'center'
             }}>{DATA.selfCoaching.impact}</div>
+          </div>
+        }
+
+        {/* PRIVATE WORKS — 業務外の個人活動・受賞歴 */}
+        {DATA.privateWorks &&
+        <div style={{
+          padding: '24px 26px',
+          background: 'linear-gradient(135deg, rgba(244,114,182,0.08) 0%, rgba(244,114,182,0.03) 100%)',
+          border: '1px solid rgba(244,114,182,0.28)',
+          borderRadius: 'var(--radius-xl)',
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'none' : 'translateY(12px)',
+          transition: 'all 0.7s var(--ease-out) 0.3s'
+        }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#f472b6' }}>{DATA.privateWorks.label}</div>
+              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--fg-muted)' }} />
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--fg-secondary)' }}>{DATA.privateWorks.caption}</div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {DATA.privateWorks.items.map((w, i) =>
+            <div key={i} style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
+              gap: '20px',
+              padding: '18px',
+              background: 'rgba(8,15,26,0.45)',
+              border: '1px solid rgba(244,114,182,0.18)',
+              borderRadius: 'var(--radius-lg)',
+              alignItems: 'start'
+            }}>
+                  <div style={{ minWidth: 0 }}>
+                    <div style={{
+                  display: 'inline-block',
+                  padding: '3px 10px', marginBottom: '10px',
+                  background: 'rgba(244,114,182,0.16)',
+                  border: '1px solid rgba(244,114,182,0.4)',
+                  borderRadius: 'var(--radius-full)',
+                  fontFamily: 'var(--font-number)', fontSize: '10px', fontWeight: 700,
+                  letterSpacing: '0.16em', color: '#f9a8d4', textTransform: 'uppercase'
+                }}>{w.year}</div>
+                    <div style={{
+                  fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 700,
+                  color: 'var(--fg-primary)', lineHeight: 1.5, marginBottom: '10px'
+                }}>{w.title}</div>
+                    <div style={{
+                  fontFamily: 'var(--font-body)', fontSize: '13px',
+                  color: 'var(--fg-secondary)', lineHeight: 1.7, marginBottom: '14px'
+                }}>{w.desc}</div>
+                    {w.officialUrl &&
+                <a href={w.officialUrl} target="_blank" rel="noopener noreferrer" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '6px',
+                  fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+                  letterSpacing: '0.14em', color: '#f9a8d4', textDecoration: 'none',
+                  padding: '6px 12px',
+                  border: '1px solid rgba(244,114,182,0.35)',
+                  borderRadius: 'var(--radius-full)',
+                  transition: 'background 0.2s var(--ease-out)'
+                }}
+                onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(244,114,182,0.12)';}}
+                onMouseLeave={(e) => {e.currentTarget.style.background = 'transparent';}}>
+                        {w.officialLabel || '公式ページ'} ↗
+                      </a>
+                }
+                  </div>
+                  {w.youtubeId &&
+              <div style={{
+                position: 'relative', width: '100%',
+                aspectRatio: '16 / 9',
+                borderRadius: 'var(--radius-md)', overflow: 'hidden',
+                border: '1px solid rgba(244,114,182,0.25)',
+                boxShadow: '0 6px 18px rgba(0,0,0,0.30)'
+              }}>
+                      <iframe
+                  src={`https://www.youtube.com/embed/${w.youtubeId}`}
+                  title={w.title}
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }} />
+
+                    </div>
+              }
+                </div>
+            )}
+            </div>
           </div>
         }
       </div>
