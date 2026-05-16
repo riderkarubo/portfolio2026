@@ -255,6 +255,12 @@ const DATA = {
       youtubeId: 'wrHmlWsqhoo',
       officialUrl: 'https://www.miiketakashi.com/26/results01.html',
       officialLabel: '公式リザルトを見る'
+    },
+    {
+      title: 'タモリ倶楽部「空耳アワー」オンエア（評価：手ぬぐい）',
+      year: '2021',
+      desc: 'テレビ朝日「タモリ倶楽部」名物コーナー「空耳アワー」に視聴者投稿でオンエア採用。評価：手ぬぐい（耳のつけどころ賞）。番組25年以上の歴史を持つ人気コーナー。',
+      videoSrc: 'assets/private-works/soramimi-2021.mp4'
     }]
 
   }
@@ -1438,22 +1444,31 @@ function Skills() {
                       </a>
                 }
                   </div>
-                  {w.youtubeId &&
+                  {(w.youtubeId || w.videoSrc) &&
               <div style={{
                 position: 'relative', width: '100%',
                 aspectRatio: '16 / 9',
                 borderRadius: 'var(--radius-md)', overflow: 'hidden',
                 border: '1px solid rgba(244,114,182,0.25)',
-                boxShadow: '0 6px 18px rgba(0,0,0,0.30)'
+                boxShadow: '0 6px 18px rgba(0,0,0,0.30)',
+                background: '#000'
               }}>
-                      <iframe
-                  src={`https://www.youtube.com/embed/${w.youtubeId}`}
-                  title={w.title}
-                  loading="lazy"
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }} />
+                      {w.youtubeId ?
+                  <iframe
+                    src={`https://www.youtube.com/embed/${w.youtubeId}`}
+                    title={w.title}
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }} /> :
 
+                  <video
+                    src={w.videoSrc}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', background: '#000' }} />
+                  }
                     </div>
               }
                 </div>
