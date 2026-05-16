@@ -602,7 +602,7 @@ function Statement() {
   return (
     <section id="statement" ref={ref} style={{
       padding: 'var(--section-gap) clamp(20px, 5vw, 60px)',
-      background: 'var(--bg-deep)',
+      background: 'var(--bg-base)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       minHeight: '60vh', position: 'relative', overflow: 'hidden'
     }}>
@@ -1509,8 +1509,8 @@ function App() {
       <Nav />
       <SideNav />
       <Hero />
-      <Statement />
       <About />
+      <Statement />
       <Career />
       <Skills />
       <ThankYou />
