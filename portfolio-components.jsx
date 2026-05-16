@@ -244,6 +244,29 @@ const DATA = {
     impact: 'AIを「業務効率化ツール」だけでなく「経営者のように自分を経営するパーソナルコーチ」として実装している。'
   },
 
+  next: {
+    label: 'NEXT',
+    caption: 'これから作りたいもの',
+    origin: {
+      title: 'コンテンツは、誰かの人生のスイッチを押せる',
+      body: 'Candee「監禁男子」を配信していた頃、ある不登校の女子学生がTwitterで「監禁男子を見て元気をもらえた。少しずつ登校を再開してみようかな」とつぶやいているのを見つけた。仕事で一番嬉しかった瞬間。コンテンツが、見ず知らずの誰かの人生のスイッチを押せる——それが今もキャリアの北極星。同じ感情を、もっと大きなスケールで、もっと多くの人に届け続けたい。'
+    },
+    goals: [
+    {
+      timeframe: '3年後',
+      title: 'リアリティーショー・ドキュメンタリー領域で企画・制作に携わる',
+      benchmarks: ['SASUKE', '白と黒のスプーン', 'あいの里', 'マネーの虎', '愛の貧乏脱出大作戦'],
+      desc: 'いずれも「熱狂的なファンを生むコンテンツ」「誰かの人生に良い影響を与える」の代表例。'
+    },
+    {
+      timeframe: '10年後',
+      title: '海外でも通用する日本発のコンテンツ／後世に語り継がれるコンテンツを作る',
+      benchmarks: ['トリビアの泉', 'とんねるずのみなさんのおかげでした'],
+      desc: '単に視聴数を取るだけでなく、カルト的熱狂・信者ができるコンテンツを作る。AI時代の超合理化が進むほど、人間の非合理・非効率・意味不明さ・ムダこそが価値になる。'
+    }]
+
+  },
+
   privateWorks: {
     label: 'PRIVATE WORKS',
     caption: '業務外の個人活動・受賞歴',
@@ -315,7 +338,9 @@ function Nav() {
   const links = [
   { label: 'Profile', href: '#about' },
   { label: 'Career', href: '#career' },
-  { label: 'Skills', href: '#skills' }];
+  { label: 'Skills', href: '#skills' },
+  { label: 'Next', href: '#next' },
+  { label: 'Private', href: '#private' }];
 
 
   return (
@@ -358,6 +383,7 @@ function SideNav() {
     { id: 'about',   label: 'Profile' },
     { id: 'career',  label: 'Career' },
     { id: 'skills',  label: 'Skills' },
+    { id: 'next',    label: 'Next' },
     { id: 'private', label: 'Private' }
   ], []);
 
@@ -1382,102 +1408,217 @@ function Skills() {
           </div>
         }
 
-        {/* PRIVATE WORKS — 業務外の個人活動・受賞歴 */}
-        {DATA.privateWorks &&
-        <div id="private" style={{
-          padding: '24px 26px',
-          scrollMarginTop: '80px',
-          background: 'linear-gradient(135deg, rgba(244,114,182,0.08) 0%, rgba(244,114,182,0.03) 100%)',
-          border: '1px solid rgba(244,114,182,0.28)',
+      </div>
+    </section>);
+
+}
+
+// ── NEXT ─────────────────────────────────────────────────────
+
+function Next() {
+  const [ref, inView] = useInView(0.1);
+
+  if (!DATA.next) return null;
+
+  return (
+    <section id="next" ref={ref} style={{
+      padding: 'var(--section-gap) clamp(20px, 5vw, 60px)',
+      background: 'var(--bg-deep)',
+      scrollMarginTop: '80px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <SectionLabel inView={inView}>{DATA.next.label}</SectionLabel>
+        <h2 style={{
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 900,
+          color: 'var(--fg-primary)', marginBottom: '8px', letterSpacing: '-0.02em',
+          opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
+          transition: 'all 0.7s var(--ease-out) 0.15s'
+        }}>{DATA.next.caption}</h2>
+
+        {/* 原点：監禁男子エピソード */}
+        <div style={{
+          marginTop: '32px', marginBottom: '32px',
+          padding: '26px 30px',
+          background: 'linear-gradient(135deg, rgba(74,222,128,0.10) 0%, rgba(74,222,128,0.04) 100%)',
+          border: '1px solid rgba(74,222,128,0.32)',
           borderRadius: 'var(--radius-xl)',
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'none' : 'translateY(12px)',
+          transition: 'all 0.7s var(--ease-out) 0.25s'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '14px' }}>
+            <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#4ade80' }}>ORIGIN</div>
+            <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--fg-muted)' }} />
+            <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--fg-secondary)' }}>キャリアの北極星</div>
+          </div>
+          <div style={{
+            fontFamily: 'var(--font-display)', fontSize: 'clamp(20px, 2.4vw, 28px)', fontWeight: 800,
+            color: '#a7f3d0', letterSpacing: '-0.01em', lineHeight: 1.4, marginBottom: '14px'
+          }}>{DATA.next.origin.title}</div>
+          <div style={{
+            fontFamily: 'var(--font-body)', fontSize: '14.5px',
+            color: 'var(--fg-secondary)', lineHeight: 1.85
+          }}>{DATA.next.origin.body}</div>
+        </div>
+
+        {/* 3年後・10年後ゴール */}
+        <div style={{
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '20px',
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'none' : 'translateY(12px)',
+          transition: 'all 0.7s var(--ease-out) 0.35s'
+        }}>
+          {DATA.next.goals.map((g, i) =>
+          <div key={i} style={{
+            padding: '24px 26px',
+            background: 'var(--bg-surface)',
+            border: '1px solid var(--border)',
+            borderRadius: 'var(--radius-xl)'
+          }}>
+              <div style={{
+              display: 'inline-block', padding: '4px 12px', marginBottom: '14px',
+              background: 'rgba(78,168,222,0.12)',
+              border: '1px solid rgba(78,168,222,0.35)',
+              borderRadius: 'var(--radius-full)',
+              fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+              letterSpacing: '0.18em', color: 'var(--accent)', textTransform: 'uppercase'
+            }}>{g.timeframe}</div>
+              <div style={{
+              fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 700,
+              color: 'var(--fg-primary)', lineHeight: 1.55, marginBottom: '14px'
+            }}>{g.title}</div>
+              <div style={{ marginBottom: '14px' }}>
+                <div style={{
+                fontFamily: 'var(--font-number)', fontSize: '10px', fontWeight: 700,
+                letterSpacing: '0.18em', color: 'var(--fg-muted)', marginBottom: '8px'
+              }}>BENCHMARKS</div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  {g.benchmarks.map((b) =>
+                <span key={b} style={{
+                  padding: '4px 10px', borderRadius: 'var(--radius-full)',
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid var(--border-subtle)',
+                  fontFamily: 'var(--font-body)', fontSize: '12px',
+                  color: 'var(--fg-secondary)', whiteSpace: 'nowrap'
+                }}>{b}</span>
+                )}
+                </div>
+              </div>
+              <div style={{
+              fontFamily: 'var(--font-body)', fontSize: '13px',
+              color: 'var(--fg-muted)', lineHeight: 1.7
+            }}>{g.desc}</div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ── PRIVATE WORKS ────────────────────────────────────────────
+
+function Private() {
+  const [ref, inView] = useInView(0.1);
+
+  if (!DATA.privateWorks) return null;
+
+  return (
+    <section id="private" ref={ref} style={{
+      padding: 'var(--section-gap) clamp(20px, 5vw, 60px)',
+      background: 'var(--bg-base)',
+      scrollMarginTop: '80px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <SectionLabel inView={inView}>{DATA.privateWorks.label}</SectionLabel>
+        <h2 style={{
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 900,
+          color: 'var(--fg-primary)', marginBottom: '32px', letterSpacing: '-0.02em',
+          opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
+          transition: 'all 0.7s var(--ease-out) 0.15s'
+        }}>{DATA.privateWorks.caption}</h2>
+
+        <div style={{
+          display: 'flex', flexDirection: 'column', gap: '20px',
           opacity: inView ? 1 : 0,
           transform: inView ? 'none' : 'translateY(12px)',
           transition: 'all 0.7s var(--ease-out) 0.3s'
         }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
-              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: '#f472b6' }}>{DATA.privateWorks.label}</div>
-              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--fg-muted)' }} />
-              <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--fg-secondary)' }}>{DATA.privateWorks.caption}</div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              {DATA.privateWorks.items.map((w, i) =>
-            <div key={i} style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
-              gap: '20px',
-              padding: '18px',
-              background: 'rgba(8,15,26,0.45)',
-              border: '1px solid rgba(244,114,182,0.18)',
-              borderRadius: 'var(--radius-lg)',
-              alignItems: 'start'
+          {DATA.privateWorks.items.map((w, i) =>
+          <div key={i} style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
+            gap: '24px',
+            padding: '22px',
+            background: 'var(--bg-surface)',
+            border: '1px solid rgba(244,114,182,0.22)',
+            borderRadius: 'var(--radius-xl)',
+            alignItems: 'start'
+          }}>
+              <div style={{ minWidth: 0 }}>
+                <div style={{
+                display: 'inline-block',
+                padding: '4px 12px', marginBottom: '12px',
+                background: 'rgba(244,114,182,0.16)',
+                border: '1px solid rgba(244,114,182,0.4)',
+                borderRadius: 'var(--radius-full)',
+                fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+                letterSpacing: '0.18em', color: '#f9a8d4', textTransform: 'uppercase'
+              }}>{w.year}</div>
+                <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '16px', fontWeight: 700,
+                color: 'var(--fg-primary)', lineHeight: 1.5, marginBottom: '12px'
+              }}>{w.title}</div>
+                <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '13.5px',
+                color: 'var(--fg-secondary)', lineHeight: 1.75, marginBottom: '16px'
+              }}>{w.desc}</div>
+                {w.officialUrl &&
+              <a href={w.officialUrl} target="_blank" rel="noopener noreferrer" style={{
+                display: 'inline-flex', alignItems: 'center', gap: '6px',
+                fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+                letterSpacing: '0.14em', color: '#f9a8d4', textDecoration: 'none',
+                padding: '7px 14px',
+                border: '1px solid rgba(244,114,182,0.35)',
+                borderRadius: 'var(--radius-full)',
+                transition: 'background 0.2s var(--ease-out)'
+              }}
+              onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(244,114,182,0.12)';}}
+              onMouseLeave={(e) => {e.currentTarget.style.background = 'transparent';}}>
+                    {w.officialLabel || '公式ページ'} ↗
+                  </a>
+              }
+              </div>
+              {(w.youtubeId || w.videoSrc) &&
+            <div style={{
+              position: 'relative', width: '100%',
+              aspectRatio: '16 / 9',
+              borderRadius: 'var(--radius-md)', overflow: 'hidden',
+              border: '1px solid rgba(244,114,182,0.25)',
+              boxShadow: '0 6px 18px rgba(0,0,0,0.30)',
+              background: '#000'
             }}>
-                  <div style={{ minWidth: 0 }}>
-                    <div style={{
-                  display: 'inline-block',
-                  padding: '3px 10px', marginBottom: '10px',
-                  background: 'rgba(244,114,182,0.16)',
-                  border: '1px solid rgba(244,114,182,0.4)',
-                  borderRadius: 'var(--radius-full)',
-                  fontFamily: 'var(--font-number)', fontSize: '10px', fontWeight: 700,
-                  letterSpacing: '0.16em', color: '#f9a8d4', textTransform: 'uppercase'
-                }}>{w.year}</div>
-                    <div style={{
-                  fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 700,
-                  color: 'var(--fg-primary)', lineHeight: 1.5, marginBottom: '10px'
-                }}>{w.title}</div>
-                    <div style={{
-                  fontFamily: 'var(--font-body)', fontSize: '13px',
-                  color: 'var(--fg-secondary)', lineHeight: 1.7, marginBottom: '14px'
-                }}>{w.desc}</div>
-                    {w.officialUrl &&
-                <a href={w.officialUrl} target="_blank" rel="noopener noreferrer" style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '6px',
-                  fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
-                  letterSpacing: '0.14em', color: '#f9a8d4', textDecoration: 'none',
-                  padding: '6px 12px',
-                  border: '1px solid rgba(244,114,182,0.35)',
-                  borderRadius: 'var(--radius-full)',
-                  transition: 'background 0.2s var(--ease-out)'
-                }}
-                onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(244,114,182,0.12)';}}
-                onMouseLeave={(e) => {e.currentTarget.style.background = 'transparent';}}>
-                        {w.officialLabel || '公式ページ'} ↗
-                      </a>
-                }
-                  </div>
-                  {(w.youtubeId || w.videoSrc) &&
-              <div style={{
-                position: 'relative', width: '100%',
-                aspectRatio: '16 / 9',
-                borderRadius: 'var(--radius-md)', overflow: 'hidden',
-                border: '1px solid rgba(244,114,182,0.25)',
-                boxShadow: '0 6px 18px rgba(0,0,0,0.30)',
-                background: '#000'
-              }}>
-                      {w.youtubeId ?
-                  <iframe
-                    src={`https://www.youtube.com/embed/${w.youtubeId}`}
-                    title={w.title}
-                    loading="lazy"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }} /> :
+                  {w.youtubeId ?
+              <iframe
+                src={`https://www.youtube.com/embed/${w.youtubeId}`}
+                title={w.title}
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none' }} /> :
 
-                  <video
-                    src={w.videoSrc}
-                    controls
-                    playsInline
-                    preload="metadata"
-                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', background: '#000' }} />
-                  }
-                    </div>
+              <video
+                src={w.videoSrc}
+                controls
+                playsInline
+                preload="metadata"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain', background: '#000' }} />
               }
                 </div>
-            )}
+            }
             </div>
-          </div>
-        }
+          )}
+        </div>
       </div>
     </section>);
 
@@ -1553,7 +1694,7 @@ function Footer() {
         © 2026 石島慎也 Shinya Ishijima
       </span>
       <div style={{ display: 'flex', gap: '20px' }}>
-        {['About', 'Career', 'Skills'].map((l) =>
+        {['About', 'Career', 'Skills', 'Next', 'Private'].map((l) =>
         <a key={l} href={`#${l.toLowerCase()}`} style={{
           fontFamily: 'var(--font-number)', fontSize: '13px', color: 'var(--fg-muted)',
           textDecoration: 'none', letterSpacing: '0.05em'
@@ -1632,6 +1773,8 @@ function App() {
       <Statement />
       <Career />
       <Skills />
+      <Next />
+      <Private />
       <ThankYou />
       <Footer />
 
