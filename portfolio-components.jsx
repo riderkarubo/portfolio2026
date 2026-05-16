@@ -226,7 +226,7 @@ const DATA = {
     tags: [
     '#提案資料をAIで即時生成', '#見積もりシート自動化(GAS+Claude)',
     '#配信分析-87%効率化', '#KPI分析をスキル化',
-    '#コード書ける事業責任者', '#AIエージェント並列運用',
+    '#バイブコーディングする事業責任者', '#AIエージェント並列運用',
     '#Chrome拡張で業務ハック', '#業務再設計まで踏み込む',
     '#9業界同時並行のAI活用', '#自作AI資産15+',
     '#生成AI CAMP認定(DMM)', '#AI×映像プロデュース']
@@ -1174,18 +1174,27 @@ function Skills() {
             </div>
             {DATA.aiImpact.tags &&
           <div style={{
-            marginTop: '20px', paddingTop: '18px',
-            borderTop: '1px solid rgba(74,222,128,0.18)',
-            display: 'flex', flexWrap: 'wrap', gap: '7px', justifyContent: 'center'
+            marginTop: '22px', paddingTop: '20px',
+            borderTop: '1px solid rgba(74,222,128,0.18)'
           }}>
-              {DATA.aiImpact.tags.map((t) =>
-            <span key={t} style={{
-              padding: '4px 11px', borderRadius: 'var(--radius-full)',
-              background: 'rgba(74,222,128,0.08)', border: '1px solid rgba(74,222,128,0.22)',
-              fontFamily: 'var(--font-body)', fontSize: '12px', color: '#4ade80',
-              whiteSpace: 'nowrap'
-            }}>{t}</span>
-            )}
+              <div style={{
+              fontFamily: 'var(--font-number)', fontSize: '10px', fontWeight: 700,
+              letterSpacing: '0.22em', color: '#4ade80',
+              textAlign: 'center', marginBottom: '14px'
+            }}>KEYWORDS</div>
+              <div style={{
+              display: 'flex', flexWrap: 'wrap', gap: '9px', justifyContent: 'center'
+            }}>
+                {DATA.aiImpact.tags.map((t) =>
+              <span key={t} style={{
+                padding: '7px 14px', borderRadius: 'var(--radius-full)',
+                background: 'rgba(74,222,128,0.16)', border: '1px solid rgba(74,222,128,0.42)',
+                fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 600,
+                color: '#a7f3d0', whiteSpace: 'nowrap',
+                boxShadow: '0 2px 8px rgba(74,222,128,0.10)'
+              }}>{t}</span>
+              )}
+              </div>
             </div>
           }
             {DATA.aiImpact.certificate &&
