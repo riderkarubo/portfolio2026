@@ -181,8 +181,7 @@ const DATA = {
       items: [
       { value: '×3.6', label: '売上成長', sub: '前年比' },
       { value: '+15%', label: '粗利改善', sub: '粗利額' },
-      { value: '33%', label: 'NewBiz構成比', sub: 'Japan Team 全体売上における比率' },
-      { value: '1名', label: '達成体制', sub: '事業責任者として' }]
+      { value: '33%', label: 'NewBiz構成比', sub: 'Japan Team 全体売上における比率' }]
 
     },
     clients: [
