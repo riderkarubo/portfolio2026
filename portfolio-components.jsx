@@ -60,7 +60,7 @@ const DATA = {
     id: 'candee',
     period: '2015.9 — 2018.7',
     company: '株式会社 Candee',
-    role: 'プロデューサー / 制作統括',
+    role: 'プロデューサー / ディレクター',
     category: 'ライブ配信・動画',
     color: '#38bdf8',
     team: '正社員',
