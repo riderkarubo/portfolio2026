@@ -170,9 +170,21 @@ const DATA = {
     highlights: [
     'ヤマダデンキ・マツキヨココカラ・Starbucks Japan・Samsung Japan ほか大手リテール／グローバルブランドを担当',
     'ライブ配信・ショート動画によるコンサルティング・制作・内製化支援',
-    '2024年〜事業責任者としてクリエイティブディレクションに加え、事業計画策定・営業活動・売上責任を担う'],
+    '2024年〜Creative Team事業責任者として、クリエイティブに加え事業計画・営業・売上責任を担当',
+    '就任1年で売上を前年比3.6倍に拡大、粗利+15%、NewBiz構成比33%を実現'],
 
-    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Teamの事業責任者に就任し、事業計画・営業・クリエイティブ全体を統括。',
+    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Teamの事業責任者に就任後、事業計画・営業・クリエイティブを統括し、就任1年で売上を前年比3.6倍に拡大。AI活用による業務効率化・新サービス（コンサル・内製化支援）の開発・制作パートナーとの単価交渉により、粗利+15%も同時に実現。',
+
+    // IMPACT — 数値ハイライト（CareerDetailで描画）
+    impact: {
+      caption: '2024 → 2025 事業成長',
+      items: [
+      { value: '×3.6', label: '売上成長', sub: '前年比' },
+      { value: '+15%', label: '粗利改善', sub: '粗利額' },
+      { value: '33%', label: 'NewBiz構成比', sub: '全体1.9億のうち6,400万円' },
+      { value: '1名', label: '達成体制', sub: '事業責任者として' }]
+
+    },
     clients: [
     { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png' },
     { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp' },
@@ -188,8 +200,8 @@ const DATA = {
   stats: [
   { num: 16, suffix: '年目', label: '映像制作キャリア' },
   { num: 6, suffix: '社', label: 'TV → Web → Music\n→ LiveCommerce' },
-  { num: 30, suffix: '本/月', label: 'LiveShop!\n月間最大制作本数' },
-  { num: 5, suffix: '社+', label: 'Firework\n大手クライアント数' }],
+  { num: 3.6, suffix: '倍', label: '現職 売上成長\n(前年比・FY24→FY25)' },
+  { num: 15, suffix: '%', label: '現職 粗利改善\n(同期間)' }],
 
 
   skills: {
@@ -221,12 +233,15 @@ function useCountUp(target, inView, duration = 1400) {
   const [value, setValue] = React.useState(0);
   React.useEffect(() => {
     if (!inView) return;
+    // 小数を含む値（例: 3.6）は小数1桁まで表示、整数はそのまま
+    const isDecimal = !Number.isInteger(target);
     let start = null;
     const step = (ts) => {
       if (!start) start = ts;
       const progress = Math.min((ts - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setValue(Math.floor(eased * target));
+      const raw = eased * target;
+      setValue(isDecimal ? Math.round(raw * 10) / 10 : Math.floor(raw));
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -824,6 +839,52 @@ function CareerDetail({ item }) {
       {/* BODY */}
       <div style={{ padding: '24px 32px 32px' }}>
         <p style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--fg-secondary)', lineHeight: 1.9, marginBottom: '24px' }}>{item.desc}</p>
+
+        {/* IMPACT — 数値ハイライト */}
+        {item.impact &&
+        <div style={{
+          marginBottom: '28px',
+          padding: '20px 22px',
+          background: `linear-gradient(135deg, ${item.color}14 0%, ${item.color}06 100%)`,
+          border: `1px solid ${item.color}33`,
+          borderRadius: 'var(--radius-lg)'
+        }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: item.color }}>IMPACT</div>
+              <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'var(--fg-muted)' }} />
+              <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--fg-muted)' }}>{item.impact.caption}</div>
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${item.impact.items.length}, 1fr)`,
+              gap: '14px'
+            }}>
+              {item.impact.items.map((m, i) =>
+            <div key={i} style={{
+              padding: '12px 8px',
+              borderLeft: i === 0 ? 'none' : '1px solid var(--border-subtle)',
+              textAlign: 'center'
+            }}>
+                  <div style={{
+                fontFamily: 'var(--font-number)', fontSize: 'clamp(22px, 3vw, 30px)',
+                fontWeight: 800, color: item.color, letterSpacing: '-0.02em',
+                lineHeight: 1.1, marginBottom: '6px'
+              }}>{m.value}</div>
+                  <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '12px', fontWeight: 600,
+                color: 'var(--fg-primary)', marginBottom: '2px'
+              }}>{m.label}</div>
+                  {m.sub &&
+              <div style={{
+                fontFamily: 'var(--font-body)', fontSize: '10px',
+                color: 'var(--fg-muted)', lineHeight: 1.4
+              }}>{m.sub}</div>
+              }
+                </div>
+            )}
+            </div>
+          </div>
+        }
 
         {/* Highlights */}
         <div style={{ marginBottom: '28px' }}>

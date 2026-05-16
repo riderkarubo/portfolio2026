@@ -321,6 +321,55 @@
     text-align: center;
   }
 
+  /* ============ FEEDBACK CARD（External Feedback専用） ============ */
+  .feedback-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 13.5px;
+  }
+  .feedback-source {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+    color: var(--ink-mute); text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .feedback-score-row {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin: 10px 0;
+  }
+  .score-chip {
+    display: inline-flex; align-items: baseline; gap: 6px;
+    padding: 4px 10px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    font-size: 12px;
+  }
+  .score-chip .label { color: var(--ink-soft); }
+  .score-chip .num {
+    font-family: 'Courier New', monospace;
+    font-weight: 700; color: var(--ink);
+  }
+  .score-chip.high .num { color: var(--green); }
+  .score-chip.mid .num { color: var(--gold); }
+  .score-chip.low .num { color: var(--red); }
+  .feedback-quote {
+    margin: 12px 0 4px;
+    padding: 8px 14px;
+    background: var(--paper);
+    border-radius: 3px;
+    font-size: 13px; color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .feedback-quote::before { content: '「'; color: var(--ink-mute); }
+  .feedback-quote::after { content: '」'; color: var(--ink-mute); }
+
   /* ============ TABLE ============ */
   table {
     width: 100%;
@@ -370,10 +419,11 @@
       <span class="progress-dot" id="dot-s1"></span>
       <span class="progress-dot" id="dot-s2"></span>
       <span class="progress-dot" id="dot-b1"></span>
+      <span class="progress-dot" id="dot-ef"></span>
       <span class="progress-dot" id="dot-a3"></span>
       <span class="progress-dot" id="dot-b3"></span>
       <span class="progress-dot" id="dot-a1"></span>
-      <span class="progress-text">0 / 9</span>
+      <span class="progress-text">0 / 10</span>
     </div>
   </div>
 </header>
@@ -392,14 +442,14 @@
   </p>
   <div class="meta">
     順序：軽いものから重いものへステップアップ<br>
-    S3 → B2 → A2 → S1 → S2 → B1 → A3 → B3 → A1<br>
+    S3 → B2 → A2 → S1 → S2 → B1 → <strong>EF（新）</strong> → A3 → B3 → A1<br>
     記録方式：対話で固まった内容を私（Claude）が直接書き込む（静的HTML）
   </div>
 </div>
 
 <!-- ============ TOC ============ -->
 <div class="toc">
-  <div class="toc-title">9 sections · ordered by lightness</div>
+  <div class="toc-title">10 sections · ordered by lightness</div>
   <div class="toc-list">
     <a class="toc-item" href="#s3"><span class="toc-num">01</span><span class="toc-tag">S3</span><span class="toc-label">By the Numbers — 数字の棚卸し</span><span class="toc-status">— 未着手</span></a>
     <a class="toc-item" href="#b2"><span class="toc-num">02</span><span class="toc-tag">B2</span><span class="toc-label">Niche Identity — 1行の自分宣言</span><span class="toc-status">— 未着手</span></a>
@@ -407,18 +457,20 @@
     <a class="toc-item" href="#s1"><span class="toc-num">04</span><span class="toc-tag">S1</span><span class="toc-label">Decisions I Made — 私が下した判断</span><span class="toc-status">— 未着手</span></a>
     <a class="toc-item" href="#s2"><span class="toc-num">05</span><span class="toc-tag">S2</span><span class="toc-label">Bets &amp; Pivots — 賭けと撤退</span><span class="toc-status">— 未着手</span></a>
     <a class="toc-item" href="#b1"><span class="toc-num">06</span><span class="toc-tag">B1</span><span class="toc-label">Leadership Philosophy — 仕事観の核</span><span class="toc-status">— 未着手</span></a>
-    <a class="toc-item" href="#a3"><span class="toc-num">07</span><span class="toc-tag">A3</span><span class="toc-label">References — 推薦コメント候補</span><span class="toc-status">— 未着手</span></a>
-    <a class="toc-item" href="#b3"><span class="toc-num">08</span><span class="toc-tag">B3</span><span class="toc-label">Now / Next — 現在の学習と次の挑戦</span><span class="toc-status">— 未着手</span></a>
-    <a class="toc-item" href="#a1"><span class="toc-num">09</span><span class="toc-tag">A1</span><span class="toc-label">Why This Company — 応募先別ステートメント</span><span class="toc-status">— 未着手</span></a>
+    <a class="toc-item" href="#ef"><span class="toc-num">07</span><span class="toc-tag">EF</span><span class="toc-label">External Feedback — 他者から見た自分（NEW）</span><span class="toc-status">— 未着手</span></a>
+    <a class="toc-item" href="#a3"><span class="toc-num">08</span><span class="toc-tag">A3</span><span class="toc-label">References — 推薦コメント候補</span><span class="toc-status">— 未着手</span></a>
+    <a class="toc-item" href="#b3"><span class="toc-num">09</span><span class="toc-tag">B3</span><span class="toc-label">Now / Next — 現在の学習と次の挑戦</span><span class="toc-status">— 未着手</span></a>
+    <a class="toc-item" href="#a1"><span class="toc-num">10</span><span class="toc-tag">A1</span><span class="toc-label">Why This Company — 応募先別ステートメント</span><span class="toc-status">— 未着手</span></a>
   </div>
 </div>
 
 <!-- ============ TOP RECOVERY BAR ============ -->
 <div class="top-recovery">
-  <strong>抽出済みの最強発見TOP3</strong> ／
+  <strong>抽出済みの最強発見TOP4</strong> ／
   ① MCCM案件 累計144万視聴・前年比+62%・協賛19社 ／
   ② 9業界×大手企業 同時並行ポートフォリオ ／
-  ③ Working Style三原則「ミスより遅い／正確さより分かりやすさ／早めのたたき台」
+  ③ Working Style三原則「ミスより遅い／正確さより分かりやすさ／早めのたたき台」 ／
+  ④ <strong>他者評価で「好奇心・成長マインド 4.5/5」「労働倫理 4/5」「マインドセット 4/5」</strong>（社内Annual Feedback）
 </div>
 
 <!-- ============ SECTION S3 ============ -->
@@ -451,6 +503,24 @@
       <tr><td>学習</td><td>RIZAP ENGLISH</td><td><strong>5年継続</strong>・B1-B2・1日1時間</td></tr>
       <tr><td>自作ツール</td><td>Claude Code/GAS</td><td><strong>15以上</strong></td></tr>
     </table>
+  </div>
+
+  <div class="material">
+    <div class="material-label">他者評価スコア（社内Annual Feedback・カントリーマネージャー × 同僚Peer Review）</div>
+    <table>
+      <tr><th>評価項目</th><th>スコア</th><th>出典</th></tr>
+      <tr><td>好奇心・成長マインド</td><td><strong style="color:var(--green)">4.5 / 5</strong></td><td>2025 mid year</td></tr>
+      <tr><td>労働倫理</td><td><strong style="color:var(--green)">4 / 5</strong></td><td>FY25 Annual</td></tr>
+      <tr><td>マインドセット</td><td><strong style="color:var(--green)">4 / 5</strong></td><td>FY25 Annual</td></tr>
+      <tr><td>デリバリー</td><td>3.5 / 5</td><td>2025 mid year</td></tr>
+      <tr><td>強い推進力・勤勉さ（粘り強い姿勢）</td><td>3.5 / 5</td><td>2025 mid year</td></tr>
+      <tr><td>創造的な解決</td><td>3 / 5</td><td>FY25 Annual</td></tr>
+      <tr><td>期限内</td><td>3 / 5</td><td>FY25 Annual</td></tr>
+      <tr><td>創意工夫・課題解決力</td><td>2.5 / 5</td><td>2025 mid year（伸びしろ）</td></tr>
+    </table>
+    <p style="margin-top:8px; font-size:12px; color:var(--ink-soft);">
+      → 高評価3項目（4.5/4/4）は<strong>そのままポートフォリオで使える数字</strong>。低スコア項目は <strong>EFセクション</strong>で「現在伸ばしている領域」として再フレーム
+    </p>
   </div>
 
   <div class="q-block">
@@ -624,6 +694,8 @@
       <li><strong>D10.</strong> ロレアル・プラダ案件「代理店リプレイス狙い」2パターン同時提案</li>
       <li><strong>D11.</strong> コープこうべ「分析より施策」リソース配分判断</li>
       <li><strong>D12.</strong> マンチェス案件「試作プラン¥120K」入口戦略 — 期待値ギャップ防止</li>
+      <li><strong>D13.</strong> <strong>スケーラブルなPS設計への着手</strong> — 「自走プラン1年サポート vs 5年伴走パターン」を同じ一定金額でペイできる料金体系を設計（FY25 Annual で開発目標として明示）</li>
+      <li><strong>D14.</strong> <strong>Annual Feedbackを受けて社内に制度提案</strong> — 評価制度・キャリアパスについて自ら制度設計を提案（FY25 Annual メモ末尾）</li>
     </ul>
   </div>
 
@@ -775,6 +847,21 @@
   </div>
 
   <div class="material">
+    <div class="material-label">⭐ 社内Annual Feedbackで「実践できている」と評価された行動原則</div>
+    <ul>
+      <li><strong>カスタマーセントリック</strong>（顧客起点）— Firework価値観で実践評価あり</li>
+      <li><strong>Win Together</strong>（共に勝つ）— Firework価値観で実践評価あり</li>
+      <li><strong>チームプレー、献身的に支える</strong> — 同僚Peer Reviewで言及</li>
+      <li><strong>AI学習による業務効率化</strong> — FY25 Annualで定性評価</li>
+      <li><strong>クライアントへの信頼力</strong> — FY25 Annualで定性評価</li>
+      <li><strong>文化的影響力</strong> — FY25 Annualで定性評価</li>
+    </ul>
+    <p style="margin-top:8px; font-size:12px; color:var(--ink-soft);">
+      → 自分で言う「信念」と、他者が言う「実践していること」が一致している項目は、ポートフォリオで最も説得力がある
+    </p>
+  </div>
+
+  <div class="material">
     <div class="material-label">既出原則候補（content-draft.mdより）</div>
     <ul>
       <li>制作は属人化させない仕組みで強くする</li>
@@ -809,11 +896,92 @@
   </div>
 </section>
 
+<!-- ============ SECTION EF（NEW） ============ -->
+<span class="anchor" id="ef"></span>
+<section>
+  <div class="sec-head">
+    <span class="sec-num">07</span>
+    <h2 class="sec-title">External Feedback</h2>
+    <span class="sec-subtitle">EF · 他者から見た自分（NEW）</span>
+  </div>
+  <p class="sec-aim">
+    Netflix「coworkers が言う自分の長所・短所」質問への直接素材。社内Annual Feedback（カントリーマネージャー × 同僚Peer Review）から抽出。
+    自己評価ではなく他者評価のため、ポートフォリオでの説得力が極めて高い。
+  </p>
+
+  <div class="feedback-card">
+    <div class="feedback-source">📊 2025 mid year review · 5段階評価</div>
+    <div class="feedback-score-row">
+      <span class="score-chip high"><span class="label">好奇心・成長マインド</span><span class="num">4.5</span></span>
+      <span class="score-chip mid"><span class="label">デリバリー</span><span class="num">3.5</span></span>
+      <span class="score-chip mid"><span class="label">強い推進力・勤勉さ</span><span class="num">3.5</span></span>
+      <span class="score-chip low"><span class="label">創意工夫・課題解決力</span><span class="num">2.5</span></span>
+    </div>
+    <div class="feedback-quote">カスタマーセントリック、Win Together、チームプレー、献身的に支える</div>
+    <p style="font-size:12px; color:var(--ink-soft); margin-top:8px;">
+      <strong>伸びしろ：</strong>データドリブン／プロジェクトリード・事業リード／Extreme Speed→データ推進力／提案施策を自ら主導／Problem Solvingの積極的改善策／客観的なビジネス視点／バランスをもって良さを突き抜けさせる／Greater China をもっとリード
+    </p>
+  </div>
+
+  <div class="feedback-card">
+    <div class="feedback-source">📊 FY25 Annual Feedback（2026.02.05）· 5段階評価</div>
+    <div class="feedback-score-row">
+      <span class="score-chip high"><span class="label">労働倫理</span><span class="num">4</span></span>
+      <span class="score-chip high"><span class="label">マインドセット</span><span class="num">4</span></span>
+      <span class="score-chip mid"><span class="label">創造的な解決</span><span class="num">3</span></span>
+      <span class="score-chip mid"><span class="label">期限内</span><span class="num">3</span></span>
+      <span class="score-chip"><span class="label">総合評価</span><span class="num">3</span></span>
+    </div>
+    <div class="feedback-quote">文化的影響力、クライアントへの信頼力、クリエイティブ力、AI学習によるスキルアセットの業務効率化への努力</div>
+    <p style="font-size:12px; color:var(--ink-soft); margin-top:8px;">
+      <strong>伸びしろ：</strong>データドリブンな裏付け・戦略（定量データ）／自分のいけているところをスケーラブルなフレームワーク・ビジネスモデルに落とし込む／チームビルディング、カルチャーにおける戦略リーダーシップ（部署横断型PJ）／スケーラブルなPS開発（おかわり前提のPS設計・内製化前提なら金額を増やす・自走1年と5年伴走の同金額化）
+    </p>
+  </div>
+
+  <div class="note">
+    <strong>解釈：</strong>
+    強み（4-4.5）→ <strong>好奇心・労働倫理・マインドセット</strong>＝Netflix適合度の核となるパーソナリティ／
+    伸びしろ → <strong>データドリブン・戦略リーダーシップ・スケーラブル設計</strong>＝既に DMM AI CAMP修了 / Claude Code 自作ツール15+ / ICP Intelligence で「行動で答えている」状態
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">Question 1</div>
+    <div class="q-text">この他者評価のうち、ポートフォリオに公開する範囲はどこまで？</div>
+    <div class="hint">a) 高評価のみ抜粋  b) スコア全部出して誠実に  c) スコア出さず「言葉」だけ抽出</div>
+    <div class="answer empty">
+      <span class="answer-label">Answer</span>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">Question 2</div>
+    <div class="q-text">「伸びしろ」項目（データドリブン等）を「現在強化中の領域」として公開すると、どう書く？</div>
+    <div class="hint">B3 Now / Next に既に「行動の答え」を一覧化済み。EFセクションでは「指摘を素直に受け止め、対応している」というストーリーで魅せる</div>
+    <div class="answer empty">
+      <span class="answer-label">Answer</span>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-label">Question 3</div>
+    <div class="q-text">「上司・同僚から評価された言葉」を引用形式で見せると、どの言葉が一番効く？</div>
+    <div class="hint">候補: 「カスタマーセントリック」「Win Together」「文化的影響力」「クリエイティブ力」「AI学習への努力」「チームプレー、献身的に支える」</div>
+    <div class="answer empty">
+      <span class="answer-label">Answer</span>
+    </div>
+  </div>
+
+  <div class="status-row">
+    <span class="badge empty">UNTOUCHED</span>
+    <span class="timestamp">last update: —</span>
+  </div>
+</section>
+
 <!-- ============ SECTION A3 ============ -->
 <span class="anchor" id="a3"></span>
 <section>
   <div class="sec-head">
-    <span class="sec-num">07</span>
+    <span class="sec-num">08</span>
     <h2 class="sec-title">References</h2>
     <span class="sec-subtitle">A3 · 推薦コメント候補</span>
   </div>
@@ -866,7 +1034,7 @@
 <span class="anchor" id="b3"></span>
 <section>
   <div class="sec-head">
-    <span class="sec-num">08</span>
+    <span class="sec-num">09</span>
     <h2 class="sec-title">Now / Next</h2>
     <span class="sec-subtitle">B3 · 現在の学習と次の挑戦</span>
   </div>
@@ -891,7 +1059,24 @@
       <li>AIによる制作プロセス革新</li>
       <li>大手企業のデジタルコンテンツ内製化</li>
       <li>ライブコマースのマネタイズ構造</li>
+      <li><strong>コネクテッドコマースで動画アセットを持たない企業へのクリエイティブ開発</strong>（2025 mid year で関心領域として明示）</li>
+      <li><strong>Greater China 市場のリード</strong>（FY25でリード強化を期待されている領域）</li>
     </ul>
+  </div>
+
+  <div class="material">
+    <div class="material-label">⭐ 現在強化中の領域（社内Annual Feedbackで認識した伸びしろ → 行動）</div>
+    <ul>
+      <li><strong>データドリブンな裏付け・戦略</strong>（FY25 Annualで2回指摘）<br>→ DMM生成AI CAMP修了（2026.1）／自作Claude Codeツール15以上／Firework ICP Intelligence System自作（41社週次監視）／LS分析レポート自動効率化（Gemini API×GAS）／LSコメント分析ツール（Python+OpenAI GPT-5 mini）</li>
+      <li><strong>創意工夫・課題解決力（難解な課題への解決力）</strong>（2025 mid year 2.5/5）<br>→ Studio One MCP Server自作／Adobe MCP接続検証／自作Skills群（estimate-profit-sheet-builder / gas-sheets-editor）</li>
+      <li><strong>プロジェクトリード・事業リード（自ら主導）</strong><br>→ MCCM「70分以内縛り」独自KPI設計を主導／Q2 Offsite運営責任者として経営層4名と並列で意思決定</li>
+      <li><strong>客観的なビジネス視点</strong>（Kazukiさん指摘）<br>→ Starbucks FY27年間¥22.86M売上・粗利率23.7%を1人で設計／ICP 41社の財務・戦略分析を週次監視</li>
+      <li><strong>スケーラブルなPS開発</strong>（FY25 Annual で明示）<br>→ PS_サービス料金原価一覧 作成／内製化前提の料金体系設計／自走プランvs5年伴走の同金額化を検討中</li>
+      <li><strong>部署横断型プロジェクト・チームビルディング戦略リーダーシップ</strong>（FY25 Annual で明示）<br>→ Q2 Offsite運営／Firework Reporting Kit プラグイン化で社内ナレッジ横展開</li>
+    </ul>
+    <p style="margin-top:8px; font-size:12px; color:var(--ink-soft);">
+      → 「他者が指摘した弱み」に対して「すでに具体的アクションを取っている」のがNetflix最強型
+    </p>
   </div>
 
   <div class="material">
@@ -939,7 +1124,7 @@
 <span class="anchor" id="a1"></span>
 <section>
   <div class="sec-head">
-    <span class="sec-num">09</span>
+    <span class="sec-num">10</span>
     <h2 class="sec-title">Why This Company</h2>
     <span class="sec-subtitle">A1 · 応募先別ステートメント</span>
   </div>
