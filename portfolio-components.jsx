@@ -8,11 +8,11 @@ const DATA = {
   nameEn: 'Shinya Ishijima',
   title: 'Director of Creative Strategy / 事業責任者',
   tagline: '映像で、人を動かす。',
-  taglineSub: 'テレビ制作から始まり、ライブ配信・ライブコマースまで。\n15年間、コンテンツの最前線にいる映像プロデューサー。',
+  taglineSub: 'テレビ制作から始まり、ライブ配信・ライブコマースまで。\n16年間、コンテンツの最前線に立ち続ける映像プロデューサー。',
 
   profile: {
     target: 'プロデューサー職（映像・ライブ配信）',
-    bio: '日本大学芸術学部卒業後、テレビ番組制作会社に入社。主にバラエティ番組のAD、ディレクターとして従事。\n2015年より動画系ベンチャーの株式会社Candeeに入社。ライブ配信の番組制作プロデューサーとして、自社コンテンツや広告案件、自社アプリのライブコマース事業を担当。\nその後、ワーナーミュージック・ジャパンでアーティストのYouTube番組制作や、BitStarにて大手企業のYouTube\u30c1\u30e3\u30f3\u30cd\u30eb\u306e運用・コンサルティングを担当。\n2021年よりFirework Japanに入社し、動画を活用したマーケティング（ショート動画やライブ配信）の戦略設計・コンテンツ制作・コンサルティング業務に従事。\n2024年にCreative Team事業責任者に就任。',
+    bio: '日本大学芸術学部を卒業後、テレビ番組制作会社に入社。バラエティ番組のADやディレクターを務める。\n2015年より動画系ベンチャーの株式会社Candeeに参画。ライブ配信の番組制作プロデューサーとして、自社コンテンツや広告案件、自社アプリのライブコマース事業を牽引。\nその後、ワーナーミュージック・ジャパンでのアーティストのYouTube番組制作や、BitStarでの大手企業のYouTubeチャンネル運用・コンサルティングを経験。\n2021年にFirework Japanへ入社し、動画マーケティング（ショート動画・ライブ配信）の戦略設計からコンテンツ制作、コンサルティングまで幅広く従事。\n2024年、Creative Teamの事業責任者に就任。',
     hobbies: [
     { emoji: '♨️', label: 'サウナ' },
     { emoji: '🎤', label: 'カラオケ' },
@@ -46,8 +46,8 @@ const DATA = {
 
     desc: 'テレビ番組制作会社にてAD・ディレクターとして従事。民放各局のバラエティ番組を担当。AD3年目で深夜番組においてディレクターデビューを果たし、社内MVP「ザ・ワークス賞」を受賞。',
     works: [
-    { title: '謎解きバトル TORE!', platform: '日テレ系', role: 'アシスタント・ディレクター', thumb: 'assets/works/tore.png' },
-    { title: 'ショーバト！', platform: '日テレ系', role: 'アシスタント・ディレクター', thumb: 'assets/works/sho-bato.jpeg' },
+    { title: '謎解きバトル TORE!', platform: '日テレ系', role: 'AD', thumb: 'assets/works/tore.png' },
+    { title: 'ショーバト！', platform: '日テレ系', role: 'AD', thumb: 'assets/works/sho-bato.jpeg' },
     { title: 'リアルロボットバトル日本一決定戦', platform: '日テレ系', role: 'ディレクター', thumb: 'assets/works/robot-battle.png' },
     { title: 'それゆけ！ゲームパンサー！', platform: '日テレ系', role: 'AD/ディレクター', thumb: 'assets/works/game-panser.webp' },
     { title: 'スッキリ', platform: '日テレ系', role: 'AD', thumb: 'assets/works/sukkiri.jpeg' },
@@ -69,8 +69,8 @@ const DATA = {
     logoBg: '#ffffff',
     highlights: [
     'LINE LIVE 公式・自社チャンネルの番組を企画〜制作まで統括',
-    'JリーグルヴァンカップFacebook Live — 3社協業PJ',
-    'ライブコマースアプリ「LiveShop!」をゼロから立ち上げ（月間30〜60本）',
+    'Jリーグルヴァンカップ Facebook Live — 3社協業プロジェクト',
+    'ライブコマースアプリ「LiveShop!」をゼロから立ち上げ、最大月間30〜60本を制作',
     '最大14名のチームをマネジメント'],
 
     desc: 'スマホ特化の動画・ライブ配信ベンチャーにてプロデューサーとして参画。LINE LIVEやFacebook Liveなどで各公式・自社チャンネル番組、広告案件、ライブコマースアプリ「LiveShop!」の立ち上げまで幅広く担当。',
@@ -78,10 +78,10 @@ const DATA = {
     { title: 'らいぶおやすみ！添い寝観察天気予報', platform: 'LINE LIVE', role: 'プロデューサー', thumb: 'assets/works/konno.webp' },
     { title: '今野杏南と１万人の彼氏', platform: 'LINE LIVE', role: 'プロデューサー', thumb: 'assets/works/okubo.webp' },
     { title: '大久保佳代子のお悩み相談', platform: 'LINE LIVE', role: 'プロデューサー' },
-    { title: 'おじさんモンスターバトル「おじモン」', platform: 'LINE LIVE', role: 'プロデューサー/ 総合演出', thumb: 'assets/works/line-live-studio.webp' },
+    { title: 'おじさんモンスターバトル「おじモン」', platform: 'LINE LIVE', role: 'プロデューサー / 総合演出', thumb: 'assets/works/line-live-studio.webp' },
     { title: 'スター・ウォーズ イベント特番', platform: 'LINE LIVE（広告）', role: 'プロデューサー', thumb: 'assets/works/starwars.png' },
     { title: '映画「バイオハザードファイナル」配信特番', platform: 'LINE LIVE（広告）', role: 'プロデューサー', thumb: 'assets/works/biohazard.webp' },
-    { title: 'JリーグルヴァンカップチャンピオンシップLive', platform: 'Facebook Live', role: 'プロデューサー', thumb: 'assets/works/jleague.webp' },
+    { title: 'Jリーグルヴァンカップ チャンピオンシップ Live', platform: 'Facebook Live', role: 'プロデューサー', thumb: 'assets/works/jleague.webp' },
     { title: 'Sportsnavi「スポレー」', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/spore.webp' },
     { title: 'サンリオ「シンカイゾク」PR動画', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/sanrio.webp' },
     { title: 'ザッパラス占い動画', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/zappallas.webp' },
@@ -92,7 +92,7 @@ const DATA = {
   {
     id: 'warner',
     period: '2018.8 — 2019.1',
-    company: '株式会社ワーナーミュージック・ジャパン',
+    company: '株式会社 ワーナーミュージック・ジャパン',
     role: 'プロデューサー / ディレクター',
     category: '音楽 × YouTube',
     color: '#a78bfa',
@@ -104,7 +104,7 @@ const DATA = {
     '「ちゃんみな」YouTubeシリーズ「PRINCESS PROJECT」を担当',
     '企画・プロデュース・撮影・編集をワンオペで完結'],
 
-    desc: 'HANAのプロデューサーでもある「ちゃんみな」のオリジナルYouTube番組シリーズ「PRINCESS PROJECT」を一人で企画・制作。プロデュースから撮影・編集まで全工程を担当。',
+    desc: '「ちゃんみな」のオリジナルYouTube番組シリーズ「PRINCESS PROJECT」を一人で企画・制作。プロデュースから撮影・編集まで全工程を担当。',
     works: [
     { title: 'ちゃんみな「PRINCESS PROJECT」', platform: 'YouTube', role: '企画・撮影・編集（1名）', thumb: 'assets/works/chanmina.webp' }]
 
@@ -162,21 +162,21 @@ const DATA = {
     role: 'Director of Creative Strategy / 事業責任者',
     category: 'ライブコマース・動画コマース',
     color: '#4ade80',
-    team: '正社員（資本金390億・従業員25名）',
+    team: '正社員（資本金390億円・従業員25名）',
     logo: 'assets/logos/firework.webp',
     logoFit: 'contain',
     logoBg: '#000000',
     logoPadding: '0px',
     highlights: [
-    'ヤマダデンキ・マツキヨココカラ・Starbucks Japan・Samsung Japanなどを担当',
+    'ヤマダデンキ・マツキヨココカラ・Starbucks Japan・Samsung Japan ほか大手リテール／グローバルブランドを担当',
     'ライブ配信・ショート動画によるコンサルティング・制作・内製化支援',
-    '2024年〜事業責任者としてクリエイティブディレクション以外に事業計画策定・Sales活動・売上責任を担う'],
+    '2024年〜事業責任者としてクリエイティブディレクションに加え、事業計画策定・営業活動・売上責任を担う'],
 
-    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Team事業責任者に就任し、事業計画・Sales・クリエイティブ全体を統括。',
+    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Teamの事業責任者に就任し、事業計画・営業・クリエイティブ全体を統括。',
     clients: [
     { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png' },
     { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp' },
-    { name: 'マツキヨココカラ & カンパニー', logo: 'assets/clients/matsukiyo.webp' },
+    { name: 'マツキヨココカラ&カンパニー', logo: 'assets/clients/matsukiyo.webp' },
     { name: 'ヤマダデンキ', logo: 'assets/clients/yamada.webp' },
     { name: 'イオンリテール', logo: 'assets/clients/aeon.png' },
     { name: '無印良品', logo: 'assets/clients/muji.png' }],
@@ -187,8 +187,8 @@ const DATA = {
 
   stats: [
   { num: 16, suffix: '年目', label: '映像制作キャリア' },
-  { num: 6, suffix: '社', label: 'TV→Web→Music\n→LiveCommerce' },
-  { num: 30, suffix: '本/月', label: 'LiveShop!\n最大月間制作本数' },
+  { num: 6, suffix: '社', label: 'TV → Web → Music\n→ LiveCommerce' },
+  { num: 30, suffix: '本/月', label: 'LiveShop!\n月間最大制作本数' },
   { num: 5, suffix: '社+', label: 'Firework\n大手クライアント数' }],
 
 
@@ -640,7 +640,7 @@ function About() {
 
           {/* Tags */}
           <div style={{ ...fade(0.45), display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {['#事業責任者', '#クリエイティブディレクター', '#プロデューサー', '#ディレクター', '#番組制作', '#ライブ配信', '#ショート動画', '#動画コマース', '#ライブコマース', '#動画編集', '#生成AI活用', '#ビジネス英語（初級）'].map((t) =>
+            {['#事業責任者', '#クリエイティブディレクター', '#プロデューサー', '#ディレクター', '#番組制作', '#ライブ配信', '#ショート動画', '#動画コマース', '#ライブコマース', '#動画編集', '#生成AI活用', '#ビジネス英語（中級）'].map((t) =>
             <span key={t} style={{
               padding: '5px 14px', borderRadius: 'var(--radius-full)',
               background: 'rgba(78,168,222,0.08)', border: '1px solid rgba(78,168,222,0.2)',
