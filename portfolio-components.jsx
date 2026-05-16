@@ -589,6 +589,62 @@ function Hero() {
 
 }
 
+// ── STATEMENT ────────────────────────────────────────────────
+
+function Statement() {
+  const [ref, inView] = useInView();
+  const fade = (d = 0) => ({
+    opacity: inView ? 1 : 0,
+    transform: inView ? 'none' : 'translateY(18px)',
+    transition: `opacity 0.8s var(--ease-out) ${d}s, transform 0.8s var(--ease-out) ${d}s`
+  });
+
+  return (
+    <section id="statement" ref={ref} style={{
+      padding: 'var(--section-gap) clamp(20px, 5vw, 60px)',
+      background: 'var(--bg-deep)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      minHeight: '60vh', position: 'relative', overflow: 'hidden'
+    }}>
+      {/* Subtle grid texture */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.4,
+        backgroundImage: 'linear-gradient(rgba(78,168,222,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(78,168,222,0.03) 1px, transparent 1px)',
+        backgroundSize: '64px 64px'
+      }} />
+      {/* Glow accent */}
+      <div style={{
+        position: 'absolute', top: '50%', left: '15%', transform: 'translateY(-50%)',
+        width: '500px', height: '500px', pointerEvents: 'none',
+        background: 'radial-gradient(circle, rgba(78,168,222,0.06) 0%, transparent 65%)'
+      }} />
+
+      <div style={{ position: 'relative', maxWidth: '1100px', margin: '0 auto', width: '100%' }}>
+        {/* Small label */}
+        <div style={{ ...fade(0), display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '28px' }}>
+          <div style={{ width: '32px', height: '1px', background: 'var(--accent)' }} />
+          <span style={{
+            fontFamily: 'var(--font-number)', fontSize: '12px', fontWeight: 700,
+            letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--accent)'
+          }}>WHO I AM</span>
+        </div>
+
+        {/* Statement (2行構成) */}
+        <h2 style={{
+          ...fade(0.15),
+          fontFamily: 'var(--font-display)', fontWeight: 900,
+          fontSize: 'clamp(26px, 4.6vw, 52px)',
+          lineHeight: 1.3, letterSpacing: '-0.02em',
+          color: 'var(--fg-primary)', margin: 0
+        }}>
+          クリエイティブと事業成長、二刀流で挑む<br />
+          <span style={{ color: 'var(--accent)' }}>コンテンツビジネスプロデューサー</span>
+        </h2>
+      </div>
+    </section>);
+
+}
+
 // ── ABOUT ────────────────────────────────────────────────────
 
 function About() {
@@ -1453,6 +1509,7 @@ function App() {
       <Nav />
       <SideNav />
       <Hero />
+      <Statement />
       <About />
       <Career />
       <Skills />
