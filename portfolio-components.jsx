@@ -234,8 +234,8 @@ const DATA = {
   },
 
   selfAnalysis: {
-    label: 'SELF ANALYSIS',
-    caption: '自己評価 × 他者評価のマージで描く5軸チャート',
+    label: 'STRENGTHS & GROWTH',
+    caption: '自己×他者評価で見える、強みと成長領域',
     note: '社内Annual Feedback（カントリーマネージャー＋同僚Peer Review）と、長年の関係者からの言葉を統合して5軸化（max 5.0）',
     axes: [
     { name: '推進力・実行力', score: 4.0, type: 'strength', desc: '得意領域では「他の追随を許さない」推進力。労働倫理 4/5・強い推進力 3.5/5（Annual Feedback）。' },
@@ -340,7 +340,6 @@ function Nav() {
   const links = [
   { label: 'Profile', href: '#about' },
   { label: 'Career', href: '#career' },
-  { label: 'Self Analysis', href: '#self-analysis' },
   { label: 'Skills', href: '#skills' },
   { label: 'Private', href: '#private' }];
 
@@ -381,12 +380,11 @@ function NavLink({ href, children }) {
 
 function SideNav() {
   const sections = React.useMemo(() => [
-    { id: 'hero',          label: 'Top' },
-    { id: 'about',         label: 'Profile' },
-    { id: 'career',        label: 'Career' },
-    { id: 'self-analysis', label: 'Self Analysis' },
-    { id: 'skills',        label: 'Skills' },
-    { id: 'private',       label: 'Private' }
+    { id: 'hero',    label: 'Top' },
+    { id: 'about',   label: 'Profile' },
+    { id: 'career',  label: 'Career' },
+    { id: 'skills',  label: 'Skills' },
+    { id: 'private', label: 'Private' }
   ], []);
 
   const [activeId, setActiveId] = React.useState('hero');
@@ -1815,7 +1813,6 @@ function Footer() {
         {[
         { label: 'About', id: 'about' },
         { label: 'Career', id: 'career' },
-        { label: 'Self', id: 'self-analysis' },
         { label: 'Skills', id: 'skills' },
         { label: 'Private', id: 'private' }].
         map((l) =>
@@ -1896,7 +1893,6 @@ function App() {
       <About />
       <Statement />
       <Career />
-      <SelfAnalysis />
       <Skills />
       <Private />
       <ThankYou />
