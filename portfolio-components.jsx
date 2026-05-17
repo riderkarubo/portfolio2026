@@ -1159,7 +1159,7 @@ function WorkCard({ work, color }) {
           lineHeight: 1.5
         }}>
             <span style={{ color: 'var(--fg-muted)', fontFamily: 'var(--font-number)', fontSize: '10px', letterSpacing: '0.14em', marginRight: '6px' }}>CAST</span>
-            {work.cast}
+            {work.cast} <span style={{ color: 'var(--fg-muted)' }}>/ 他</span>
           </div>
         }
       </div>
