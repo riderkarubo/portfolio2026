@@ -78,15 +78,15 @@ const DATA = {
     { title: 'らいぶおやすみ！添い寝観察天気予報', platform: 'LINE LIVE', role: 'プロデューサー', thumb: 'assets/works/konno.webp' },
     { title: '今野杏南と１万人の彼氏', platform: 'LINE LIVE', role: 'プロデューサー', thumb: 'assets/works/okubo.webp' },
     { title: '大久保佳代子のお悩み相談', platform: 'LINE LIVE', role: 'プロデューサー' },
-    { title: 'おじさんモンスターバトル「おじモン」', platform: 'LINE LIVE', role: 'プロデューサー / 総合演出', thumb: 'assets/works/line-live-studio.webp' },
+    { title: 'おじさんモンスターバトル「おじモン」', platform: 'LINE LIVE', role: 'プロデューサー / 総合演出', cast: 'トータルテンボス、タケト', thumb: 'assets/works/line-live-studio.webp' },
     { title: 'スター・ウォーズ イベント特番', platform: 'LINE LIVE（広告）', role: 'プロデューサー', thumb: 'assets/works/starwars.png' },
-    { title: '映画「バイオハザードファイナル」配信特番', platform: 'LINE LIVE（広告）', role: 'プロデューサー', thumb: 'assets/works/biohazard.webp' },
+    { title: '映画「バイオハザードファイナル」配信特番', platform: 'LINE LIVE（広告）', role: 'プロデューサー', cast: 'ミラ・ジョボビッチ', thumb: 'assets/works/biohazard.webp' },
     { title: 'Jリーグルヴァンカップ チャンピオンシップ Live', platform: 'Facebook Live', role: 'プロデューサー', thumb: 'assets/works/jleague.webp' },
     { title: 'Sportsnavi「スポレー」', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/spore.webp' },
     { title: 'サンリオ「シンカイゾク」PR動画', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/sanrio.webp' },
     { title: 'ザッパラス占い動画', platform: 'スマホ動画', role: 'プロデューサー', thumb: 'assets/works/zappallas.webp' },
     { title: '＆GIRLS（ASOBISYSTEMと協業）', platform: 'LiveShop!', role: 'プロデューサー', thumb: 'assets/works/and-girls.webp' },
-    { title: '監禁男子〜24時間監禁Live〜', platform: 'LiveShop!', role: 'プロデューサー / 総合演出', thumb: 'assets/works/kankin-danshi.webp' }]
+    { title: '監禁男子〜24時間監禁Live〜', platform: 'LiveShop!', role: 'プロデューサー / 総合演出', thumb: 'assets/works/kankin-danshi.webp', thumbFit: 'contain', thumbBg: '#0d1b2a' }]
 
   },
   {
@@ -207,7 +207,7 @@ const DATA = {
     'プロジェクトマネジメント': ['企画立案', 'プロデュース', 'チームマネジメント', 'クライアントワーク', '番組制作', 'ライブ配信演出', '台本制作', 'ディレクション', '撮影・編集', 'キャスティング'],
     '事業・グロース': ['事業計画策定', '予算管理', '予実管理', 'KPI設計', 'P/L管理', 'マネタイズ設計', 'グロース戦略', 'データドリブン施策'],
     'ツール・技術': ['Premiere Pro', 'Photoshop', 'OBS Studio', 'Google Apps Script', 'Word / Excel / PowerPoint'],
-    '資格・その他': ['普通自動車免許', '英語 B1〜B2（CEFR）', 'DMM生成AI CAMP スキル習得認定(2026.1)'],
+    '資格・その他': ['普通自動車免許', '英語 A2〜B1（CEFR）', 'DMM生成AI CAMP スキル習得認定(2026.1)'],
     '生成AIツール': ['Claude Code (Cowork)', 'Gemini', 'NotebookLM', 'AI Studio']
   },
 
@@ -802,7 +802,7 @@ function About() {
 
           {/* Tags */}
           <div style={{ ...fade(0.45), display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {['#事業責任者', '#クリエイティブディレクター', '#プロデューサー', '#ディレクター', '#番組制作', '#ライブ配信', '#ショート動画', '#動画コマース', '#ライブコマース', '#動画編集', '#生成AI活用', '#ビジネス英語（中級）'].map((t) =>
+            {['#事業責任者', '#クリエイティブディレクター', '#プロデューサー', '#ディレクター', '#番組制作', '#ライブ配信', '#ショート動画', '#動画コマース', '#ライブコマース', '#動画編集', '#生成AI活用', '#ビジネス英語（初級）'].map((t) =>
             <span key={t} style={{
               padding: '5px 14px', borderRadius: 'var(--radius-full)',
               background: 'rgba(78,168,222,0.08)', border: '1px solid rgba(78,168,222,0.2)',
@@ -1151,6 +1151,17 @@ function WorkCard({ work, color }) {
       <div style={{ padding: '12px 14px 14px' }}>
         <div style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--fg-primary)', fontWeight: 600, lineHeight: 1.45, marginBottom: '4px' }}>{work.title}</div>
         <div style={{ fontFamily: 'var(--font-number)', fontSize: '12px', color: 'var(--fg-muted)', letterSpacing: '0.02em' }}>{work.role}</div>
+        {work.cast &&
+        <div style={{
+          marginTop: '6px', paddingTop: '6px',
+          borderTop: '1px dashed var(--border-subtle)',
+          fontFamily: 'var(--font-body)', fontSize: '11.5px', color: 'var(--fg-secondary)',
+          lineHeight: 1.5
+        }}>
+            <span style={{ color: 'var(--fg-muted)', fontFamily: 'var(--font-number)', fontSize: '10px', letterSpacing: '0.14em', marginRight: '6px' }}>CAST</span>
+            {work.cast}
+          </div>
+        }
       </div>
     </div>);
 
