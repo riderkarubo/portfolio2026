@@ -271,7 +271,7 @@ const DATA = {
 
   privateWorks: {
     label: 'PRIVATE WORKS',
-    caption: '業務外の個人活動・受賞歴',
+    caption: '業務外の個人活動',
     items: [
     {
       title: '第一回 三池崇史監督主催「26秒のカーニバル」入賞',
@@ -342,7 +342,6 @@ function Nav() {
   { label: 'Career', href: '#career' },
   { label: 'Self Analysis', href: '#self-analysis' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Next', href: '#next' },
   { label: 'Private', href: '#private' }];
 
 
@@ -387,7 +386,6 @@ function SideNav() {
     { id: 'career',        label: 'Career' },
     { id: 'self-analysis', label: 'Self Analysis' },
     { id: 'skills',        label: 'Skills' },
-    { id: 'next',          label: 'Next' },
     { id: 'private',       label: 'Private' }
   ], []);
 
@@ -1819,7 +1817,6 @@ function Footer() {
         { label: 'Career', id: 'career' },
         { label: 'Self', id: 'self-analysis' },
         { label: 'Skills', id: 'skills' },
-        { label: 'Next', id: 'next' },
         { label: 'Private', id: 'private' }].
         map((l) =>
         <a key={l.id} href={`#${l.id}`} style={{
@@ -1901,7 +1898,6 @@ function App() {
       <Career />
       <SelfAnalysis />
       <Skills />
-      <Next />
       <Private />
       <ThankYou />
       <Footer />
