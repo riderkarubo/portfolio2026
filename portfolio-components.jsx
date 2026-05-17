@@ -101,10 +101,9 @@ const DATA = {
     logoFit: 'contain',
     logoBg: '#ffffff',
     highlights: [
-    '「HANA」のプロデューサーでもある「ちゃんみな」のYouTubeシリーズ「PRINCESS PROJECT」を担当',
     '企画・プロデュース・撮影・編集をワンオペで完結'],
 
-    desc: '「HANA」のプロデューサーでもある「ちゃんみな」のオリジナルYouTube番組シリーズ「PRINCESS PROJECT」を一人で企画・制作。プロデュースから撮影・編集まで全工程を担当。',
+    desc: '',
     works: [
     { title: 'ちゃんみな「PRINCESS PROJECT」', platform: 'YouTube', role: '企画・撮影・編集（1名）', thumb: 'assets/works/chanmina.webp' }]
 
@@ -171,9 +170,9 @@ const DATA = {
     'ヤマダデンキ・マツキヨココカラ・Starbucks Japan・Samsung Japan ほか大手リテール／グローバルブランドを担当',
     'ライブ配信・ショート動画によるコンサルティング・制作・内製化支援',
     '2024年〜Creative Team事業責任者として、クリエイティブに加え事業計画・営業・売上責任を担当',
-    '就任1年で売上を前年比3.6倍に拡大、粗利+15%、NewBiz構成比33%を実現'],
+    '売上を前年比3.6倍に拡大、粗利+15%、NewBiz構成比33%を実現'],
 
-    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Teamの事業責任者に就任後、事業計画・営業・クリエイティブを統括し、就任1年で売上を前年比3.6倍に拡大。AI活用による業務効率化・新サービス（コンサル・内製化支援）の開発・制作パートナーとの単価交渉により、粗利+15%も同時に実現。',
+    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Teamの事業責任者に就任後、事業計画・営業・クリエイティブを統括し、売上を前年比3.6倍に拡大。AI活用による業務効率化・新サービス（コンサル・内製化支援）の開発・制作パートナーとの単価交渉により、粗利+15%も同時に実現。',
 
     // IMPACT — 数値ハイライト（CareerDetailで描画）
     impact: {
