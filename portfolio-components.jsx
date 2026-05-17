@@ -233,6 +233,19 @@ const DATA = {
 
   },
 
+  selfAnalysis: {
+    label: 'SELF ANALYSIS',
+    caption: '自己評価 × 他者評価のマージで描く5軸チャート',
+    note: '社内Annual Feedback（カントリーマネージャー＋同僚Peer Review）と、長年の関係者からの言葉を統合して5軸化（max 5.0）',
+    axes: [
+    { name: '推進力・実行力', score: 4.0, type: 'strength', desc: '得意領域では「他の追随を許さない」推進力。労働倫理 4/5・強い推進力 3.5/5（Annual Feedback）。' },
+    { name: '好奇心・学習', score: 4.5, type: 'strength', desc: '好奇心・成長マインド 4.5/5（Annual Feedback）。素直さ・新領域への越境（6社16年・DMM AI CAMP修了）。' },
+    { name: '情熱・コミットメント', score: 4.5, type: 'strength', desc: '「熱い気持ち・情熱」「まじめすぎる」と評される姿勢。マインドセット 4/5（Annual Feedback）。' },
+    { name: '適応力・関係構築', score: 4.0, type: 'strength', desc: '「世渡り上手・環境適応能力高い」。9業界×大手企業同時並行・クライアントワーク評価。' },
+    { name: '創造的解決・突破力', score: 3.0, type: 'growth', desc: '不得意領域では沼ることがある。創造的な解決 3/5（Annual Feedback）→ 伸びしろとして次サイクルで4.0目標。' }]
+
+  },
+
   next: {
     label: 'NEXT',
     caption: 'これから作りたいもの',
@@ -327,6 +340,7 @@ function Nav() {
   const links = [
   { label: 'Profile', href: '#about' },
   { label: 'Career', href: '#career' },
+  { label: 'Self Analysis', href: '#self-analysis' },
   { label: 'Skills', href: '#skills' },
   { label: 'Next', href: '#next' },
   { label: 'Private', href: '#private' }];
@@ -368,12 +382,13 @@ function NavLink({ href, children }) {
 
 function SideNav() {
   const sections = React.useMemo(() => [
-    { id: 'hero',    label: 'Top' },
-    { id: 'about',   label: 'Profile' },
-    { id: 'career',  label: 'Career' },
-    { id: 'skills',  label: 'Skills' },
-    { id: 'next',    label: 'Next' },
-    { id: 'private', label: 'Private' }
+    { id: 'hero',          label: 'Top' },
+    { id: 'about',         label: 'Profile' },
+    { id: 'career',        label: 'Career' },
+    { id: 'self-analysis', label: 'Self Analysis' },
+    { id: 'skills',        label: 'Skills' },
+    { id: 'next',          label: 'Next' },
+    { id: 'private',       label: 'Private' }
   ], []);
 
   const [activeId, setActiveId] = React.useState('hero');
@@ -1173,6 +1188,193 @@ function StatCard({ stat, inView, delay }) {
 
 }
 
+// ── SELF ANALYSIS (Pentagon Chart) ───────────────────────────
+
+function SelfAnalysis() {
+  const [ref, inView] = useInView(0.1);
+
+  if (!DATA.selfAnalysis) return null;
+
+  const axes = DATA.selfAnalysis.axes;
+  const N = axes.length;
+  const MAX = 5;
+
+  // Geometry
+  const SIZE = 420;
+  const CX = SIZE / 2;
+  const CY = SIZE / 2;
+  const R = 150; // outer radius
+
+  const angle = (i) => (Math.PI * 2 * i) / N - Math.PI / 2; // start at top
+
+  const point = (i, radius) => {
+    const a = angle(i);
+    return [CX + radius * Math.cos(a), CY + radius * Math.sin(a)];
+  };
+
+  // Grid polygons (1〜5)
+  const gridPolys = [1, 2, 3, 4, 5].map((level) => {
+    const pts = axes.map((_, i) => point(i, R * (level / MAX)).join(',')).join(' ');
+    return pts;
+  });
+
+  // Data polygon
+  const dataPts = axes.map((a, i) => point(i, R * (a.score / MAX)).join(',')).join(' ');
+
+  // Axis lines
+  const axisLines = axes.map((_, i) => point(i, R));
+
+  // Axis labels (slightly outside)
+  const labelPoints = axes.map((_, i) => point(i, R + 36));
+
+  return (
+    <section id="self-analysis" ref={ref} style={{
+      padding: 'var(--section-gap) clamp(20px, 5vw, 60px)',
+      background: 'var(--bg-deep)',
+      scrollMarginTop: '80px'
+    }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <SectionLabel inView={inView}>{DATA.selfAnalysis.label}</SectionLabel>
+        <h2 style={{
+          fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 900,
+          color: 'var(--fg-primary)', marginBottom: '8px', letterSpacing: '-0.02em',
+          opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
+          transition: 'all 0.7s var(--ease-out) 0.15s'
+        }}>{DATA.selfAnalysis.caption}</h2>
+        <p style={{
+          fontFamily: 'var(--font-body)', fontSize: '13px',
+          color: 'var(--fg-muted)', marginBottom: '40px', lineHeight: 1.7,
+          opacity: inView ? 1 : 0,
+          transition: 'opacity 0.7s var(--ease-out) 0.25s'
+        }}>{DATA.selfAnalysis.note}</p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 420px) minmax(0, 1fr)',
+          gap: '40px',
+          alignItems: 'center',
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'none' : 'translateY(12px)',
+          transition: 'all 0.8s var(--ease-out) 0.35s'
+        }}>
+          {/* SVG Pentagon Chart */}
+          <div style={{ position: 'relative', width: '100%', maxWidth: '420px', margin: '0 auto' }}>
+            <svg viewBox={`0 0 ${SIZE} ${SIZE}`} style={{ width: '100%', height: 'auto', overflow: 'visible' }}>
+              {/* Grid polygons */}
+              {gridPolys.map((pts, i) =>
+              <polygon key={i} points={pts}
+                fill="none"
+                stroke="rgba(255,255,255,0.08)"
+                strokeWidth="1" />
+              )}
+
+              {/* Axis lines */}
+              {axisLines.map(([x, y], i) =>
+              <line key={i} x1={CX} y1={CY} x2={x} y2={y}
+                stroke="rgba(255,255,255,0.10)"
+                strokeWidth="1" />
+              )}
+
+              {/* Data polygon (strength color) */}
+              <polygon points={dataPts}
+                fill="rgba(74,222,128,0.18)"
+                stroke="#4ade80"
+                strokeWidth="2.5"
+                strokeLinejoin="round" />
+
+              {/* Data points */}
+              {axes.map((a, i) => {
+                const [px, py] = point(i, R * (a.score / MAX));
+                const color = a.type === 'growth' ? '#fbbf24' : '#4ade80';
+                return (
+                  <g key={i}>
+                    <circle cx={px} cy={py} r="6"
+                    fill={color}
+                    stroke="var(--bg-deep)"
+                    strokeWidth="2.5" />
+                  </g>);
+
+              })}
+
+              {/* Axis labels */}
+              {axes.map((a, i) => {
+                const [lx, ly] = labelPoints[i];
+                const color = a.type === 'growth' ? '#fbbf24' : '#a7f3d0';
+                return (
+                  <g key={i}>
+                    <text x={lx} y={ly}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="12"
+                    fontWeight="700"
+                    fontFamily="var(--font-body)"
+                    fill={color}
+                    style={{ letterSpacing: '0.02em' }}>
+                      {a.name}
+                    </text>
+                    <text x={lx} y={ly + 16}
+                    textAnchor="middle"
+                    dominantBaseline="middle"
+                    fontSize="14"
+                    fontWeight="800"
+                    fontFamily="var(--font-number)"
+                    fill={color}>
+                      {a.score.toFixed(1)}
+                    </text>
+                  </g>);
+
+              })}
+            </svg>
+          </div>
+
+          {/* 凡例 + 説明テキスト */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            {/* Legend */}
+            <div style={{ display: 'flex', gap: '20px', marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ width: '12px', height: '12px', background: '#4ade80', borderRadius: '50%' }} />
+                <span style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', color: '#a7f3d0' }}>STRENGTH</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ width: '12px', height: '12px', background: '#fbbf24', borderRadius: '50%' }} />
+                <span style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', color: '#fcd34d' }}>GROWTH</span>
+              </div>
+            </div>
+
+            {axes.map((a, i) => {
+              const color = a.type === 'growth' ? '#fbbf24' : '#4ade80';
+              const tintBg = a.type === 'growth' ? 'rgba(251,191,36,0.08)' : 'rgba(74,222,128,0.08)';
+              const tintBorder = a.type === 'growth' ? 'rgba(251,191,36,0.25)' : 'rgba(74,222,128,0.25)';
+              return (
+                <div key={i} style={{
+                  padding: '14px 16px',
+                  background: tintBg,
+                  border: `1px solid ${tintBorder}`,
+                  borderRadius: 'var(--radius-lg)',
+                  display: 'flex', flexDirection: 'column', gap: '6px'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ width: '8px', height: '8px', background: color, borderRadius: '50%' }} />
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '14px', fontWeight: 700, color: 'var(--fg-primary)', flex: 1 }}>
+                      {a.name}
+                    </span>
+                    <span style={{ fontFamily: 'var(--font-number)', fontSize: '15px', fontWeight: 800, color: color }}>
+                      {a.score.toFixed(1)} <span style={{ fontSize: '10px', color: 'var(--fg-muted)', fontWeight: 600 }}>/ {MAX}</span>
+                    </span>
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: '12px', color: 'var(--fg-secondary)', lineHeight: 1.6 }}>
+                    {a.desc}
+                  </div>
+                </div>);
+
+            })}
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
 // ── SKILLS ───────────────────────────────────────────────────
 
 function Skills() {
@@ -1612,11 +1814,18 @@ function Footer() {
         © 2026 石島慎也 Shinya Ishijima
       </span>
       <div style={{ display: 'flex', gap: '20px' }}>
-        {['About', 'Career', 'Skills', 'Next', 'Private'].map((l) =>
-        <a key={l} href={`#${l.toLowerCase()}`} style={{
+        {[
+        { label: 'About', id: 'about' },
+        { label: 'Career', id: 'career' },
+        { label: 'Self', id: 'self-analysis' },
+        { label: 'Skills', id: 'skills' },
+        { label: 'Next', id: 'next' },
+        { label: 'Private', id: 'private' }].
+        map((l) =>
+        <a key={l.id} href={`#${l.id}`} style={{
           fontFamily: 'var(--font-number)', fontSize: '13px', color: 'var(--fg-muted)',
           textDecoration: 'none', letterSpacing: '0.05em'
-        }}>{l}</a>
+        }}>{l.label}</a>
         )}
       </div>
     </footer>);
@@ -1690,6 +1899,7 @@ function App() {
       <About />
       <Statement />
       <Career />
+      <SelfAnalysis />
       <Skills />
       <Next />
       <Private />
