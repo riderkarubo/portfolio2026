@@ -339,7 +339,7 @@ function Nav() {
 
   const links = [
   { label: 'Profile', href: '#about' },
-  { label: 'Career', href: '#career' },
+  { label: 'Career', href: '#statement' },
   { label: 'Skills', href: '#skills' },
   { label: 'Private', href: '#private' }];
 
@@ -390,11 +390,11 @@ function NavLink({ href, children }) {
 
 function SideNav() {
   const sections = React.useMemo(() => [
-    { id: 'hero',    label: 'Top' },
-    { id: 'about',   label: 'Profile' },
-    { id: 'career',  label: 'Career' },
-    { id: 'skills',  label: 'Skills' },
-    { id: 'private', label: 'Private' }
+    { id: 'hero',      label: 'Top' },
+    { id: 'about',     label: 'Profile' },
+    { id: 'statement', label: 'Career' },
+    { id: 'skills',    label: 'Skills' },
+    { id: 'private',   label: 'Private' }
   ], []);
 
   const [activeId, setActiveId] = React.useState('hero');
@@ -1822,7 +1822,7 @@ function Footer() {
       <div style={{ display: 'flex', gap: '20px' }}>
         {[
         { label: 'About', id: 'about' },
-        { label: 'Career', id: 'career' },
+        { label: 'Career', id: 'statement' },
         { label: 'Skills', id: 'skills' },
         { label: 'Private', id: 'private' }].
         map((l) =>
