@@ -659,10 +659,10 @@ function Statement() {
 
   return (
     <section id="statement" ref={ref} style={{
-      padding: 'var(--section-gap) clamp(20px, 5vw, 60px)',
+      padding: 'clamp(40px, 6vw, 64px) clamp(20px, 5vw, 60px)',
       background: 'var(--bg-base)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      minHeight: '60vh', position: 'relative', overflow: 'hidden'
+      position: 'relative', overflow: 'hidden'
     }}>
       {/* Subtle grid texture */}
       <div style={{
