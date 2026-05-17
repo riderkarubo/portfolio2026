@@ -101,9 +101,10 @@ const DATA = {
     logoFit: 'contain',
     logoBg: '#ffffff',
     highlights: [
-    '企画・プロデュース・撮影・編集をワンオペで完結'],
+    'アーティスト主導のオリジナルYouTube番組をワンオペで制作',
+    '企画立案からプロデュース・撮影・編集まで全工程を1名で完結'],
 
-    desc: '',
+    desc: 'アーティストのオリジナルYouTube番組シリーズを1名で企画・制作。プロデュースから撮影・編集まで全工程を担当し、アーティストの世界観に寄り添ったコンテンツを継続制作。',
     works: [
     { title: 'ちゃんみな「PRINCESS PROJECT」', platform: 'YouTube', role: '企画・撮影・編集（1名）', thumb: 'assets/works/chanmina.webp?v=2' }]
 
