@@ -354,7 +354,17 @@ function Nav() {
       borderBottom: scrolled ? '1px solid rgba(78,168,222,0.1)' : 'none',
       transition: 'all 0.4s var(--ease-out)'
     }}>
-      <div></div>
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: '8px',
+        padding: '5px 12px', borderRadius: 'var(--radius-full)',
+        background: 'rgba(78,168,222,0.10)',
+        border: '1px solid rgba(78,168,222,0.30)',
+        fontFamily: 'var(--font-number)', fontSize: '12px', fontWeight: 700,
+        letterSpacing: '0.14em', color: 'var(--accent)'
+      }}>
+        <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }} />
+        v.B-2026
+      </div>
       <div style={{ display: 'flex', gap: '28px', alignItems: 'center', padding: scrolled ? '0' : '6px 16px', borderRadius: scrolled ? '0' : 'var(--radius-full)', background: scrolled ? 'transparent' : 'rgba(8,15,26,0.55)', backdropFilter: scrolled ? 'none' : 'blur(10px)', border: scrolled ? 'none' : '1px solid rgba(78,168,222,0.12)', transition: 'all 0.4s var(--ease-out)' }}>
         {links.map((l) => <NavLink key={l.label} href={l.href}>{l.label}</NavLink>)}
       </div>
