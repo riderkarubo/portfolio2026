@@ -101,10 +101,10 @@ const DATA = {
     logoFit: 'contain',
     logoBg: '#ffffff',
     highlights: [
-    '「ちゃんみな」YouTubeシリーズ「PRINCESS PROJECT」を担当',
+    '「HANA」のプロデューサーでもある「ちゃんみな」のYouTubeシリーズ「PRINCESS PROJECT」を担当',
     '企画・プロデュース・撮影・編集をワンオペで完結'],
 
-    desc: '「ちゃんみな」のオリジナルYouTube番組シリーズ「PRINCESS PROJECT」を一人で企画・制作。プロデュースから撮影・編集まで全工程を担当。',
+    desc: '「HANA」のプロデューサーでもある「ちゃんみな」のオリジナルYouTube番組シリーズ「PRINCESS PROJECT」を一人で企画・制作。プロデュースから撮影・編集まで全工程を担当。',
     works: [
     { title: 'ちゃんみな「PRINCESS PROJECT」', platform: 'YouTube', role: '企画・撮影・編集（1名）', thumb: 'assets/works/chanmina.webp' }]
 
