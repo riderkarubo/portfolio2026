@@ -271,7 +271,7 @@ const DATA = {
 
   privateWorks: {
     label: 'PRIVATE WORKS',
-    caption: '業務外の個人活動',
+    caption: '個人活動（趣味）',
     items: [
     {
       title: '第一回 三池崇史監督主催「26秒のカーニバル」入賞',
