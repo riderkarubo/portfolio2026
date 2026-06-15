@@ -48,3 +48,6 @@ worksheet.html
 worksheet-*.html
 worksheet-*.md
 archive.html
+*.env
+token.json
+client_secret*
