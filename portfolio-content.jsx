@@ -128,7 +128,7 @@ const UI_EN = {
   // 英語はラベルが長くパネル実測幅142px（右端162px）。必要な幅は約1564px
   sideNavMinWidth: 1580,
   langToggle: { to: 'JA', label: 'Switch to Japanese' },
-  hero: { greetLead: "Hi, I'm ", greetTail: '.' },
+  hero: { greetLead: 'Creative Director,', greetTail: '' },
   statement: { line1: 'Creative craft and business ownership,', line2: 'run as one discipline.' },
   about: {
     photoAlt: 'Shinya Ishijima',
