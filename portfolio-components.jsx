@@ -125,7 +125,7 @@ function SideNav() {
   // 1280〜1440px のラップトップで Hero 見出しが欠ける事故が起きていたため、
   // 余白が確保できる幅でのみ表示する（狭い幅では上部 Nav が代替となる）。
   React.useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1520px)');
+    const mq = window.matchMedia('(min-width: 1580px)');
     const onChange = () => setIsWide(mq.matches);
     onChange();
     mq.addEventListener('change', onChange);
@@ -442,7 +442,7 @@ function About() {
 
   return (
     <section id="about" ref={ref} style={{ padding: 'var(--section-gap) clamp(20px, 5vw, 60px)', background: 'var(--bg-deep)' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '280px 1fr', gap: '64px', alignItems: 'start' }}>
+      <div className="about-grid">
         {/* Photo */}
         <div style={fade(0)}>
           <div style={{
@@ -978,8 +978,7 @@ function Stats() {
   return (
     <section ref={ref} style={{ padding: '80px clamp(20px, 5vw, 60px)', background: 'var(--bg-deep)' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{
-          display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px',
+        <div className="stats-grid" style={{
           opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)',
           transition: 'all 0.7s var(--ease-out) 0.1s'
         }}>
