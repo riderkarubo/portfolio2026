@@ -119,18 +119,18 @@ function SideNav() {
   const [visible, setVisible]   = React.useState(false);
   const [isWide, setIsWide]     = React.useState(true);
 
-  // 1520px 未満では非表示。
-  // 本文の左端は「padding 60px + (W - 1320) / 2」で決まるため、W が約1510px を下回ると
-  // 左端が60pxに張り付き、left:20px・幅115px の当ナビ(右端135px)が本文に最大75px重なる。
-  // 1280〜1440px のラップトップで Hero 見出しが欠ける事故が起きていたため、
-  // 余白が確保できる幅でのみ表示する（狭い幅では上部 Nav が代替となる）。
+  // 左に十分な余白があるときだけ表示する。
+  // 本文の左端は「padding 60px + (W - 1320) / 2」で決まるため、W が閾値を下回ると
+  // 左端が60pxに張り付き、left:20px の当ナビが本文に重なって見出しが欠ける。
+  // 閾値は言語で異なる（英語はラベルが長くパネルが広い）ため UI から受け取る。
+  // 狭い幅では上部 Nav が navigation を代替する。
   React.useEffect(() => {
-    const mq = window.matchMedia('(min-width: 1580px)');
+    const mq = window.matchMedia(`(min-width: ${UI.sideNavMinWidth}px)`);
     const onChange = () => setIsWide(mq.matches);
     onChange();
     mq.addEventListener('change', onChange);
     return () => mq.removeEventListener('change', onChange);
-  }, []);
+  }, [UI.sideNavMinWidth]);
 
   // スクロール位置から「いま見ているセクション」を判定
   // - スクロール位置 + Nav高さ + マージン より上にある最も下のセクションをアクティブにする

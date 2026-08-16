@@ -82,6 +82,8 @@ const UI_JA = {
   { id: 'private', label: 'Private' }],
 
   sideNavAria: 'セクションナビゲーション',
+  // パネル実測幅115px（右端135px）。本文左端が155pxを超えるのに必要な幅は約1510px
+  sideNavMinWidth: 1520,
   langToggle: { to: 'EN', label: '英語版に切り替え' },
   hero: { greetLead: 'はじめまして、', greetTail: 'と申します。' },
   statement: { line1: 'クリエイティブと事業成長、二刀流で挑む', line2: 'コンテンツビジネスプロデューサー' },
@@ -123,6 +125,8 @@ const UI_EN = {
   { id: 'private', label: 'Craft' }],
 
   sideNavAria: 'Section navigation',
+  // 英語はラベルが長くパネル実測幅142px（右端162px）。必要な幅は約1564px
+  sideNavMinWidth: 1580,
   langToggle: { to: 'JA', label: 'Switch to Japanese' },
   hero: { greetLead: "Hi, I'm ", greetTail: '.' },
   statement: { line1: 'Creative craft and business ownership,', line2: 'run as one discipline.' },
