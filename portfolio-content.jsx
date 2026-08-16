@@ -125,7 +125,7 @@ const UI_EN = {
   sideNavAria: 'Section navigation',
   langToggle: { to: 'JA', label: 'Switch to Japanese' },
   hero: { greetLead: "Hi, I'm ", greetTail: '.' },
-  statement: { line1: 'Creative craft and business ownership, run as one discipline.', line2: 'A creative leader who is accountable for the P&L.' },
+  statement: { line1: 'Creative craft and business ownership,', line2: 'run as one discipline.' },
   about: {
     photoAlt: 'Shinya Ishijima',
     hobbies: 'Off the clock',
