@@ -99,7 +99,8 @@ const UI_JA = {
   career: {
     heading: 'キャリア', clients: 'SUPPORTING CLIENTS（一部）', worksUnit: '件', castOther: '/ 他',
     // work.urlKind に対応するラベル。url があるカードだけ表示される
-    linkKind: { video: '動画を見る', channel: '公式チャンネル', news: '公式ニュース', page: '公式ページ' }
+    linkKind: { video: '動画を見る', channel: '公式チャンネル', news: '公式ニュース', page: '公式ページ' },
+    linkLegend: '↗ の付いた作品はクリックで公式ページ・チャンネルをご覧いただけます'
   },
   skills: { heading: 'スキル・経験', certAlt: 'DMM 生成AI CAMP 認定証' },
   privateWorks: { officialDefault: '公式ページ' },
@@ -145,9 +146,11 @@ const UI_EN = {
   },
   career: {
     heading: 'Experience', clients: 'SELECTED CLIENTS', worksUnit: 'projects', castOther: '/ and others',
-    linkKind: { video: 'Watch', channel: 'Official channel', news: 'Announcement', page: 'Official page' }
+    linkKind: { video: 'Watch', channel: 'Official channel', news: 'Announcement', page: 'Official page' },
+    linkLegend: '↗ marks a card you can click through to its official page or channel'
   },
   skills: { heading: 'Creative Leadership & AI', certAlt: 'DMM Generative AI CAMP certificate' },
+  selectedWork: { linkLegend: '↗ marks a card you can click through to its official page or channel' },
   privateWorks: { officialDefault: 'Official page' },
   thanks: { message: 'Thank you for taking the time to read through my work.' },
   footer: { copyright: '© 2026 Shinya Ishijima' },

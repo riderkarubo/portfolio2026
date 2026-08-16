@@ -573,10 +573,17 @@ function Career() {
         <SectionLabel inView={inView}>CAREER</SectionLabel>
         <h2 style={{
           fontFamily: 'var(--font-display)', fontSize: 'clamp(26px, 3.5vw, 38px)', fontWeight: 900,
-          color: 'var(--fg-primary)', marginBottom: '48px', letterSpacing: '-0.02em',
+          color: 'var(--fg-primary)', marginBottom: '10px', letterSpacing: '-0.02em',
           opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
           transition: 'all 0.7s var(--ease-out) 0.15s'
         }}>{UI.career.heading}</h2>
+        {UI.career.linkLegend &&
+        <p style={{
+          fontFamily: 'var(--font-body)', fontSize: '13px', color: 'var(--fg-muted)',
+          marginBottom: '38px',
+          opacity: inView ? 1 : 0, transition: 'opacity 0.7s var(--ease-out) 0.2s'
+        }}>{UI.career.linkLegend}</p>
+        }
 
         <div style={{
           display: 'grid', gridTemplateColumns: '240px 1fr', gap: '28px',
@@ -861,6 +868,9 @@ function WorkCard({ work, color }) {
   const linkProps = linked ?
   { href: work.url, target: '_blank', rel: 'noopener noreferrer' } :
   {};
+  // 「触れる感じ」の演出（枠の発光・浮き上がり・画像ズーム）はリンクカードだけに出す。
+  // リンクの無いカードにまで付けると、クリックできそうに見えて反応しない罠になる。
+  const active = linked && hov;
   return (
     <Tag
       {...linkProps}
@@ -868,10 +878,10 @@ function WorkCard({ work, color }) {
       style={{
         display: 'block', textDecoration: 'none', color: 'inherit',
         background: 'var(--bg-elevated)',
-        border: `1px solid ${hov ? color + '55' : 'var(--border-subtle)'}`,
+        border: `1px solid ${active ? color + '55' : 'var(--border-subtle)'}`,
         borderRadius: 'var(--radius-lg)', overflow: 'hidden',
-        transform: hov ? 'translateY(-3px)' : 'none',
-        boxShadow: hov ? `0 12px 28px rgba(0,0,0,0.45), 0 0 0 1px ${color}30` : 'var(--shadow-sm)',
+        transform: active ? 'translateY(-3px)' : 'none',
+        boxShadow: active ? `0 12px 28px rgba(0,0,0,0.45), 0 0 0 1px ${color}30` : 'var(--shadow-sm)',
         transition: 'all 0.25s var(--ease-out)', cursor: linked ? 'pointer' : 'default'
       }}>
       <div style={{
@@ -881,7 +891,7 @@ function WorkCard({ work, color }) {
         {work.thumb ?
         <img src={work.thumb} alt={work.title} style={{
           width: '100%', height: '100%', objectFit: work.thumbFit || 'cover',
-          transform: hov ? 'scale(1.05)' : 'none',
+          transform: active ? 'scale(1.05)' : 'none',
           transition: 'transform 0.4s var(--ease-out)'
         }} /> :
 
@@ -909,10 +919,10 @@ function WorkCard({ work, color }) {
           position: 'absolute', top: '10px', left: '10px',
           width: '26px', height: '26px', borderRadius: '50%',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          background: hov ? color : 'rgba(8,15,26,0.85)', backdropFilter: 'blur(6px)',
+          background: active ? color : 'rgba(8,15,26,0.85)', backdropFilter: 'blur(6px)',
           border: `1px solid ${color}66`,
           fontFamily: 'var(--font-number)', fontSize: '13px', fontWeight: 700,
-          color: hov ? '#08111a' : color,
+          color: active ? '#08111a' : color,
           transition: 'all 0.25s var(--ease-out)'
         }}>↗</span>
         }
@@ -936,7 +946,7 @@ function WorkCard({ work, color }) {
           marginTop: '8px',
           fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
           letterSpacing: '0.1em',
-          color: hov ? color : 'var(--fg-muted)',
+          color: active ? color : 'var(--fg-muted)',
           transition: 'color 0.25s var(--ease-out)'
         }}>{UI.career.linkKind[work.urlKind] || UI.career.linkKind.page} ↗</div>
         }
@@ -950,6 +960,7 @@ function WorkCard({ work, color }) {
 function SelectedWork() {
   const [ref, inView] = useInView(0.1);
   const DATA = useData();
+  const UI = useUI();
 
   if (!DATA.selectedWork) return null;
 
@@ -974,6 +985,13 @@ function SelectedWork() {
           opacity: inView ? 1 : 0,
           transition: 'all 0.7s var(--ease-out) 0.2s'
         }}>{DATA.selectedWork.note}</p>
+        }
+        {UI.selectedWork?.linkLegend &&
+        <p style={{
+          fontFamily: 'var(--font-body)', fontSize: '13px', color: 'var(--fg-muted)',
+          marginTop: '-14px', marginBottom: '28px',
+          opacity: inView ? 1 : 0, transition: 'opacity 0.7s var(--ease-out) 0.25s'
+        }}>{UI.selectedWork.linkLegend}</p>
         }
 
         <div style={{
