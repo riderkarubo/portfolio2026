@@ -259,6 +259,8 @@ function SideNavItem({ section, active, onClick }) {
 // ── HERO ─────────────────────────────────────────────────────
 
 function Hero() {
+  const UI = useUI();
+  const DATA = useData();
   const [vis, setVis] = React.useState(false);
   React.useEffect(() => {const t = setTimeout(() => setVis(true), 80);return () => clearTimeout(t);}, []);
 
@@ -343,7 +345,7 @@ function Hero() {
           color: 'var(--fg-primary)', marginBottom: '56px',
           maxWidth: '900px'
         }}>
-          はじめまして、<br /><span style={{ color: 'var(--accent)' }}>石島 慎也</span>と申します。
+          {UI.hero.greetLead}<br /><span style={{ color: 'var(--accent)' }}>{DATA.name}</span>{UI.hero.greetTail}
         </h1>
 
       </div>
@@ -368,6 +370,7 @@ function Hero() {
 // ── STATEMENT ────────────────────────────────────────────────
 
 function Statement() {
+  const UI = useUI();
   const [ref, inView] = useInView();
   const fade = (d = 0) => ({
     opacity: inView ? 1 : 0,
@@ -413,8 +416,8 @@ function Statement() {
           lineHeight: 1.3, letterSpacing: '-0.02em',
           color: 'var(--fg-primary)', margin: 0
         }}>
-          クリエイティブと事業成長、二刀流で挑む<br />
-          <span style={{ color: 'var(--accent)' }}>コンテンツビジネスプロデューサー</span>
+          {UI.statement.line1}<br />
+          <span style={{ color: 'var(--accent)' }}>{UI.statement.line2}</span>
         </h2>
       </div>
     </section>);
@@ -424,6 +427,7 @@ function Statement() {
 // ── ABOUT ────────────────────────────────────────────────────
 
 function About() {
+  const UI = useUI();
   const DATA = useData();
   const [ref, inView] = useInView();
   const fade = (d = 0) => ({
@@ -443,7 +447,7 @@ function About() {
             border: '1px solid var(--border)', position: 'relative', overflow: 'hidden',
             boxShadow: 'var(--shadow-lg)'
           }}>
-            <img src="assets/profile.webp" alt="石島慎也" style={{
+            <img src="assets/profile.webp" alt={UI.about.photoAlt} style={{
               width: '100%', height: '100%', objectFit: 'cover'
             }}
             onError={(e) => {e.target.src = 'assets/profile.webp';}} />
@@ -458,8 +462,10 @@ function About() {
             marginTop: '16px', padding: '16px 20px', borderRadius: 'var(--radius-lg)',
             background: 'var(--bg-surface)', border: '1px solid var(--border)'
           }}>
-            <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 700, color: 'var(--fg-primary)', marginBottom: '2px' }}>石島 慎也</div>
-            <div style={{ fontFamily: 'var(--font-number)', fontSize: '13px', color: 'var(--fg-muted)', letterSpacing: '0.05em' }}>Shinya Ishijima</div>
+            <div style={{ fontFamily: 'var(--font-display)', fontSize: '20px', fontWeight: 700, color: 'var(--fg-primary)', marginBottom: '2px' }}>{DATA.name}</div>
+            {DATA.nameEn !== DATA.name &&
+            <div style={{ fontFamily: 'var(--font-number)', fontSize: '13px', color: 'var(--fg-muted)', letterSpacing: '0.05em' }}>{DATA.nameEn}</div>
+            }
           </div>
 
           {/* Hobbies card */}
@@ -467,7 +473,7 @@ function About() {
             marginTop: '12px', padding: '16px 20px', borderRadius: 'var(--radius-lg)',
             background: 'var(--bg-surface)', border: '1px solid var(--border)'
           }}>
-            <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '10px' }}>趣味</div>
+            <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginBottom: '10px' }}>{UI.about.hobbies}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {DATA.profile.hobbies.map((h) =>
               <span key={h.label} style={{
@@ -480,7 +486,7 @@ function About() {
                 </span>
               )}
             </div>
-            <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginTop: '16px', marginBottom: '10px' }}>特技</div>
+            <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)', marginTop: '16px', marginBottom: '10px' }}>{UI.about.specialties}</div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {DATA.profile.skills_personal.map((s) =>
               <span key={s.label} style={{
@@ -505,9 +511,7 @@ function About() {
 
           {/* Profile grid */}
           <div style={{ ...fade(0.35), display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '28px' }}>
-            {[
-            { label: '現職', value: 'Firework Japan株式会社\nDirector of Creative Strategy / 事業責任者' },
-            { label: 'キャリア', value: '映像制作 16年目（2011年新卒）' }].
+            {UI.about.facts.
             map((item) =>
             <div key={item.label} style={{
               padding: '14px 16px', borderRadius: 'var(--radius-md)',
@@ -521,7 +525,7 @@ function About() {
 
           {/* Tags */}
           <div style={{ ...fade(0.45), display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-            {['#事業責任者', '#クリエイティブディレクター', '#プロデューサー', '#ディレクター', '#番組制作', '#ライブ配信', '#ショート動画', '#動画コマース', '#ライブコマース', '#動画編集', '#生成AI活用', '#ビジネス英語（初級）'].map((t) =>
+            {DATA.profile.tags.map((t) =>
             <span key={t} style={{
               padding: '5px 14px', borderRadius: 'var(--radius-full)',
               background: 'rgba(78,168,222,0.08)', border: '1px solid rgba(78,168,222,0.2)',
@@ -539,6 +543,7 @@ function About() {
 // ── CAREER ───────────────────────────────────────────────────
 
 function Career() {
+  const UI = useUI();
   const DATA = useData();
   const [ref, inView] = useInView(0.05);
   const [active, setActive] = React.useState('works');
@@ -567,7 +572,7 @@ function Career() {
           color: 'var(--fg-primary)', marginBottom: '48px', letterSpacing: '-0.02em',
           opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
           transition: 'all 0.7s var(--ease-out) 0.15s'
-        }}>キャリア</h2>
+        }}>{UI.career.heading}</h2>
 
         <div style={{
           display: 'grid', gridTemplateColumns: '240px 1fr', gap: '28px',
@@ -623,6 +628,7 @@ function CareerTab({ item, active, onClick }) {
 }
 
 function CareerDetail({ item }) {
+  const UI = useUI();
   const companyShort = item.company.replace(/株式会社 ?/g, '').replace(/ ?株式会社/g, '').trim();
 
   return (
@@ -769,7 +775,7 @@ function CareerDetail({ item }) {
         {item.clients ?
         <div>
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '14px' }}>
-              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)' }}>SUPPORTING CLIENTS（一部）</div>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)' }}>{UI.career.clients}</div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', alignItems: 'center', justifyItems: 'center' }}>
               {item.clients.map((c, i) =>
@@ -781,7 +787,7 @@ function CareerDetail({ item }) {
         <div>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
               <div style={{ fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--accent)' }}>WORKS</div>
-              <div style={{ fontFamily: 'var(--font-number)', fontSize: '12px', color: 'var(--fg-muted)' }}>{item.works.length} 件</div>
+              <div style={{ fontFamily: 'var(--font-number)', fontSize: '12px', color: 'var(--fg-muted)' }}>{item.works.length} {UI.career.worksUnit}</div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px' }}>
               {item.works.map((w, i) => <WorkCard key={i} work={w} color={item.color} />)}
@@ -825,6 +831,7 @@ function ClientLogo({ client, color }) {
 }
 
 function WorkCard({ work, color }) {
+  const UI = useUI();
   const [hov, setHov] = React.useState(false);
   return (
     <div
@@ -879,7 +886,7 @@ function WorkCard({ work, color }) {
           lineHeight: 1.5
         }}>
             <span style={{ color: 'var(--fg-muted)', fontFamily: 'var(--font-number)', fontSize: '10px', letterSpacing: '0.14em', marginRight: '6px' }}>CAST</span>
-            {work.cast} <span style={{ color: 'var(--fg-muted)' }}>/ 他</span>
+            {work.cast} <span style={{ color: 'var(--fg-muted)' }}>{UI.career.castOther}</span>
           </div>
         }
       </div>
@@ -1188,6 +1195,7 @@ function SelfAnalysis() {
 // ── SKILLS ───────────────────────────────────────────────────
 
 function Skills() {
+  const UI = useUI();
   const DATA = useData();
   const [ref, inView] = useInView(0.1);
 
@@ -1200,7 +1208,7 @@ function Skills() {
           color: 'var(--fg-primary)', marginBottom: '32px', letterSpacing: '-0.02em',
           opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(16px)',
           transition: 'all 0.7s var(--ease-out) 0.15s'
-        }}>スキル・経験</h2>
+        }}>{UI.skills.heading}</h2>
 
         <div style={{ marginBottom: '32px',
           display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '14px',
@@ -1325,7 +1333,7 @@ function Skills() {
             }}
             onMouseEnter={(e) => {e.currentTarget.style.transform = 'translateY(-3px)';e.currentTarget.style.boxShadow = '0 12px 28px rgba(74,222,128,0.28)';}}
             onMouseLeave={(e) => {e.currentTarget.style.transform = 'none';e.currentTarget.style.boxShadow = '0 6px 18px rgba(0,0,0,0.30)';}}>
-                <img src={DATA.aiImpact.certificate.image} alt="DMM 生成AI CAMP 認定証"
+                <img src={DATA.aiImpact.certificate.image} alt={UI.skills.certAlt}
               style={{ display: 'block', width: '100%', height: 'auto' }} />
                 <div style={{
                 padding: '8px 12px', fontSize: '11px',
@@ -1452,6 +1460,7 @@ function Next() {
 // ── PRIVATE WORKS ────────────────────────────────────────────
 
 function Private() {
+  const UI = useUI();
   const DATA = useData();
   const [ref, inView] = useInView(0.1);
 
@@ -1519,7 +1528,7 @@ function Private() {
               }}
               onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(244,114,182,0.12)';}}
               onMouseLeave={(e) => {e.currentTarget.style.background = 'transparent';}}>
-                    {w.officialLabel || '公式ページ'} ↗
+                    {w.officialLabel || UI.privateWorks.officialDefault} ↗
                   </a>
               }
               </div>
@@ -1561,6 +1570,7 @@ function Private() {
 // ── CONTACT ──────────────────────────────────────────────────
 
 function ThankYou() {
+  const UI = useUI();
   const [ref, inView] = useInView(0.2);
   const fade = (d = 0) => ({
     opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(14px)',
@@ -1608,7 +1618,7 @@ function ThankYou() {
           color: 'var(--fg-secondary)', lineHeight: 1.9,
           maxWidth: '460px', margin: '0 auto'
         }}>
-          最後までご覧いただきありがとうございました。
+          {UI.thanks.message}
         </p>
       </div>
     </section>);
@@ -1618,6 +1628,7 @@ function ThankYou() {
 // ── FOOTER ───────────────────────────────────────────────────
 
 function Footer() {
+  const UI = useUI();
   return (
     <footer style={{
       padding: '28px clamp(20px, 5vw, 60px)',
@@ -1625,7 +1636,7 @@ function Footer() {
       display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px'
     }}>
       <span style={{ fontFamily: 'var(--font-number)', fontSize: '14px', color: 'var(--fg-muted)' }}>
-        © 2026 石島慎也 Shinya Ishijima
+        {UI.footer.copyright}
       </span>
       <div style={{ display: 'flex', gap: '20px' }}>
         {[
