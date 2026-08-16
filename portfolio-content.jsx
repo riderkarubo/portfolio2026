@@ -112,7 +112,7 @@ const UI_JA = {
 const UI_EN = {
   meta: {
     title: 'Shinya Ishijima — Creative Director / Portfolio 2026',
-    description: 'Creative leader with 16 years across TV production, live streaming, and video commerce. Brand and IP campaigns for Starbucks, Samsung, MUJI, Star Wars and more. Scaled a creative business 3.6x year over year with a +15% gross margin improvement.'
+    description: 'Creative leader with 15+ years across TV production, live streaming, and video commerce. Brand and IP campaigns for Starbucks, Samsung, MUJI, Star Wars and more. Scaled a creative business 3.6x year over year with a 15-point gross margin improvement.'
   },
   nav: [
   { label: 'Work', href: '#selected-work' },
@@ -162,7 +162,7 @@ const DATA_JA = {
   nameEn: 'Shinya Ishijima',
   title: 'Director of Creative Strategy / 事業責任者',
   tagline: '映像で、人を動かす。',
-  taglineSub: 'テレビ制作から始まり、ライブ配信・ライブコマースまで。\n16年間、コンテンツの最前線に立ち続ける映像プロデューサー。',
+  taglineSub: 'テレビ制作から始まり、ライブ配信・ライブコマースまで。\n15年以上、コンテンツの最前線に立ち続ける映像プロデューサー。',
 
   profile: {
     target: 'プロデューサー職（映像・ライブ配信）',
@@ -331,17 +331,17 @@ const DATA_JA = {
     'ヤマダデンキ・マツキヨココカラ・Starbucks Japan・Samsung Japan ほか大手リテール／グローバルブランドを担当',
     'ライブ配信・ショート動画によるコンサルティング・制作・内製化支援',
     '2024年〜Creative Team事業責任者として、クリエイティブに加え事業計画・営業・売上責任を担当',
-    '売上を前年比3.6倍に拡大、粗利+15%、NewBiz構成比33%を実現',
+    '売上を前年比3.6倍に拡大、粗利+15pt、NewBiz構成比33%を実現',
     'AI活用により同時並行で運用するプロジェクト数を平均5.3件→10.2件に拡大'],
 
-    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Teamの事業責任者に就任後、事業計画・営業・クリエイティブを統括し、売上を前年比3.6倍に拡大。AI活用による業務効率化・新サービス（コンサル・内製化支援）の開発・制作パートナーとの単価交渉により、粗利+15%も同時に実現。',
+    desc: 'ライブ配信・ショート動画を活用した「動画コマース」領域でCreative Strategistとして従事。2024年にCreative Teamの事業責任者に就任後、事業計画・営業・クリエイティブを統括し、売上を前年比3.6倍に拡大。AI活用による業務効率化・新サービス（コンサル・内製化支援）の開発・制作パートナーとの単価交渉により、粗利+15ptも同時に実現。',
 
     // IMPACT — 数値ハイライト（CareerDetailで描画）
     impact: {
       caption: '2024 → 2025 事業成長',
       items: [
       { value: '×3.6', label: '売上成長', sub: '前年比' },
-      { value: '+15%', label: '粗利改善', sub: '粗利率' },
+      { value: '+15pt', label: '粗利改善', sub: '粗利率' },
       { value: '33%', label: 'NewBiz構成比', sub: 'Japan Team 全体売上における比率' }]
 
     },
@@ -361,7 +361,7 @@ const DATA_JA = {
   { num: 16, suffix: '年目', label: '映像制作キャリア' },
   { num: 6, suffix: '社', label: 'TV → Web → Music\n→ LiveCommerce' },
   { num: 3.6, suffix: '倍', label: '現職 売上成長\n(前年比・FY24→FY25)' },
-  { num: 15, suffix: '%', label: '現職 粗利改善\n(同期間)' }],
+  { num: 15, suffix: 'pt', label: '現職 粗利改善\n(同期間)' }],
 
 
   skills: {
@@ -460,11 +460,11 @@ const DATA_EN = {
   nameEn: 'Shinya Ishijima', // name と同一なら About のローマ字行は表示されない
   title: 'Creative Director / Head of Creative Team',
   tagline: 'Content that moves people.',
-  taglineSub: 'Sixteen years at the front line of content —\nfrom network television to live streaming and video commerce.',
+  taglineSub: 'Fifteen-plus years at the front line of content —\nfrom network television to live streaming and video commerce.',
 
   profile: {
     target: 'Creative Director / Executive Producer',
-    bio: 'I have spent sixteen years making content that moves people, following the audience as it moved — from Japanese network television, to live streaming, to commerce.\nI started as an assistant director and then director at a TV production house, working across Nippon TV, TBS, TV Tokyo and TOKYO MX. In 2015 I joined Candee, a mobile-video startup, where I produced original live programming and launched a live-commerce app from zero. After producing an artist-led YouTube series at Warner Music Japan and running branded channels at BitStar, I joined Firework Japan in 2021.\nSince 2024 I have led the Creative Team as its business owner — accountable for the creative work, the plan, and the P&L. In that first year we grew revenue 3.6x, improved gross margin by 15%, and rebuilt how the team works around AI.',
+    bio: 'I have spent more than fifteen years making content that moves people, following the audience as it moved — from Japanese network television, to live streaming, to commerce.\nI started as an assistant director and then director at a TV production house, working across Nippon TV, TBS, TV Tokyo and TOKYO MX. In 2015 I joined Candee, a mobile-video startup, where I produced original live programming and launched a live-commerce app from zero. After producing an artist-led YouTube series at Warner Music Japan and running branded channels at BitStar, I joined Firework Japan in 2021.\nSince 2024 I have led the Creative Team as its business owner — accountable for the creative work, the plan, and the P&L. In that first year we grew revenue 3.6x, improved gross margin by 15 points, and rebuilt how the team works around AI.',
     hobbies: [
     { emoji: '♨️', label: 'Sauna' },
     { emoji: '🎤', label: 'Karaoke' },
@@ -640,7 +640,7 @@ const DATA_EN = {
     'Lead creative for Yamada Denki, Matsukiyococokara, Starbucks Japan and Samsung Japan',
     'Consulting, production and in-house enablement across live streaming and short-form video',
     'Business owner of the Creative Team since 2024 — accountable for planning, sales and P&L alongside creative',
-    'Grew revenue 3.6x year over year, improved gross margin by 15%, and brought new business to 33% of Japan Team revenue',
+    'Grew revenue 3.6x year over year, improved gross margin by 15 points, and brought new business to 33% of Firework Japan’s total revenue',
     'Nearly doubled concurrent project throughput — 5.3 to 10.2 per month (+92%) — by rebuilding workflows around AI'],
 
 
@@ -650,8 +650,8 @@ const DATA_EN = {
       caption: 'Business growth, FY2024 → FY2025',
       items: [
       { value: '3.6×', label: 'Revenue growth', sub: 'Year over year' },
-      { value: '+15%', label: 'Gross margin', sub: 'Improvement over the same period' },
-      { value: '33%', label: 'New business', sub: 'Share of total Japan Team revenue' }]
+      { value: '+15pt', label: 'Gross margin', sub: 'Improvement over the same period' },
+      { value: '33%', label: 'New business', sub: 'Share of Firework Japan’s total revenue' }]
 
 
     },
@@ -672,7 +672,7 @@ const DATA_EN = {
   selectedWork: {
     label: 'SELECTED WORK',
     caption: 'Brand and IP campaigns across broadcast, streaming, social and commerce',
-    note: 'A cross-section of sixteen years — national broadcast, global IP, artist content and retail live commerce. Roles range from hands-on director to creative lead accountable for the budget.',
+    note: 'A cross-section of fifteen-plus years — national broadcast, global IP, artist content and retail live commerce. Roles range from hands-on director to creative lead accountable for the budget.',
     items: [
     { brand: 'Matsukiyococokara & Co.', title: 'Live shopping programming for Japan’s largest drugstore group', platform: 'Live commerce', role: 'Creative lead', year: '2021–2025', url: 'https://www.matsukiyococokara-online.com/special_lp/MatsukiyoCocokaraLive/', urlKind: 'page', thumb: 'assets/clients/matsukiyo.webp', thumbFit: 'contain', thumbBg: '#ffffff' },
     { brand: 'Starbucks Japan', title: 'Short-form and live video for brand and product moments', platform: 'Short-form / Live', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/starbucks.png', thumbFit: 'contain', thumbBg: '#ffffff', url: 'https://www.starbucks.co.jp/onlinestore/live/', urlKind: 'page' },
@@ -691,10 +691,10 @@ const DATA_EN = {
   },
 
   stats: [
-  { num: 16, suffix: ' yrs', label: 'in video production' },
+  { num: 15, suffix: '+ yrs', label: 'in video production' },
   { num: 6, suffix: '', label: 'companies\nTV → Web → Music\n→ Live Commerce' },
   { num: 3.6, suffix: '×', label: 'revenue growth\n(FY24 → FY25)' },
-  { num: 15, suffix: '%', label: 'gross margin improvement\n(same period)' }],
+  { num: 15, suffix: 'pt', label: 'gross margin improvement\n(same period)' }],
 
 
   skills: {
