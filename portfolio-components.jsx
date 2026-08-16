@@ -119,9 +119,13 @@ function SideNav() {
   const [visible, setVisible]   = React.useState(false);
   const [isWide, setIsWide]     = React.useState(true);
 
-  // モバイル(<768px)では非表示
+  // 1520px 未満では非表示。
+  // 本文の左端は「padding 60px + (W - 1320) / 2」で決まるため、W が約1510px を下回ると
+  // 左端が60pxに張り付き、left:20px・幅115px の当ナビ(右端135px)が本文に最大75px重なる。
+  // 1280〜1440px のラップトップで Hero 見出しが欠ける事故が起きていたため、
+  // 余白が確保できる幅でのみ表示する（狭い幅では上部 Nav が代替となる）。
   React.useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
+    const mq = window.matchMedia('(min-width: 1520px)');
     const onChange = () => setIsWide(mq.matches);
     onChange();
     mq.addEventListener('change', onChange);
