@@ -837,16 +837,24 @@ function ClientLogo({ client, color }) {
 function WorkCard({ work, color }) {
   const UI = useUI();
   const [hov, setHov] = React.useState(false);
+  // work.url があるカードだけリンク化する。url が無いものは従来どおり非クリック。
+  const linked = Boolean(work.url);
+  const Tag = linked ? 'a' : 'div';
+  const linkProps = linked ?
+  { href: work.url, target: '_blank', rel: 'noopener noreferrer' } :
+  {};
   return (
-    <div
+    <Tag
+      {...linkProps}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
       style={{
+        display: 'block', textDecoration: 'none', color: 'inherit',
         background: 'var(--bg-elevated)',
         border: `1px solid ${hov ? color + '55' : 'var(--border-subtle)'}`,
         borderRadius: 'var(--radius-lg)', overflow: 'hidden',
         transform: hov ? 'translateY(-3px)' : 'none',
         boxShadow: hov ? `0 12px 28px rgba(0,0,0,0.45), 0 0 0 1px ${color}30` : 'var(--shadow-sm)',
-        transition: 'all 0.25s var(--ease-out)', cursor: 'default'
+        transition: 'all 0.25s var(--ease-out)', cursor: linked ? 'pointer' : 'default'
       }}>
       <div style={{
         position: 'relative', aspectRatio: '16/10', overflow: 'hidden',
@@ -878,6 +886,18 @@ function WorkCard({ work, color }) {
           fontFamily: 'var(--font-number)', fontSize: '12px', color: color, fontWeight: 700,
           whiteSpace: 'nowrap'
         }}>{work.platform}</span>
+        {linked &&
+        <span style={{
+          position: 'absolute', top: '10px', left: '10px',
+          width: '26px', height: '26px', borderRadius: '50%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: hov ? color : 'rgba(8,15,26,0.85)', backdropFilter: 'blur(6px)',
+          border: `1px solid ${color}66`,
+          fontFamily: 'var(--font-number)', fontSize: '13px', fontWeight: 700,
+          color: hov ? '#08111a' : color,
+          transition: 'all 0.25s var(--ease-out)'
+        }}>↗</span>
+        }
       </div>
       <div style={{ padding: '12px 14px 14px' }}>
         <div style={{ fontFamily: 'var(--font-body)', fontSize: '15px', color: 'var(--fg-primary)', fontWeight: 600, lineHeight: 1.45, marginBottom: '4px' }}>{work.title}</div>
@@ -893,8 +913,17 @@ function WorkCard({ work, color }) {
             {work.cast} <span style={{ color: 'var(--fg-muted)' }}>{UI.career.castOther}</span>
           </div>
         }
+        {linked &&
+        <div style={{
+          marginTop: '8px',
+          fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+          letterSpacing: '0.1em',
+          color: hov ? color : 'var(--fg-muted)',
+          transition: 'color 0.25s var(--ease-out)'
+        }}>{UI.career.linkKind[work.urlKind] || UI.career.linkKind.page} ↗</div>
+        }
       </div>
-    </div>);
+    </Tag>);
 
 }
 
@@ -935,37 +964,80 @@ function SelectedWork() {
           transition: 'all 0.7s var(--ease-out) 0.3s'
         }}>
           {DATA.selectedWork.items.map((w, i) =>
-          <div key={i} style={{
-            background: 'var(--bg-surface)', border: '1px solid var(--border)',
-            borderRadius: 'var(--radius-xl)', overflow: 'hidden',
-            display: 'flex', flexDirection: 'column'
-          }}>
-              {w.thumb &&
-            <div style={{ width: '100%', aspectRatio: '16 / 9', background: w.thumbBg || 'var(--bg-deep)', overflow: 'hidden' }}>
-                  <img src={w.thumb} alt={w.title} loading="lazy"
-              style={{ width: '100%', height: '100%', objectFit: w.thumbFit || 'cover', display: 'block' }} />
-                </div>
-            }
-              <div style={{ padding: '16px 18px 18px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                <div style={{
-                fontFamily: 'var(--font-number)', fontSize: '10px', fontWeight: 700,
-                letterSpacing: '0.18em', textTransform: 'uppercase',
-                color: 'var(--accent)', marginBottom: '8px'
-              }}>{w.brand}</div>
-                <div style={{
-                fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 700,
-                color: 'var(--fg-primary)', lineHeight: 1.5, marginBottom: '10px'
-              }}>{w.title}</div>
-                <div style={{
-                fontFamily: 'var(--font-body)', fontSize: '12px',
-                color: 'var(--fg-muted)', lineHeight: 1.7, marginTop: 'auto'
-              }}>{w.platform} · {w.role} · {w.year}</div>
-              </div>
-            </div>
+          <SelectedWorkCard key={i} work={w} />
           )}
         </div>
       </div>
     </section>);
+
+}
+
+function SelectedWorkCard({ work: w }) {
+  const UI = useUI();
+  const [hov, setHov] = React.useState(false);
+  const linked = Boolean(w.url);
+  const Tag = linked ? 'a' : 'div';
+  const linkProps = linked ?
+  { href: w.url, target: '_blank', rel: 'noopener noreferrer' } :
+  {};
+
+  return (
+    <Tag
+      {...linkProps}
+      onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+      style={{
+        display: 'flex', flexDirection: 'column', textDecoration: 'none', color: 'inherit',
+        background: 'var(--bg-surface)',
+        border: `1px solid ${linked && hov ? 'var(--accent)' : 'var(--border)'}`,
+        borderRadius: 'var(--radius-xl)', overflow: 'hidden',
+        transform: linked && hov ? 'translateY(-3px)' : 'none',
+        boxShadow: linked && hov ? '0 12px 28px rgba(0,0,0,0.42)' : 'none',
+        transition: 'all 0.25s var(--ease-out)',
+        cursor: linked ? 'pointer' : 'default'
+      }}>
+      {w.thumb &&
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', background: w.thumbBg || 'var(--bg-deep)', overflow: 'hidden' }}>
+          <img src={w.thumb} alt={w.title} loading="lazy"
+        style={{ width: '100%', height: '100%', objectFit: w.thumbFit || 'cover', display: 'block' }} />
+          {linked &&
+        <span style={{
+          position: 'absolute', top: '10px', left: '10px',
+          width: '26px', height: '26px', borderRadius: '50%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: hov ? 'var(--accent)' : 'rgba(8,15,26,0.85)', backdropFilter: 'blur(6px)',
+          border: '1px solid rgba(74,222,128,0.5)',
+          fontFamily: 'var(--font-number)', fontSize: '13px', fontWeight: 700,
+          color: hov ? '#08111a' : 'var(--accent)',
+          transition: 'all 0.25s var(--ease-out)'
+        }}>↗</span>
+        }
+        </div>
+      }
+      <div style={{ padding: '16px 18px 18px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+        <div style={{
+          fontFamily: 'var(--font-number)', fontSize: '10px', fontWeight: 700,
+          letterSpacing: '0.18em', textTransform: 'uppercase',
+          color: 'var(--accent)', marginBottom: '8px'
+        }}>{w.brand}</div>
+        <div style={{
+          fontFamily: 'var(--font-body)', fontSize: '15px', fontWeight: 700,
+          color: 'var(--fg-primary)', lineHeight: 1.5, marginBottom: '10px'
+        }}>{w.title}</div>
+        <div style={{
+          fontFamily: 'var(--font-body)', fontSize: '12px',
+          color: 'var(--fg-muted)', lineHeight: 1.7, marginTop: 'auto'
+        }}>{w.platform} · {w.role} · {w.year}</div>
+        {linked &&
+        <div style={{
+          marginTop: '8px',
+          fontFamily: 'var(--font-number)', fontSize: '11px', fontWeight: 700,
+          letterSpacing: '0.1em',
+          color: hov ? 'var(--accent)' : 'var(--fg-muted)',
+          transition: 'color 0.25s var(--ease-out)'
+        }}>{UI.career.linkKind[w.urlKind] || UI.career.linkKind.page} ↗</div>
+        }
+      </div>
+    </Tag>);
 
 }
 

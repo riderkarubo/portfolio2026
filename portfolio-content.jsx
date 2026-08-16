@@ -96,7 +96,11 @@ const UI_JA = {
     { label: 'キャリア', value: '映像制作 16年目（2011年新卒）' }]
 
   },
-  career: { heading: 'キャリア', clients: 'SUPPORTING CLIENTS（一部）', worksUnit: '件', castOther: '/ 他' },
+  career: {
+    heading: 'キャリア', clients: 'SUPPORTING CLIENTS（一部）', worksUnit: '件', castOther: '/ 他',
+    // work.urlKind に対応するラベル。url があるカードだけ表示される
+    linkKind: { video: '動画を見る', channel: '公式チャンネル', news: '公式ニュース', page: '公式ページ' }
+  },
   skills: { heading: 'スキル・経験', certAlt: 'DMM 生成AI CAMP 認定証' },
   privateWorks: { officialDefault: '公式ページ' },
   thanks: { message: '最後までご覧いただきありがとうございました。' },
@@ -139,7 +143,10 @@ const UI_EN = {
     { label: 'Experience', value: '16 years in video production\n(since 2011)' }]
 
   },
-  career: { heading: 'Experience', clients: 'SELECTED CLIENTS', worksUnit: 'projects', castOther: '/ and others' },
+  career: {
+    heading: 'Experience', clients: 'SELECTED CLIENTS', worksUnit: 'projects', castOther: '/ and others',
+    linkKind: { video: 'Watch', channel: 'Official channel', news: 'Announcement', page: 'Official page' }
+  },
   skills: { heading: 'Creative Leadership & AI', certAlt: 'DMM Generative AI CAMP certificate' },
   privateWorks: { officialDefault: 'Official page' },
   thanks: { message: 'Thank you for taking the time to read through my work.' },
@@ -300,10 +307,10 @@ const DATA_JA = {
     desc: 'クリエイタープロダクション兼インフルエンサーマーケティング会社にてプロデューサーとして従事。大手企業のYouTubeチャンネル運用・オリジナル番組制作を担当。',
     works: [
     { title: '17Live 公式番組（バラエティ中心）', platform: '17Live', role: 'プロデューサー', thumb: 'assets/works/17live.png' },
-    { title: 'バンダイナムコ「アイドルマスターch」オリジナル番組', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/idolmaster.webp' },
+    { title: 'バンダイナムコ「アイドルマスターch」オリジナル番組', platform: 'YouTube', role: 'プロデューサー', url: 'https://www.youtube.com/@imas-official', urlKind: 'channel', thumb: 'assets/works/idolmaster.webp' },
     { title: 'Rise of Kingdoms 公式生配信', platform: 'YouTube/生配信', role: 'プロデューサー', thumb: 'assets/works/rise-of-kingdoms.webp' },
-    { title: 'タカラトミー リカちゃん公式CH', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
-    { title: 'ニューギン公式チャンネル', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/newgin.webp' },
+    { title: 'タカラトミー リカちゃん公式CH', platform: 'YouTube', role: 'プロデューサー', url: 'https://www.youtube.com/@Licca-chan_official', urlKind: 'channel', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
+    { title: 'ニューギン公式チャンネル', platform: 'YouTube', role: 'プロデューサー', url: 'https://www.youtube.com/channel/UCxKotcGd9oH5uyJECN-ZRnw', urlKind: 'channel', thumb: 'assets/works/newgin.webp' },
     { title: '映画「賭ケグルイ」番宣動画', platform: 'YouTube', role: 'プロデューサー', thumb: 'assets/works/kakegurui.webp' }]
 
   },
@@ -608,10 +615,10 @@ const DATA_EN = {
     desc: 'Producer at a creator-management and influencer-marketing company, responsible for enterprise-owned YouTube channels and original programming for major entertainment and toy brands.',
     works: [
     { title: '17LIVE official programming (variety)', platform: '17LIVE', role: 'Producer', thumb: 'assets/works/17live.png' },
-    { title: 'Bandai Namco — THE IDOLM@STER Channel originals', platform: 'YouTube', role: 'Producer', thumb: 'assets/works/idolmaster.webp' },
+    { title: 'Bandai Namco — THE IDOLM@STER Channel originals', platform: 'YouTube', role: 'Producer', url: 'https://www.youtube.com/@imas-official', urlKind: 'channel', thumb: 'assets/works/idolmaster.webp' },
     { title: 'Rise of Kingdoms official livestreams', platform: 'YouTube / Live', role: 'Producer', thumb: 'assets/works/rise-of-kingdoms.webp' },
-    { title: 'Takara Tomy — Licca-chan official channel', platform: 'YouTube', role: 'Producer', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
-    { title: 'Newgin official channel', platform: 'YouTube', role: 'Producer', thumb: 'assets/works/newgin.webp' },
+    { title: 'Takara Tomy — Licca-chan official channel', platform: 'YouTube', role: 'Producer', url: 'https://www.youtube.com/@Licca-chan_official', urlKind: 'channel', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
+    { title: 'Newgin official channel', platform: 'YouTube', role: 'Producer', url: 'https://www.youtube.com/channel/UCxKotcGd9oH5uyJECN-ZRnw', urlKind: 'channel', thumb: 'assets/works/newgin.webp' },
     { title: 'Kakegurui (film) promotional series', platform: 'YouTube', role: 'Producer', thumb: 'assets/works/kakegurui.webp' }]
 
 
@@ -666,15 +673,15 @@ const DATA_EN = {
     caption: 'Brand and IP campaigns across broadcast, streaming, social and commerce',
     note: 'A cross-section of sixteen years — national broadcast, global IP, artist content and retail live commerce. Roles range from hands-on director to creative lead accountable for the budget.',
     items: [
-    { brand: 'Matsukiyococokara & Co.', title: 'Live shopping programming for Japan’s largest drugstore group', platform: 'Live commerce', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/matsukiyo.webp', thumbFit: 'contain', thumbBg: '#ffffff' },
+    { brand: 'Matsukiyococokara & Co.', title: 'Live shopping programming for Japan’s largest drugstore group', platform: 'Live commerce', role: 'Creative lead', year: '2021–2025', url: 'https://www.matsukiyococokara-online.com/special_lp/MatsukiyoCocokaraLive/', urlKind: 'page', thumb: 'assets/clients/matsukiyo.webp', thumbFit: 'contain', thumbBg: '#ffffff' },
     { brand: 'Starbucks Japan', title: 'Short-form and live video for brand and product moments', platform: 'Short-form / Live', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/starbucks.png', thumbFit: 'contain', thumbBg: '#ffffff' },
     { brand: 'Samsung Japan', title: 'Product launch live streams and campaign video', platform: 'Live / Short-form', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/samsung.webp', thumbFit: 'contain', thumbBg: '#ffffff' },
     { brand: 'Star Wars', title: 'Event live special', platform: 'LINE LIVE (branded)', role: 'Producer', year: '2016', thumb: 'assets/works/starwars.png' },
     { brand: 'Resident Evil', title: 'The Final Chapter — live special with Milla Jovovich', platform: 'LINE LIVE (branded)', role: 'Producer', year: '2016', thumb: 'assets/works/biohazard.webp' },
-    { brand: 'Bandai Namco', title: 'THE IDOLM@STER Channel — original programming', platform: 'YouTube', role: 'Producer', year: '2020–2021', thumb: 'assets/works/idolmaster.webp' },
+    { brand: 'Bandai Namco', title: 'THE IDOLM@STER Channel — original programming', platform: 'YouTube', role: 'Producer', year: '2020–2021', url: 'https://www.youtube.com/@imas-official', urlKind: 'channel', thumb: 'assets/works/idolmaster.webp' },
     { brand: 'J.League', title: 'Levain Cup final, streamed live', platform: 'Facebook Live', role: 'Producer', year: '2017', thumb: 'assets/works/jleague.webp' },
     { brand: 'Rise of Kingdoms', title: 'Official livestream series', platform: 'YouTube / Live', role: 'Producer', year: '2020–2021', thumb: 'assets/works/rise-of-kingdoms.webp' },
-    { brand: 'Takara Tomy', title: 'Licca-chan official channel', platform: 'YouTube', role: 'Producer', year: '2020–2021', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
+    { brand: 'Takara Tomy', title: 'Licca-chan official channel', platform: 'YouTube', role: 'Producer', year: '2020–2021', url: 'https://www.youtube.com/@Licca-chan_official', urlKind: 'channel', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
     { brand: 'Kakegurui', title: 'Promotional series for the feature film', platform: 'YouTube', role: 'Producer', year: '2019', thumb: 'assets/works/kakegurui.webp' },
     { brand: 'Warner Music Japan', title: 'CHANMINA — PRINCESS PROJECT', platform: 'YouTube', role: 'Solo: concept, shoot, edit', year: '2018', thumb: 'assets/works/chanmina.webp?v=2' },
     { brand: 'LiveShop!', title: 'Kankin Danshi — 24-hour confinement live', platform: 'Live commerce', role: 'Producer / Showrunner', year: '2017', thumb: 'assets/works/kankin-danshi.webp', thumbFit: 'contain', thumbBg: '#0d1b2a' }]
