@@ -628,8 +628,8 @@ const DATA_EN = {
     'Lead creative for Yamada Denki, Matsukiyococokara, Starbucks Japan and Samsung Japan',
     'Consulting, production and in-house enablement across live streaming and short-form video',
     'Business owner of the Creative Team since 2024 — accountable for planning, sales and P&L alongside creative',
-    'Grew revenue 3.6x year over year, improved gross margin by 15%, and brought new business to 33% of revenue',
-    'Doubled concurrent project throughput from 5.3 to 10.2 per month by rebuilding workflows around AI'],
+    'Grew revenue 3.6x year over year, improved gross margin by 15%, and brought new business to 33% of Japan Team revenue',
+    'Nearly doubled concurrent project throughput — 5.3 to 10.2 per month (+92%) — by rebuilding workflows around AI'],
 
 
     desc: 'Creative lead in video commerce — live streaming and short-form video for major retail and global brands. Took over the Creative Team as business owner in 2024, and now own the plan, the pipeline and the creative output together. Growth came from three levers at once: new services (consulting and in-house enablement), AI-driven operating efficiency, and renegotiated production partner rates.',
