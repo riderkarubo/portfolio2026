@@ -125,9 +125,7 @@ const UI_EN = {
   { id: 'selected-work', label: 'Work' },
   { id: 'career', label: 'Experience' },
   { id: 'skills', label: 'Leadership' },
-  { id: 'about', label: 'About' },
-  { id: 'next', label: 'Next' },
-  { id: 'private', label: 'Craft' }],
+  { id: 'about', label: 'About' }],
 
   sideNavAria: 'Section navigation',
   // 英語はラベルが長くパネル実測幅142px（右端162px）。必要な幅は約1564px
@@ -732,51 +730,8 @@ const DATA_EN = {
 
   },
 
-  selfAnalysis: DATA_JA.selfAnalysis, // 英語版では描画しない（死にコード互換のため参照のみ）
+  selfAnalysis: DATA_JA.selfAnalysis // 英語版では描画しない（死にコード互換のため参照のみ）
 
-  next: {
-    label: 'NEXT',
-    caption: 'What I want to make',
-    origin: {
-      title: 'Content can flip a switch in someone’s life',
-      body: 'While I was producing Kankin Danshi — a 24-hour live-streamed show — at Candee, I came across a tweet from a student who had stopped going to school. She wrote that the show had given her some energy back, and that she was thinking about returning to class, a little at a time. It is still the best moment of my career. Content can flip a switch in the life of someone you will never meet. That is the north star I still steer by, and I want to reach that same feeling at a far larger scale.'
-    },
-    goals: [
-    {
-      timeframe: 'In 3 years',
-      title: 'Create and produce in reality and documentary formats',
-      benchmarks: ['SASUKE / Ninja Warrior', 'Culinary Class Wars', 'Love Village (Netflix Japan)', 'The Tigers of Money — the Nippon TV format behind Dragons’ Den and Shark Tank', 'Ai no Binbo Dasshutsu Daisakusen'],
-      desc: 'Formats that build devoted audiences, and that measurably change something in the lives of the people who watch them.'
-    },
-    {
-      timeframe: 'In 10 years',
-      title: 'Make Japanese content that travels — and that outlives me',
-      benchmarks: ['Trivia no Izumi', 'Tunnels no Minasan no Okage Deshita'],
-      desc: 'Not just view counts, but a cult following. The further AI pushes efficiency, the more value sits in what is irrational, inefficient and gloriously pointless — the things only people make.'
-    }]
-
-
-  },
-
-  privateWorks: {
-    label: 'PERSONAL CRAFT',
-    caption: 'Made outside of work',
-    items: [
-    {
-      title: '"26-Second Carnival" — a competition hosted by film director Takashi Miike',
-      year: 'Award winner',
-      desc: 'A prize in the first edition of a 26-second short-film competition run by film director Takashi Miike.',
-      youtubeId: 'wrHmlWsqhoo',
-      officialUrl: 'https://www.miiketakashi.com/26/results01.html',
-      officialLabel: 'See the official results'
-    },
-    {
-      title: 'Aired on "Soramimi Hour", Tamori Club (TV Asahi)',
-      year: '2021',
-      desc: 'A viewer submission selected for broadcast on Soramimi Hour, a segment that has run for over 25 years on TV Asahi’s Tamori Club. Awarded the "tenugui" tier.',
-      videoSrc: 'assets/private-works/soramimi-2021.mp4'
-    }]
-
-
-  }
+  // next / privateWorks は英語版から削除済み（2026-08-16 Issy指示）。
+  // What's Next（3年後・10年後のビジョン）と Personal Craft は不採用。
 };

@@ -1832,8 +1832,6 @@ function Sections() {
         <Skills />
         <About />
         <Statement />
-        <Next />
-        <Private />
         <ThankYou />
       </React.Fragment>);
 
