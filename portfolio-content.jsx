@@ -233,7 +233,7 @@ const DATA_JA = {
     'LINE LIVE 公式・自社チャンネルの番組を企画〜制作まで統括',
     'Jリーグルヴァンカップ Facebook Live — 3社協業プロジェクト',
     'ライブコマースアプリ「LiveShop!」をゼロから立ち上げ、最大月間30〜60本を制作',
-    '最大14名のチームをマネジメント'],
+    '最大13名のチームをマネジメント'],
 
     desc: 'スマホ特化の動画・ライブ配信ベンチャーにてプロデューサーとして参画。LINE LIVEやFacebook Liveなどで各公式・自社チャンネル番組、広告案件、ライブコマースアプリ「LiveShop!」の立ち上げまで幅広く担当。',
     works: [
@@ -268,7 +268,7 @@ const DATA_JA = {
 
     desc: 'アーティストのオリジナルYouTube番組シリーズを1名で企画・制作。プロデュースから撮影・編集まで全工程を担当し、アーティストの世界観に寄り添ったコンテンツを継続制作。',
     works: [
-    { title: 'ちゃんみな「PRINCESS PROJECT」', platform: 'YouTube', role: '企画・撮影・編集（1名）', thumb: 'assets/works/chanmina.webp?v=2' }]
+    { title: 'ちゃんみな「PRINCESS PROJECT」', platform: 'YouTube', role: '企画・撮影・編集（1名）', thumb: 'assets/works/chanmina.webp?v=2', url: 'https://www.youtube.com/channel/UConh1BwKagscq7EAP2Vng-g', urlKind: 'channel' }]
 
   },
   {
@@ -348,7 +348,7 @@ const DATA_JA = {
 
     },
     clients: [
-    { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png' },
+    { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png', url: 'https://www.starbucks.co.jp/onlinestore/live/' },
     { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp', url: 'https://www.samsung.com/jp/offer/samsung-live-shop/' },
     { name: 'マツキヨココカラ&カンパニー', logo: 'assets/clients/matsukiyo.webp' },
     { name: 'ヤマダデンキ', logo: 'assets/clients/yamada.webp' },
@@ -534,7 +534,7 @@ const DATA_EN = {
     'Owned original programming for LINE LIVE, Japan’s leading live-streaming platform at the time',
     'Produced the J.League Levain Cup final live on Facebook Live — a three-company partnership',
     'Launched LiveShop!, a live-commerce app, from zero to 30–60 shows a month',
-    'Built and managed a team of up to 14'],
+    'Built and managed a team of up to 13'],
 
 
     desc: 'Joined a mobile-first video and live-streaming startup as a producer. Ran original and branded programming across LINE LIVE and Facebook Live, then launched the company’s live-commerce app end to end — format, talent, operations and volume.',
@@ -572,7 +572,7 @@ const DATA_EN = {
 
     desc: 'Created and produced an original YouTube series for a signed artist as a team of one, covering concept through shooting and edit, with the artist’s world-view as the brief.',
     works: [
-    { title: 'CHANMINA — PRINCESS PROJECT', platform: 'YouTube', role: 'Concept, shooting and edit (solo)', thumb: 'assets/works/chanmina.webp?v=2' }]
+    { title: 'CHANMINA — PRINCESS PROJECT', platform: 'YouTube', role: 'Concept, shooting and edit (solo)', thumb: 'assets/works/chanmina.webp?v=2', url: 'https://www.youtube.com/channel/UConh1BwKagscq7EAP2Vng-g', urlKind: 'channel' }]
 
 
   },
@@ -658,7 +658,7 @@ const DATA_EN = {
 
     },
     clients: [
-    { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png' },
+    { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png', url: 'https://www.starbucks.co.jp/onlinestore/live/' },
     { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp', url: 'https://www.samsung.com/jp/offer/samsung-live-shop/' },
     { name: 'Matsukiyococokara & Co.', logo: 'assets/clients/matsukiyo.webp' },
     { name: 'Yamada Denki', logo: 'assets/clients/yamada.webp' },
@@ -677,7 +677,7 @@ const DATA_EN = {
     note: 'A cross-section of sixteen years — national broadcast, global IP, artist content and retail live commerce. Roles range from hands-on director to creative lead accountable for the budget.',
     items: [
     { brand: 'Matsukiyococokara & Co.', title: 'Live shopping programming for Japan’s largest drugstore group', platform: 'Live commerce', role: 'Creative lead', year: '2021–2025', url: 'https://www.matsukiyococokara-online.com/special_lp/MatsukiyoCocokaraLive/', urlKind: 'page', thumb: 'assets/clients/matsukiyo.webp', thumbFit: 'contain', thumbBg: '#ffffff' },
-    { brand: 'Starbucks Japan', title: 'Short-form and live video for brand and product moments', platform: 'Short-form / Live', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/starbucks.png', thumbFit: 'contain', thumbBg: '#ffffff' },
+    { brand: 'Starbucks Japan', title: 'Short-form and live video for brand and product moments', platform: 'Short-form / Live', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/starbucks.png', thumbFit: 'contain', thumbBg: '#ffffff', url: 'https://www.starbucks.co.jp/onlinestore/live/', urlKind: 'page' },
     { brand: 'Samsung Japan', title: 'Product launch live streams and campaign video', platform: 'Live / Short-form', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/samsung.webp', thumbFit: 'contain', thumbBg: '#ffffff', url: 'https://www.samsung.com/jp/offer/samsung-live-shop/', urlKind: 'page' },
     { brand: 'Star Wars', title: 'Event live special', platform: 'LINE LIVE (branded)', role: 'Producer', year: '2016', thumb: 'assets/works/starwars.png' },
     { brand: 'Resident Evil', title: 'The Final Chapter — live special with Milla Jovovich', platform: 'LINE LIVE (branded)', role: 'Producer', year: '2016', thumb: 'assets/works/biohazard.webp' },
@@ -686,7 +686,7 @@ const DATA_EN = {
     { brand: 'Rise of Kingdoms', title: 'Official livestream series', platform: 'YouTube / Live', role: 'Producer', year: '2020–2021', thumb: 'assets/works/rise-of-kingdoms.webp' },
     { brand: 'Takara Tomy', title: 'Licca-chan official channel', platform: 'YouTube', role: 'Producer', year: '2020–2021', url: 'https://www.youtube.com/@Licca-chan_official', urlKind: 'channel', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
     { brand: 'Kakegurui', title: 'Promotional series for the feature film', platform: 'YouTube', role: 'Producer', year: '2019', thumb: 'assets/works/kakegurui.webp' },
-    { brand: 'Warner Music Japan', title: 'CHANMINA — PRINCESS PROJECT', platform: 'YouTube', role: 'Solo: concept, shoot, edit', year: '2018', thumb: 'assets/works/chanmina.webp?v=2' },
+    { brand: 'Warner Music Japan', title: 'CHANMINA — PRINCESS PROJECT', platform: 'YouTube', role: 'Solo: concept, shoot, edit', year: '2018', thumb: 'assets/works/chanmina.webp?v=2', url: 'https://www.youtube.com/channel/UConh1BwKagscq7EAP2Vng-g', urlKind: 'channel' },
     { brand: 'LiveShop!', title: 'Kankin Danshi — 24-hour confinement live', platform: 'Live commerce', role: 'Producer / Showrunner', year: '2017', thumb: 'assets/works/kankin-danshi.webp', thumbFit: 'contain', thumbBg: '#0d1b2a' }]
 
 
