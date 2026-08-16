@@ -306,7 +306,7 @@ const DATA_JA = {
 
     desc: 'クリエイタープロダクション兼インフルエンサーマーケティング会社にてプロデューサーとして従事。大手企業のYouTubeチャンネル運用・オリジナル番組制作を担当。',
     works: [
-    { title: '17Live 公式番組（バラエティ中心）', platform: '17Live', role: 'プロデューサー', thumb: 'assets/works/17live.png' },
+    { title: '17Live 公式番組（バラエティ中心）', platform: '17Live', role: 'プロデューサー', thumb: 'assets/works/17live.png', url: 'https://jp.17.live/', urlKind: 'page' },
     { title: 'バンダイナムコ「アイドルマスターch」オリジナル番組', platform: 'YouTube', role: 'プロデューサー', url: 'https://www.youtube.com/@imas-official', urlKind: 'channel', thumb: 'assets/works/idolmaster.webp' },
     { title: 'Rise of Kingdoms 公式生配信', platform: 'YouTube/生配信', role: 'プロデューサー', thumb: 'assets/works/rise-of-kingdoms.webp' },
     { title: 'タカラトミー リカちゃん公式CH', platform: 'YouTube', role: 'プロデューサー', url: 'https://www.youtube.com/@Licca-chan_official', urlKind: 'channel', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
@@ -346,7 +346,7 @@ const DATA_JA = {
     },
     clients: [
     { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png' },
-    { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp' },
+    { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp', url: 'https://www.samsung.com/jp/offer/samsung-live-shop/' },
     { name: 'マツキヨココカラ&カンパニー', logo: 'assets/clients/matsukiyo.webp' },
     { name: 'ヤマダデンキ', logo: 'assets/clients/yamada.webp' },
     { name: 'イオンリテール', logo: 'assets/clients/aeon.png' },
@@ -614,7 +614,7 @@ const DATA_EN = {
 
     desc: 'Producer at a creator-management and influencer-marketing company, responsible for enterprise-owned YouTube channels and original programming for major entertainment and toy brands.',
     works: [
-    { title: '17LIVE official programming (variety)', platform: '17LIVE', role: 'Producer', thumb: 'assets/works/17live.png' },
+    { title: '17LIVE official programming (variety)', platform: '17LIVE', role: 'Producer', thumb: 'assets/works/17live.png', url: 'https://jp.17.live/', urlKind: 'page' },
     { title: 'Bandai Namco — THE IDOLM@STER Channel originals', platform: 'YouTube', role: 'Producer', url: 'https://www.youtube.com/@imas-official', urlKind: 'channel', thumb: 'assets/works/idolmaster.webp' },
     { title: 'Rise of Kingdoms official livestreams', platform: 'YouTube / Live', role: 'Producer', thumb: 'assets/works/rise-of-kingdoms.webp' },
     { title: 'Takara Tomy — Licca-chan official channel', platform: 'YouTube', role: 'Producer', url: 'https://www.youtube.com/@Licca-chan_official', urlKind: 'channel', thumb: 'assets/works/rika-chan.jpeg', thumbFit: 'contain', thumbBg: '#ffffff' },
@@ -656,7 +656,7 @@ const DATA_EN = {
     },
     clients: [
     { name: 'Starbucks Japan', logo: 'assets/clients/starbucks.png' },
-    { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp' },
+    { name: 'Samsung Japan', logo: 'assets/clients/samsung.webp', url: 'https://www.samsung.com/jp/offer/samsung-live-shop/' },
     { name: 'Matsukiyococokara & Co.', logo: 'assets/clients/matsukiyo.webp' },
     { name: 'Yamada Denki', logo: 'assets/clients/yamada.webp' },
     { name: 'AEON Retail', logo: 'assets/clients/aeon.png' },
@@ -675,7 +675,7 @@ const DATA_EN = {
     items: [
     { brand: 'Matsukiyococokara & Co.', title: 'Live shopping programming for Japan’s largest drugstore group', platform: 'Live commerce', role: 'Creative lead', year: '2021–2025', url: 'https://www.matsukiyococokara-online.com/special_lp/MatsukiyoCocokaraLive/', urlKind: 'page', thumb: 'assets/clients/matsukiyo.webp', thumbFit: 'contain', thumbBg: '#ffffff' },
     { brand: 'Starbucks Japan', title: 'Short-form and live video for brand and product moments', platform: 'Short-form / Live', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/starbucks.png', thumbFit: 'contain', thumbBg: '#ffffff' },
-    { brand: 'Samsung Japan', title: 'Product launch live streams and campaign video', platform: 'Live / Short-form', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/samsung.webp', thumbFit: 'contain', thumbBg: '#ffffff' },
+    { brand: 'Samsung Japan', title: 'Product launch live streams and campaign video', platform: 'Live / Short-form', role: 'Creative lead', year: '2021–2025', thumb: 'assets/clients/samsung.webp', thumbFit: 'contain', thumbBg: '#ffffff', url: 'https://www.samsung.com/jp/offer/samsung-live-shop/', urlKind: 'page' },
     { brand: 'Star Wars', title: 'Event live special', platform: 'LINE LIVE (branded)', role: 'Producer', year: '2016', thumb: 'assets/works/starwars.png' },
     { brand: 'Resident Evil', title: 'The Final Chapter — live special with Milla Jovovich', platform: 'LINE LIVE (branded)', role: 'Producer', year: '2016', thumb: 'assets/works/biohazard.webp' },
     { brand: 'Bandai Namco', title: 'THE IDOLM@STER Channel — original programming', platform: 'YouTube', role: 'Producer', year: '2020–2021', url: 'https://www.youtube.com/@imas-official', urlKind: 'channel', thumb: 'assets/works/idolmaster.webp' },

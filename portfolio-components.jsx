@@ -805,15 +805,21 @@ function CareerDetail({ item }) {
 
 function ClientLogo({ client, color }) {
   const [hov, setHov] = React.useState(false);
+  const linked = Boolean(client.url);
+  const Tag = linked ? 'a' : 'div';
+  const linkProps = linked ?
+  { href: client.url, target: '_blank', rel: 'noopener noreferrer' } :
+  {};
   return (
-    <div
+    <Tag
+      {...linkProps}
       onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
       style={{
         position: 'relative', height: '90px', width: '100%',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: '8px 12px',
+        padding: '8px 12px', textDecoration: 'none',
         transition: 'all 0.3s var(--ease-out)',
-        cursor: 'default'
+        cursor: linked ? 'pointer' : 'default'
       }}>
       <img src={client.logo} alt={client.name} title={client.name} style={{
         maxWidth: '100%', maxHeight: '100%', objectFit: 'contain',
@@ -821,6 +827,18 @@ function ClientLogo({ client, color }) {
         transform: hov ? 'scale(1.06)' : 'none',
         transition: 'all 0.3s var(--ease-out)'
       }} />
+      {linked &&
+      <span style={{
+        position: 'absolute', top: '2px', right: '2px',
+        width: '16px', height: '16px', borderRadius: '50%',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        background: hov ? color : 'rgba(8,15,26,0.75)',
+        border: `1px solid ${color}66`,
+        fontSize: '9px', fontWeight: 700, color: hov ? '#08111a' : color,
+        opacity: hov ? 1 : 0.7,
+        transition: 'all 0.3s var(--ease-out)'
+      }}>↗</span>
+      }
       <div style={{
         position: 'absolute', bottom: '-18px', left: 0, right: 0,
         fontFamily: 'var(--font-number)', fontSize: '10px',
@@ -829,8 +847,8 @@ function ClientLogo({ client, color }) {
         transform: hov ? 'translateY(0)' : 'translateY(4px)',
         transition: 'all 0.3s var(--ease-out)',
         textAlign: 'center', fontWeight: 700
-      }}>{client.name}</div>
-    </div>);
+      }}>{client.name}{linked ? ' ↗' : ''}</div>
+    </Tag>);
 
 }
 
