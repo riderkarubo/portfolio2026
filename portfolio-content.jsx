@@ -492,7 +492,7 @@ const DATA_EN = {
     'Named internal MVP with the company’s "The Works Award"'],
 
 
-    desc: 'Began my career at a television production house, working on variety programming for Japan’s national commercial networks. Moved from assistant director to director within three years and was recognised as the company’s internal MVP.',
+    desc: 'Began my career at a television production house, working on variety programming for Japan’s national commercial networks. Moved from assistant director to director within three years and was recognized as the company’s internal MVP.',
     works: [
     { title: 'Nazotoki Battle TORE!', platform: 'Nippon TV (national network)', role: 'Assistant Director', thumb: 'assets/works/tore.png' },
     { title: 'Sho-Bato!', platform: 'Nippon TV', role: 'Assistant Director', thumb: 'assets/works/sho-bato.jpeg' },
@@ -632,7 +632,7 @@ const DATA_EN = {
     'Nearly doubled concurrent project throughput — 5.3 to 10.2 per month (+92%) — by rebuilding workflows around AI'],
 
 
-    desc: 'Creative lead in video commerce — live streaming and short-form video for major retail and global brands. Took over the Creative Team as business owner in 2024, and now own the plan, the pipeline and the creative output together. Growth came from three levers at once: new services (consulting and in-house enablement), AI-driven operating efficiency, and renegotiated production partner rates.',
+    desc: 'Creative lead in video commerce — live streaming and short-form video for major retail and global brands. Took over the Creative Team as business owner in 2024, and now own the plan, the pipeline and the creative output as a single remit. Growth came from three levers at once: new services (consulting and in-house enablement), AI-driven operating efficiency, and renegotiated production partner rates.',
 
     impact: {
       caption: 'Business growth, FY2024 → FY2025',
@@ -749,8 +749,8 @@ const DATA_EN = {
     caption: 'Made outside of work',
     items: [
     {
-      title: 'Award winner — "26-Second Carnival", hosted by director Takashi Miike',
-      year: 'Award',
+      title: '"26-Second Carnival" — a competition hosted by film director Takashi Miike',
+      year: 'Award winner',
       desc: 'A prize in the first edition of a 26-second short-film competition run by film director Takashi Miike.',
       youtubeId: 'wrHmlWsqhoo',
       officialUrl: 'https://www.miiketakashi.com/26/results01.html',
